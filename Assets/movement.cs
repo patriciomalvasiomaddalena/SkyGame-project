@@ -7,7 +7,10 @@ public class movement : MonoBehaviour
     public delegate void MovementDelegate(Color SetColor);
     public static  event MovementDelegate _movementDelegate;
 
-    [SerializeField]float _Speed;
+    [SerializeField] float _Speed; // velocidad final; observacion, parece que cada 50 velocidad x 1 masa es velocidad rapida.
+    [SerializeField] float _Weight; // peso final
+    [SerializeField] Vector2 _MovSpeed;
+
     Vector2 _Moveaxis;
 
     bool _TriggeredEvent;
@@ -30,10 +33,13 @@ public class movement : MonoBehaviour
         LifeComp._ResetAll += ResetComp;
     }
 
+
+    //ideas, cuando el jugador no deja inputs, incrementar la gravedad para hacer que caiga mas rapido
+
     private void MovementLogic()
     {
         _Moveaxis = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        _2DRb.velocity = _Moveaxis * (_Speed * Time.fixedDeltaTime);
+        _2DRb.AddForce(_Moveaxis * _Speed, ForceMode2D.Force);
 
         if (_2DRb.velocity != Vector2.zero && _TriggeredEvent == false)
         {
@@ -45,6 +51,8 @@ public class movement : MonoBehaviour
         {
             _TriggeredEvent = false;
         }
+
+        _MovSpeed = _2DRb.velocity;
     }
 
     private void TotalPlayerDeath(Color rmf)

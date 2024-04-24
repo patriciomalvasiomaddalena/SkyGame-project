@@ -5,11 +5,14 @@ using UnityEngine;
 
 public enum EventType
 {
-    Event_HullBroken,
+    Ship_Lost,
 }
 
 public class EventManager : MonoBehaviour
 {
+    // este script será usado para el event manager del juego general, todos los eventos de este
+    // objeto seran eventos globales
+
     [SerializeField] float Testing;
     [SerializedDictionary("IDobject", "Object")] 
     static SerializedDictionary<EventType,MethodToSubscribe> EventsDictionary = new SerializedDictionary<EventType, MethodToSubscribe>();
