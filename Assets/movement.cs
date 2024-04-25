@@ -7,6 +7,8 @@ public class movement : MonoBehaviour
     public delegate void MovementDelegate(Color SetColor);
     public static  event MovementDelegate _movementDelegate;
 
+    [SerializeField] InsiderManager _InsiderManagerScript;
+
     [SerializeField] float _Speed; // velocidad final; observacion, parece que cada 50 velocidad x 1 masa es velocidad rapida.
     [SerializeField] float _Weight; // peso final
     [SerializeField] Vector2 _MovSpeed;
@@ -20,6 +22,8 @@ public class movement : MonoBehaviour
     private void Awake()
     {
         _2DRb= GetComponent<Rigidbody2D>();
+
+        _InsiderManagerScript = GetComponentInParent<InsiderManager>();
     }
 
     private void FixedUpdate()
