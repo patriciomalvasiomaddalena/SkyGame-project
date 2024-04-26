@@ -5,9 +5,9 @@ using UnityEngine;
 public class ModuleBase : MonoBehaviour
 {
 
-    [SerializeField] GameObject _ModuleAttach;
+    [SerializeField] protected GameObject _ModuleAttach;
 
-    protected void RunLogic()
+    protected virtual void RunLogic()
     {
 
     }
