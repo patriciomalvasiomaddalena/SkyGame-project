@@ -14,7 +14,7 @@ public class ModuleBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null && collision.CompareTag("ModPoint"))
+        if (collision != null && collision.CompareTag("ModPoint") && _ModuleAttach == null)
         {
             _ModuleAttach  = collision.gameObject;
             this.transform.position = new Vector3(_ModuleAttach.transform.position.x,_ModuleAttach.transform.position.y, -1);

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class WeaponBase : ModuleBase
 {
+    [SerializeField] AimBase _AimInput;
+
+    float Rotz;
+    Vector3 Rotator;
+
+    [SerializeField] float _RotationSpeed;
     private void FixedUpdate()
     {
         RunLogic();
@@ -11,13 +17,17 @@ public class WeaponBase : ModuleBase
 
     protected override void RunLogic()
     {
+        Rotator = _AimInput.RunLogic(this.transform);
+        
+        Rotz = Mathf.Atan2(-Rotator.x, Rotator.y) * Mathf.Rad2Deg;
 
-        Debug.Log("yep");
+        this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation,Quaternion.Euler(0,0,Rotz),_RotationSpeed * Time.fixedDeltaTime);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null && collision.CompareTag("ModPoint"))
+        if (collision != null && collision.CompareTag("ModPoint") && _ModuleAttach == null)
         {
             _ModuleAttach = collision.gameObject;
             this.transform.position = new Vector3(_ModuleAttach.transform.position.x, _ModuleAttach.transform.position.y, -1);
