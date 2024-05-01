@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    PoolManager Instance;
+    public static PoolManager Instance;
     [System.Serializable]
     public class PoolType
     {
@@ -17,7 +17,7 @@ public class PoolManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance== null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -25,11 +25,11 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    
+
     }
 
     [SerializeField] GameObject PoolPrefab;
-    public List<PoolType> poolTypeList = new List<PoolType>();
+    [SerializeField] List<PoolType> poolTypeList = new List<PoolType>();
     [SerializedDictionary]
     public SerializedDictionary<string,PoolFabricator> PoolDictionary = new SerializedDictionary<string,PoolFabricator>();
 
@@ -39,11 +39,20 @@ public class PoolManager : MonoBehaviour
         {
             GameObject CurrentPool = Instantiate(PoolPrefab);
             CurrentPool.SetActive(true); CurrentPool.transform.SetParent(this.transform);
+            CurrentPool.name = "Pool of" + PoolType.name;
 
             PoolFabricator CurrentPoolScript = CurrentPool.GetComponent<PoolFabricator>();
             CurrentPoolScript.ThisPoolPrefab = PoolType.ObjectBlueprint;
             CurrentPoolScript.StartPool(PoolType.SizeofPool);
             PoolDictionary.Add(PoolType.name, CurrentPoolScript);
+        }
+    }
+
+    public void AddNewPool(PoolType NewPool)
+    {
+        if (!poolTypeList.Contains(NewPool))
+        {
+            poolTypeList.Add(NewPool);
         }
     }
 }

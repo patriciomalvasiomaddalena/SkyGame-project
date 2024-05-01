@@ -6,10 +6,22 @@ public class WeaponBase : ModuleBase
 {
     [SerializeField] AimBase _AimInput;
 
+    [SerializeField] GameObject _BulletPrefab;
     float Rotz;
     Vector3 Rotator;
 
     [SerializeField] float _RotationSpeed;
+
+    private void Start()
+    {
+        PoolManager.PoolType bulletpool = new PoolManager.PoolType();
+
+        bulletpool.ObjectBlueprint = _BulletPrefab;
+        bulletpool.SizeofPool = 5;
+        bulletpool.name = "turretBoolet";
+        PoolManager.Instance.AddNewPool(bulletpool);
+    }
+
     private void FixedUpdate()
     {
         RunLogic();
