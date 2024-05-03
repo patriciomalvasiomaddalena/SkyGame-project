@@ -39,7 +39,7 @@ public class PoolManager : MonoBehaviour
         {
             GameObject CurrentPool = Instantiate(PoolPrefab);
             CurrentPool.SetActive(true); CurrentPool.transform.SetParent(this.transform);
-            CurrentPool.name = "Pool of" + PoolType.name;
+            CurrentPool.name = PoolType.name;
 
             PoolFabricator CurrentPoolScript = CurrentPool.GetComponent<PoolFabricator>();
             CurrentPoolScript.ThisPoolPrefab = PoolType.ObjectBlueprint;

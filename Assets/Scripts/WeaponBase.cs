@@ -11,15 +11,19 @@ public class WeaponBase : ModuleBase
     Vector3 Rotator;
 
     [SerializeField] float _RotationSpeed;
+    [SerializeField] string _PoolNameFabricator ="turretBoolet";
+    [SerializeField] PoolFabricator _BulletPool;
 
     private void Start()
     {
         PoolManager.PoolType bulletpool = new PoolManager.PoolType();
-
         bulletpool.ObjectBlueprint = _BulletPrefab;
         bulletpool.SizeofPool = 5;
-        bulletpool.name = "turretBoolet";
+        bulletpool.name = _PoolNameFabricator;
         PoolManager.Instance.AddNewPool(bulletpool);
+        _AimInput.PlayerShoot += WeaponFire;
+
+        _BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
     }
 
     private void FixedUpdate()
@@ -36,6 +40,20 @@ public class WeaponBase : ModuleBase
         this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation,Quaternion.Euler(0,0,Rotz),_RotationSpeed * Time.fixedDeltaTime);
 
     }
+
+    protected void WeaponFire()
+    {
+        if(_BulletPool != null)
+        {
+            GameObject bullet = _BulletPool.GrabPooledItem();
+            bullet.transform.position = this.transform.position;
+        }
+        else
+        {
+            _BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

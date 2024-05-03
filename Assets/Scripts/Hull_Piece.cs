@@ -22,8 +22,8 @@ public class Hull_Piece : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("triggered!");
-        if (collision != null && collision.CompareTag("SnapPoint"))
+        //Debug.Log("triggered!");
+        if (collision != null && collision.CompareTag("SnapPoint") && _SnappedPoint.Count == 0)
         {
             _SnappedPoint.Add(collision.transform);
             this.transform.position = _SnappedPoint[0].transform.position;

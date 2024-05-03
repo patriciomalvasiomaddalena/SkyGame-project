@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Aim_Mouse : AimBase
@@ -11,7 +13,7 @@ public class Aim_Mouse : AimBase
 
     Camera MainCam;
 
-
+    public override event OnPlayerShooting PlayerShoot;
 
     private void Start()
     {
@@ -28,6 +30,15 @@ public class Aim_Mouse : AimBase
 
         Vector3 Rotation = mousePosition - _GunTransform.position;
         _AimMouseResult = Rotation;
+
+        if (Input.GetMouseButton(0))
+        {
+            PlayerShoot();
+        }
+
         return Rotation;
     }
+
+  
+
 }
