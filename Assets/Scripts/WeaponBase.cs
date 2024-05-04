@@ -10,6 +10,8 @@ public class WeaponBase : ModuleBase
     float Rotz;
     Vector3 Rotator;
 
+    [SerializeField] float FireStrenght;
+
     [SerializeField] float _RotationSpeed;
     [SerializeField] string _PoolNameFabricator ="turretBoolet";
     [SerializeField] PoolFabricator _BulletPool;
@@ -23,7 +25,7 @@ public class WeaponBase : ModuleBase
         PoolManager.Instance.AddNewPool(bulletpool);
         _AimInput.PlayerShoot += WeaponFire;
 
-        _BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
+        //_BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
     }
 
     private void FixedUpdate()
@@ -46,7 +48,10 @@ public class WeaponBase : ModuleBase
         if(_BulletPool != null)
         {
             GameObject bullet = _BulletPool.GrabPooledItem();
-            bullet.transform.position = this.transform.position;
+            bullet.transform.position = this.transform.position + transform.up * 0.5f;
+            bullet.transform.rotation = this.transform.rotation;
+            bullet.GetComponent<Bullet_Base>().Fired(FireStrenght);
+    
         }
         else
         {

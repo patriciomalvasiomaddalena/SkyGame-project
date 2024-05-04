@@ -2,66 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 
 public class Bullet_Base : MonoBehaviour
 {
     [SerializeField] int _Health,_MaxHealth;
 
-    [SerializeField] float _DespawnTimer;
+    [SerializeField] float _DespawnTimer,_Speed;
     [SerializeField] string _PoolDictionaryKey;
     float _DespawnPulse;
     public PoolFabricator _BaseBulletPool;
+    [SerializeField] bool _IsFired;
 
-    Rigidbody2D _RB2D;
     private void Awake()
     {
-        _RB2D= GetComponent<Rigidbody2D>();
         _Health = _MaxHealth;
-        _BaseBulletPool = PoolManager.Instance.PoolDictionary[_PoolDictionaryKey];
+        //_BaseBulletPool = PoolManager.Instance.PoolDictionary[_PoolDictionaryKey];
     }
 
     private void Start()
     {
-        _BaseBulletPool = PoolManager.Instance.PoolDictionary[_PoolDictionaryKey];
-        this.gameObject.SetActive(false);
+        //_BaseBulletPool = PoolManager.Instance.PoolDictionary[_PoolDictionaryKey];
+
+        _Health = _MaxHealth;
+        _DespawnPulse = _DespawnTimer;
+   
     }
-    public void Fired(Vector2 ProjectileVel, Quaternion CannonRotation)
+    public void Fired(float FireStrenght)
     {
+        _IsFired= true;
 
-        _RB2D.AddForce(ProjectileVel, ForceMode2D.Impulse);
+        _Speed = FireStrenght;
 
-        this.transform.rotation = CannonRotation;
+        if (_BaseBulletPool == null)
+        {
+            _BaseBulletPool = PoolManager.Instance.PoolDictionary[_PoolDictionaryKey];
+        }
+        if (_BaseBulletPool != null)
+        {
+            _BaseBulletPool.RemoveObjFromPool(this.gameObject);
+        }
 
     }
     
 
     private void OnEnable()
     {
-        _BaseBulletPool = PoolManager.Instance.PoolDictionary[_PoolDictionaryKey];
-
         _Health = _MaxHealth;
         _DespawnPulse = _DespawnTimer;
-
-        if(_BaseBulletPool == null)
-        {
-            _BaseBulletPool = PoolManager.Instance.PoolDictionary[_PoolDictionaryKey];
-        }
-        if(_BaseBulletPool != null )
-        {
-            _BaseBulletPool.RemoveObjFromPool(this.gameObject);
-        }
-
+        _IsFired = false;
     }
 
     public void Update()
     {
-        if(_BaseBulletPool == null)
+        if (_BaseBulletPool == null)
         {
             //Debug.LogError("Bullet pool in null" + this.name);
             return;
         }
 
-        if(_DespawnPulse > 0) 
+        if (_IsFired)
+        {
+            MovementLogic();
+        }
+
+        if (_DespawnPulse > 0) 
         {
             _DespawnPulse -= Time.deltaTime;
         }
@@ -73,10 +78,22 @@ public class Bullet_Base : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Bullet Base is trying to access a pool that doesn´t have it: " + _PoolDictionaryKey);
+                //Debug.LogError("Bullet Base is trying to access a pool that doesn´t have it: " + _PoolDictionaryKey);
             }
  
         }
+    }
+    private void MovementLogic()
+    {
+        this.transform.position += transform.up * _Speed*Time.deltaTime;
+    }
+
+
+    private void Resetvalues()
+    {
+        _Health = _MaxHealth;
+        _DespawnPulse = _DespawnTimer;
+        _IsFired = false;
 
     }
 
@@ -84,6 +101,8 @@ public class Bullet_Base : MonoBehaviour
     {
         this.transform.position = _BaseBulletPool.transform.position;
         _BaseBulletPool.AddObjToPool(this.gameObject);
+        Resetvalues();
+        _IsFired = false;
         gameObject.SetActive(false);
     }
 

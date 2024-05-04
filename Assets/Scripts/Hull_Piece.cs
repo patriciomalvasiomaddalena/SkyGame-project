@@ -26,7 +26,7 @@ public class Hull_Piece : MonoBehaviour
         if (collision != null && collision.CompareTag("SnapPoint") && _SnappedPoint.Count == 0)
         {
             _SnappedPoint.Add(collision.transform);
-            this.transform.position = _SnappedPoint[0].transform.position;
+            //this.transform.position = _SnappedPoint[0].transform.position;
         }
     }
 

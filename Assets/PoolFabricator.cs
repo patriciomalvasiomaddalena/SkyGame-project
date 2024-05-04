@@ -7,6 +7,7 @@ public class PoolFabricator : MonoBehaviour
     public GameObject ThisPoolPrefab;
 
     public List<GameObject> Pool= new List<GameObject>();
+    public List<Object> NewPool = new List<Object>();
 
     public void StartPool(int SizeOfPool) 
     {

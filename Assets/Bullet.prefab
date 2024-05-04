@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7031590954777070684}
   - component: {fileID: 699123152148906229}
   - component: {fileID: 8930750018883928500}
-  - component: {fileID: 6481610091186136156}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -102,8 +101,10 @@ MonoBehaviour:
   _Health: 10
   _MaxHealth: 10
   _DespawnTimer: 3
+  _Speed: 0
   _PoolDictionaryKey: turretBoolet
   _BaseBulletPool: {fileID: 0}
+  _IsFired: 0
 --- !u!70 &8930750018883928500
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +112,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7741057957353024453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -139,30 +140,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!50 &6481610091186136156
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7741057957353024453}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

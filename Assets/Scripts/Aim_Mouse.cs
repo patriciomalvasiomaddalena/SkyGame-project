@@ -31,7 +31,7 @@ public class Aim_Mouse : AimBase
         Vector3 Rotation = mousePosition - _GunTransform.position;
         _AimMouseResult = Rotation;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             PlayerShoot();
         }
