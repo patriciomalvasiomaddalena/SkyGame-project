@@ -5,15 +5,17 @@ using UnityEngine;
 public class PoolFabricator : MonoBehaviour
 {
     public GameObject ThisPoolPrefab;
+    public Object PoolOb;
 
     public List<GameObject> Pool= new List<GameObject>();
-    public List<Object> NewPool = new List<Object>();
+    public List<Object> objects;
 
-    public void StartPool(int SizeOfPool) 
+    public void StartPool(int SizeOfPool)
     {
+
         for (int i = 0; i < SizeOfPool; i++)
         {
-            GameObject obj = Instantiate(ThisPoolPrefab);
+            GameObject obj = Instantiate(ThisPoolPrefab);  
             obj.transform.parent = this.transform;
             obj.SetActive(false);
             Pool.Add(obj);
@@ -22,7 +24,7 @@ public class PoolFabricator : MonoBehaviour
 
     private void ExpandPool(int CountToExpand)
     {
-        for(int i = 0; i < CountToExpand;i++)
+        for (int i = 0; i < CountToExpand; i++)
         {
             GameObject obj = Instantiate(ThisPoolPrefab);
             obj.transform.parent = this.transform;
