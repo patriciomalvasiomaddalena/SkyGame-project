@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TestBulletFactory : MonoBehaviour
@@ -8,7 +9,8 @@ public class TestBulletFactory : MonoBehaviour
     public static TestBulletFactory Instance { get; private set; }
 
     [SerializeField] private TestBullet _bulletPrefab;
-    [SerializeField] private int initialAmount;
+    [SerializeField] private GameObject _FactoryPrefab;
+    [SerializeField] private int initialAmount = 0;
 
     private Pool<TestBullet> _Pool;
 
@@ -19,15 +21,10 @@ public class TestBulletFactory : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
-
+        //GameManager.Instance.FactoryDictionary.Add(FactoryID, this.gameObject);
         _Pool = new Pool<TestBullet>(CreateObject, TestBullet.TurnOn, TestBullet.TurnOff, initialAmount);
-
-        // _bulletPool = new Pool<Bullet>(()=>Instantiate(_bulletPrefab), 
-        //                                 (bullet) => bullet.gameObject.SetActive(true), 
-        //                                 (bullet) => bullet.gameObject.SetActive(false), 
-        //                                 initialAmount);
+        //this.gameObject.SetActive(false);
     }
 
     TestBullet CreateObject()
@@ -82,6 +79,11 @@ public class TestBulletFactory : MonoBehaviour
     public void ReturnObjectToPool(TestBullet obj)
     {
         _Pool.ReturnObjectToPool(obj);
+    }
+
+    public void CreatePool(int NewBulletCount)
+    {
+
     }
 }
 

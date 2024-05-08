@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class WeaponBase : ModuleBase
 {
-    [SerializeField] AimBase _AimInput;
 
+    [Header("Refs")]
+    [SerializeField] AimBase _AimInput;
     [SerializeField] GameObject _BulletPrefab;
+
+    [Header("Variables")]
     float Rotz;
     Vector3 Rotator;
-
-    [SerializeField] float FireStrenght;
-
+    [SerializeField] string _FactoryString;
+    [SerializeField] int _Bulletcount;
+    [SerializeField] float _FireStrenght;
     [SerializeField] float _RotationSpeed;
-    [SerializeField] string _PoolNameFabricator ="turretBoolet";
-    [SerializeField] PoolFabricator _BulletPool;
 
     private void Start()
     {
-        PoolManager.PoolType bulletpool = new PoolManager.PoolType();
-        bulletpool.ObjectBlueprint = _BulletPrefab;
-        bulletpool.SizeofPool = 5;
-        bulletpool.name = _PoolNameFabricator;
-        PoolManager.Instance.AddNewPool(bulletpool);
         _AimInput.PlayerShoot += WeaponFire;
+
+        if(TestBulletFactory.Instance == null)
+        {
+            GameManager.Instance.CreateFactory(_FactoryString,_Bulletcount);
+        }
 
         //_BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
     }
@@ -45,17 +46,13 @@ public class WeaponBase : ModuleBase
 
     protected void WeaponFire()
     {
-        if(_BulletPool != null)
+        if (TestBulletFactory.Instance == null)
         {
-            GameObject bullet = _BulletPool.GrabPooledItem();
-            bullet.transform.position = this.transform.position + transform.up * 0.5f;
-            bullet.transform.rotation = this.transform.rotation;
-            bullet.GetComponent<Bullet_Base>().Fired(FireStrenght);
-    
+            GameManager.Instance.CreateFactory(_FactoryString,_Bulletcount);
         }
         else
         {
-            _BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
+            Debug.Log("piu");
         }
     }
 

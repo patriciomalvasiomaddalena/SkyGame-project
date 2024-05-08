@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class TestBullet : MonoBehaviour
 {
-    [SerializeField] float Health, MaxHealth;
-
-
-    private void Awake()
-    {
-
-    }
+    [SerializeField] float _Health, _MaxHealth;
+    [SerializeField] LayerMask _HitMask;
 
     private void Update()
     {
-        if(Health > 0)
+        if(_Health > 0)
         {
-            Health= Health - (1*Time.deltaTime);
+            _Health= _Health - (1*Time.deltaTime);
         }
         else
         {
@@ -27,7 +22,7 @@ public class TestBullet : MonoBehaviour
 
     private void ResetVal()
     {
-        Health = MaxHealth;
+        _Health = _MaxHealth;
     }
 
     public static void TurnOn(TestBullet b)

@@ -7,6 +7,8 @@ public class movement : MonoBehaviour
     public delegate void MovementDelegate(Color SetColor);
     public static  event MovementDelegate _movementDelegate;
 
+    [SerializeField] Move_Base _MovementInput;
+
     [SerializeField] InsiderManager _InsiderManagerScript;
 
     [SerializeField] float _Speed; // velocidad final; observacion, parece que cada 50 velocidad x 1 masa es velocidad rapida.
@@ -42,7 +44,7 @@ public class movement : MonoBehaviour
 
     private void MovementLogic()
     {
-        _Moveaxis = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        _Moveaxis = _MovementInput.RunLogic();
         _2DRb.AddForce(_Moveaxis * _Speed, ForceMode2D.Force);
 
         if (_2DRb.velocity != Vector2.zero && _TriggeredEvent == false)
