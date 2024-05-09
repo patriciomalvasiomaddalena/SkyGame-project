@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class WeaponBase : ModuleBase
@@ -20,12 +21,6 @@ public class WeaponBase : ModuleBase
     private void Start()
     {
         _AimInput.PlayerShoot += WeaponFire;
-
-        if(TestBulletFactory.Instance == null)
-        {
-            GameManager.Instance.CreateFactory(_FactoryString,_Bulletcount);
-        }
-
         //_BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
     }
 
@@ -46,14 +41,9 @@ public class WeaponBase : ModuleBase
 
     protected void WeaponFire()
     {
-        if (TestBulletFactory.Instance == null)
-        {
-            GameManager.Instance.CreateFactory(_FactoryString,_Bulletcount);
-        }
-        else
-        {
-            Debug.Log("piu");
-        }
+       print("piu");
+            var Bullet = TestBulletFactory.Instance.GetObjectFromPool(this.transform.position,this.transform.rotation);
+            Bullet.Fired();
     }
 
 
