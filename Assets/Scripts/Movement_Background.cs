@@ -9,7 +9,7 @@ public class Movement_Background : MonoBehaviour
     public RawImage _img;
     public float _x; 
     
-
+    //Scrip de moviento imagenes de fondo 
 
     void Update()
     {
