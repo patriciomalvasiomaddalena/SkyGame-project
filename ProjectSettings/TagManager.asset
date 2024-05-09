@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SnapPoint
   - ModPoint
+  - ShipPart
   layers:
   - Default
   - TransparentFX
