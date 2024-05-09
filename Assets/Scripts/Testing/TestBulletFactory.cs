@@ -30,7 +30,7 @@ public class TestBulletFactory : MonoBehaviour
     TestBullet CreateObject()
     {
         var TestBullet = Instantiate(_bulletPrefab, this.transform);
-        TestBullet.transform.SetParent(this.transform);
+        TestBullet.transform.SetParent(TestBulletFactory.Instance.transform);
         return Instantiate(_bulletPrefab);
     }
 
@@ -45,7 +45,8 @@ public class TestBulletFactory : MonoBehaviour
     {
         TestBullet obj = _Pool.GetObject();
         obj.transform.position = Position;
-        return _Pool.GetObject();
+        obj.transform.SetParent(this.transform);
+        return obj;
     }
 
     public TestBullet GetObjectFromPool(Vector3 Position, Quaternion Rotation)
@@ -53,26 +54,30 @@ public class TestBulletFactory : MonoBehaviour
         TestBullet obj = _Pool.GetObject();
         obj.transform.position = Position;
         obj.transform.rotation = Rotation;
-        return _Pool.GetObject();
+        obj.transform.SetParent(this.transform);
+        return obj;
     }
 
-    public GameObject GetGameObbjectFromPool()
+    public GameObject GetGameObjectFromPool()
     {
         GameObject TestBulletGOBJ = _Pool.GetObject().gameObject;
+        TestBulletGOBJ.transform.SetParent(this.transform);
         return TestBulletGOBJ;
     }
 
-    public GameObject GetGameObbjectFromPool(Vector3 Position)
+    public GameObject GetGameObjectFromPool(Vector3 Position)
     {
         GameObject TestBulletGOBJ = _Pool.GetObject().gameObject;
         TestBulletGOBJ.transform.position = Position;
+        TestBulletGOBJ.transform.SetParent(this.transform);
         return TestBulletGOBJ;
     }
-    public GameObject GetGameObbjectFromPool(Vector3 Position, quaternion Rotation)
+    public GameObject GetGameObjectFromPool(Vector3 Position, quaternion Rotation)
     {
         GameObject TestBulletGOBJ = _Pool.GetObject().gameObject;
         TestBulletGOBJ.transform.position = Position;
         TestBulletGOBJ.transform.rotation =Rotation;
+        TestBulletGOBJ.transform.SetParent(this.transform);
         return TestBulletGOBJ;
     }
 
