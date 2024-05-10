@@ -12,6 +12,8 @@ public class ModuleBase : MonoBehaviour
 
     }
 
+    public virtual void DisabledModule() { }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null && collision.CompareTag("ModPoint") && _ModuleAttach == null)

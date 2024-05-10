@@ -30,4 +30,10 @@ public class ThrusterBase : ModuleBase
 
         }
     }
+
+
+    public override void DisabledModule()
+    {
+        _PlayerMovement.AddSpeed(-_ThrusterSpeed);
+    }
 }

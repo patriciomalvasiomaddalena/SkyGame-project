@@ -42,7 +42,8 @@ public class Hull_Piece : MonoBehaviour
 
     private void Death()
     {
-
+        _AttachedModule.DisabledModule();
+        this.gameObject.SetActive(false);
     }
 
     private void CheckConnected()
