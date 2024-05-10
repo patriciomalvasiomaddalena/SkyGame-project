@@ -72,4 +72,9 @@ public class movement : MonoBehaviour
         this.enabled = true;
         LifeComp._TotalPlayerDeath += TotalPlayerDeath;
     }
+
+    public void AddSpeed(float Speed)
+    {
+        _Speed += Speed;
+    }
 }

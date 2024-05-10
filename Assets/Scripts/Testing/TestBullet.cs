@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class TestBullet : MonoBehaviour
 {
-    [SerializeField] float _Health, _MaxHealth,_speed;
-    [SerializeField] LayerMask _HitMask;
-    [SerializeField] String _SpawnerName;
- 
+    [SerializeField] float _Health, _MaxHealth,_speed,_WindowDamage;
+    [SerializeField] bool _CanDamage;
+
     private void Start()
     {
+        _CanDamage = false;
         _Health = 0;
-
-        _SpawnerName = GetComponentInParent<Transform>().name;
     }
     private void Update()
     {
@@ -20,6 +18,12 @@ public class TestBullet : MonoBehaviour
         {
             _Health = _Health - (1*Time.deltaTime);
             Fired();
+
+            _WindowDamage = _WindowDamage - (1 * Time.deltaTime);
+            if (_WindowDamage <= 0)
+            {
+                _CanDamage = true;
+            }
         }
         else
         {
@@ -27,15 +31,14 @@ public class TestBullet : MonoBehaviour
             TurnOff(this);
         }
     }
-
     public void Fired()
     {
         this.transform.position += _speed * Time.deltaTime * transform.up;
     }
-
     private void ResetVal()
     {
         _Health = _MaxHealth;
+        _CanDamage = false;
     }
 
     public static void TurnOn(TestBullet b)
@@ -49,15 +52,14 @@ public class TestBullet : MonoBehaviour
         b.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D Other)
     {
-        if(collision.gameObject.CompareTag("ShipPart"))
+        if (Other.gameObject.CompareTag("ShipPart") && _CanDamage == true)
         {
-           HealthComponent _EnemyHealth = collision.GetComponent<HealthComponent>();
-            if(_EnemyHealth != null)
+            HealthComponent _EnemyHealth = Other.GetComponent<HealthComponent>();
+            if (_EnemyHealth != null)
             {
-
-                float  damagedealt= _EnemyHealth.TakeDmg(_Health);
+                float damagedealt = _EnemyHealth.TakeDmg(_Health);
                 _Health -= damagedealt;
                 print("dealtdamage: " + damagedealt);
             }

@@ -7,6 +7,12 @@ public class HealthComponent : MonoBehaviour
    [SerializeField] private float _Maxhealth;
    [SerializeField] private float _Health;
 
+    public delegate void OnDeath();
+    public event OnDeath OnDeathEvent;
+
+    public delegate void Revival();
+    public event OnDeath OnReviveEvent;
+
     private void Start()
     {
         _Health = _Maxhealth;
@@ -26,13 +32,14 @@ public class HealthComponent : MonoBehaviour
 
     private void Death()
     {
-        this.gameObject.SetActive(false);
+        OnDeathEvent?.Invoke();
+
+        enabled = false;
     }
 
     public void Revive()
     {
-        this.gameObject.SetActive(true);
-        _Health = _Maxhealth;
+        OnReviveEvent?.Invoke();
     }
 
 }

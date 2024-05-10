@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5247075586880246212}
   - component: {fileID: 7454343565493037124}
   - component: {fileID: 5835230682839166751}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TestBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,11 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 10
   _MaxHealth: 10
-  _speed: 10
-  _HitMask:
-    serializedVersion: 2
-    m_Bits: 128
-  _SpawnerName: 
+  _speed: 50
+  _WindowDamage: 1
+  _CanDamage: 0
 --- !u!212 &7454343565493037124
 SpriteRenderer:
   m_ObjectHideFlags: 0

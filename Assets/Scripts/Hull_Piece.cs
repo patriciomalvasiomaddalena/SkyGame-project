@@ -7,17 +7,19 @@ public class Hull_Piece : MonoBehaviour
 {
     [SerializeField] GameObject[] _NeighborSnapPoints = new GameObject[4];
     [SerializeField] List<Transform> _SnappedPoint = new List<Transform>();
+    [SerializeField] ModuleBase _AttachedModule;
 
-    [SerializeField] private float _Health;
+    HealthComponent _HealthComponent;
 
     private void Awake()
     {
-        Debug.Log("yes");
+        
     }
 
     private void Start()
     {
-        
+        _HealthComponent = GetComponent<HealthComponent>();
+        _HealthComponent.OnDeathEvent += Death;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,26 +32,11 @@ public class Hull_Piece : MonoBehaviour
         }
     }
 
-    public void SetHealth(float NewHealth)
+    public void ModuleAttach(ModuleBase _ModuleScript)
     {
-        _Health = NewHealth;
-    } 
-
-    public float GetHealth()
-    {
-        return _Health;
-    }
-
-
-    public void TakeDamage(float DMG)
-    {
-        if (_Health - DMG > 0)
+        if (_AttachedModule == null) 
         {
-            _Health -= DMG;
-        }
-        else
-        {
-            Death();
+            _AttachedModule = _ModuleScript;
         }
     }
 
