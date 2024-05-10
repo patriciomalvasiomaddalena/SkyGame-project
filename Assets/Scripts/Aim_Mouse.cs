@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Aim_Mouse : AimBase
 {
+    //public class Aim_Joystick : aimbase
+    //
+    //update () runlogic()
+    //runlogic()
 
     Vector3 mousePosition;
 

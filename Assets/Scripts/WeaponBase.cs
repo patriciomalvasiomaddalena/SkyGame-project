@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WeaponBase : ModuleBase
 {
-
     [Header("Refs")]
     [SerializeField] AimBase _AimInput;
     [SerializeField] GameObject _BulletPrefab;
@@ -21,7 +20,6 @@ public class WeaponBase : ModuleBase
     private void Start()
     {
         _AimInput.PlayerShoot += WeaponFire;
-        //_BulletPool = PoolManager.Instance.PoolDictionary[_PoolNameFabricator];
     }
 
     private void FixedUpdate()
@@ -41,7 +39,6 @@ public class WeaponBase : ModuleBase
 
     protected void WeaponFire()
     {
-       print("piu");
             var Bullet = TestBulletFactory.Instance.GetObjectFromPool(this.transform.position,this.transform.rotation);
             Bullet.Fired();
     }
