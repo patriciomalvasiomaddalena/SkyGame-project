@@ -125,3 +125,21 @@ public class GenericFactory<T> : MonoBehaviour where T : MonoBehaviour, Ipoolabl
         _Pool.ReturnObjectToPool(obj);
     }
 }
+
+public class BulletAFactory : GenericFactory<BulletA>
+{
+    
+}
+
+public class BulletA : MonoBehaviour, Ipoolable<BulletA>
+{
+    public void TurnOn(BulletA GenericScript)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void TurnOff(BulletA GenericScript)
+    {
+        throw new NotImplementedException();
+    }
+}

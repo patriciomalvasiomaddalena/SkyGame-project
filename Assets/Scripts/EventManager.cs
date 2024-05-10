@@ -10,7 +10,7 @@ public enum EventType
 
 public class EventManager : MonoBehaviour
 {
-    // este script será usado para el event manager del juego general, todos los eventos de este
+    // este script serï¿½ usado para el event manager del juego general, todos los eventos de este
     // objeto seran eventos globales
 
     [SerializeField] float Testing;
