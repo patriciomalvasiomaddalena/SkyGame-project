@@ -7,10 +7,10 @@ public class TestBullet : MonoBehaviour
     [SerializeField] float _Health, _MaxHealth,_speed,_WindowDamage;
     [SerializeField] bool _CanDamage;
 
-    private void Start()
+    private void Awake()
     {
         _CanDamage = false;
-        _Health = 0;
+        _Health = _MaxHealth;
     }
     private void Update()
     {
@@ -39,6 +39,7 @@ public class TestBullet : MonoBehaviour
     {
         _Health = _MaxHealth;
         _CanDamage = false;
+        _WindowDamage = 1;
     }
 
     public static void TurnOn(TestBullet b)

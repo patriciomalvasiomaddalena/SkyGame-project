@@ -20,6 +20,10 @@ public class HealthComponent : MonoBehaviour
 
     public float TakeDmg(float damage)
     {
+        if(damage < 0)
+        {
+            return 0;
+        }
         _Health -= damage;
 
         if(_Health <= 0)
