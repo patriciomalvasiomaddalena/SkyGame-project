@@ -24,10 +24,6 @@ public class Aim_Mouse : AimBase
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
-    private void Update()
-    {
-        RunLogic(this.transform);
-    }
     public override Vector3 RunLogic(Transform _GunTransform)
     {
         mousePosition = MainCam.ScreenToWorldPoint(Input.mousePosition);

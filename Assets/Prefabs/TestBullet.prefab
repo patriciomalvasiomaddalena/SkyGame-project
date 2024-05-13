@@ -49,7 +49,7 @@ MonoBehaviour:
   _Health: 10
   _MaxHealth: 10
   _speed: 50
-  _WindowDamage: 1
+  _WindowDamage: 0.2
   _CanDamage: 0
 --- !u!212 &7454343565493037124
 SpriteRenderer:
