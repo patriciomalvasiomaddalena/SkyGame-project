@@ -39,7 +39,7 @@ public class TestBullet : MonoBehaviour
     {
         _Health = _MaxHealth;
         _CanDamage = false;
-        _WindowDamage = 1;
+        _WindowDamage = 0.2f;
     }
 
     public static void TurnOn(TestBullet b)
@@ -55,7 +55,7 @@ public class TestBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D Other)
     {
-        if (Other.gameObject.CompareTag("ShipPart") && _CanDamage == true)
+        if (Other.gameObject.CompareTag("ShipPart") && _CanDamage == true && Other.gameObject.activeSelf == true)
         {
             HealthComponent _EnemyHealth = Other.GetComponent<HealthComponent>();
             if (_EnemyHealth != null)

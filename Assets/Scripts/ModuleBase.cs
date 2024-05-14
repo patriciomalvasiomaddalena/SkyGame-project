@@ -21,7 +21,7 @@ public class ModuleBase : MonoBehaviour
             _ModuleAttach  = collision.gameObject;
             this.transform.position = new Vector3(_ModuleAttach.transform.position.x,_ModuleAttach.transform.position.y, -1);
             this.gameObject.transform.SetParent(_ModuleAttach.transform, true);
-            
+            GetComponentInParent<Hull_Piece>().ModuleAttach(this);
         }
     }
 

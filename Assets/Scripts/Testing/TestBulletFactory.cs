@@ -31,7 +31,7 @@ public class TestBulletFactory : MonoBehaviour
     {
         var TestBullet = Instantiate(_bulletPrefab, this.transform);
         TestBullet.transform.SetParent(TestBulletFactory.Instance.transform);
-        return Instantiate(_bulletPrefab);
+        return TestBullet;
     }
 
     public TestBullet GetObjectFromPool()

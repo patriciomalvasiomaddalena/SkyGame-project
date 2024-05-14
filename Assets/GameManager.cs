@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public GameObject PlayerShip;
     [SerializeField]TestBulletFactory TestBulletFactory;
 
     public Dictionary<string, GameObject> FactoryDictionary = new Dictionary<string, GameObject>();

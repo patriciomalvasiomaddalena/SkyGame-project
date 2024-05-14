@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class movement : MonoBehaviour
@@ -37,6 +38,7 @@ public class movement : MonoBehaviour
     {
         LifeComp._TotalPlayerDeath += TotalPlayerDeath;
         LifeComp._ResetAll += ResetComp;
+        GameManager.Instance.PlayerShip = this.gameObject;
     }
 
 

@@ -22,6 +22,13 @@ public class Aim_Mouse : AimBase
     private void Start()
     {
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    } 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayerShoot();
+        }
     }
 
     public override Vector3 RunLogic(Transform _GunTransform)
@@ -30,11 +37,6 @@ public class Aim_Mouse : AimBase
 
         Vector3 Rotation = mousePosition - _GunTransform.position;
         _AimMouseResult = Rotation;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            PlayerShoot();
-        }
 
         return Rotation;
     }
