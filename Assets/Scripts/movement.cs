@@ -47,32 +47,17 @@ public class movement : MonoBehaviour
     private void MovementLogic()
     {
         _Moveaxis = _MovementInput.RunLogic();
-        _2DRb.AddForce(_Moveaxis * _Speed, ForceMode2D.Force);
 
-        if (_2DRb.velocity != Vector2.zero && _TriggeredEvent == false)
-        {
-            _movementDelegate?.Invoke(Random.ColorHSV());
-            _TriggeredEvent= true;
-        }
-
-        if(_2DRb.velocity == Vector2.zero )
-        {
-            _TriggeredEvent = false;
-        }
-
+            _2DRb.AddForce(_Moveaxis * _Speed, ForceMode2D.Force);
         _MovSpeed = _2DRb.velocity;
     }
 
     private void TotalPlayerDeath(Color rmf)
     {
-        LifeComp._TotalPlayerDeath -= TotalPlayerDeath;
-        this.enabled = false;
     }
 
     private void ResetComp()
     {
-        this.enabled = true;
-        LifeComp._TotalPlayerDeath += TotalPlayerDeath;
     }
 
     public void AddSpeed(float Speed)
