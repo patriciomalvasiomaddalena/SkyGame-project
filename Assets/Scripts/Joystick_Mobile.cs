@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class JoystickMobile : Controller, IDragHandler, IEndDragHandler
+public class JoystickMobile : Move_Base, IDragHandler, IEndDragHandler
 {
-    
+
     Vector3 _initialPos;
+    Vector3 _moveDir;
     [SerializeField, Range(75, 150)] float _maxMagnitude = 125f;
 
 
@@ -14,7 +15,7 @@ public class JoystickMobile : Controller, IDragHandler, IEndDragHandler
     {
         _initialPos = transform.position;
     }
-    
+
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -28,10 +29,12 @@ public class JoystickMobile : Controller, IDragHandler, IEndDragHandler
         _moveDir = Vector3.zero;
     }
 
- 
 
-    public override Vector3 GetMovementInput()
+    public override Vector3 RunLogic()
     {
-        throw new System.NotImplementedException();
+        Vector3 modifiedDir = new Vector3(_moveDir.x, _moveDir.y, 0);
+        modifiedDir /= _maxMagnitude;
+        return modifiedDir;
+        Debug.Log (modifiedDir);
     }
 }
