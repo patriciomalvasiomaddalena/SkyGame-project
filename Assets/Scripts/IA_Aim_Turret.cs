@@ -8,11 +8,19 @@ public class IA_Aim_Turret : AimBase
     public override event OnPlayerShooting PlayerShoot;
     Vector3 DrawGizmoFrom, DrawGizmoTo;
     [SerializeField] float _ShootAngle, RateOfFire;
+    [SerializeField] GameObject _playerShip;
 
-    [SerializeField] Transform _NewTurret;
+    Vector3 Director;
     public override Vector3 RunLogic(Transform _GunTransform)
     {
-        Vector3 Director = (GameManager.Instance.PlayerShip.transform.position - _GunTransform.transform.position);
+        if(GameManager.Instance.PlayerShip!= null)
+        {
+            Director = (GameManager.Instance.PlayerShip.transform.position - _GunTransform.transform.position);
+        }
+        else
+        {
+            Director = (_playerShip.transform.position - _GunTransform.transform.position);
+        }
         AiShoot(_GunTransform, Director);
         return Director;
     }
@@ -39,10 +47,6 @@ public class IA_Aim_Turret : AimBase
                 PlayerShoot();
                 Pulse = 0;
             }
-
-        }
-        else
-        {
         }
     }
 

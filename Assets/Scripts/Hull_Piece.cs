@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class Hull_Piece : MonoBehaviour
 {
+    object[] a = null;
+    InsiderManager _InsiderManager;
     [SerializeField] GameObject[] _NeighborSnapPoints = new GameObject[4];
     [SerializeField] List<Transform> _SnappedPoint = new List<Transform>();
     [SerializeField] ModuleBase _AttachedModule;
 
     HealthComponent _HealthComponent;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         _HealthComponent = GetComponent<HealthComponent>();
         _HealthComponent.OnDeathEvent += Death;
+        _InsiderManager= GetComponentInParent<InsiderManager>();
+        //_InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
+        //_InsiderManager.TriggerEvent(InsiderEventType.Event_HullRepair);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,8 +42,19 @@ public class Hull_Piece : MonoBehaviour
 
     private void Death()
     {
+        DeathSubscriber(a);
         this.gameObject.SetActive(false);
-        _AttachedModule.DisabledModule();
+        _AttachedModule?.DisabledModule();
+    }
+
+    private void DeathSubscriber(object[] p)
+    {
+        _InsiderManager.TriggerEvent(InsiderEventType.Event_HullBroken);
+    }
+
+    private void CommandDeath(object[] p)
+    {
+        this._AttachedModule?.DisabledModule();
     }
 
     private void CheckConnected()

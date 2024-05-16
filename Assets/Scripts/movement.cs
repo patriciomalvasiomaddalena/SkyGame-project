@@ -15,6 +15,7 @@ public class movement : MonoBehaviour
     [SerializeField] float _Speed; // velocidad final; observacion, parece que cada 50 velocidad x 1 masa es velocidad rapida.
     [SerializeField] float _Weight; // peso final
     [SerializeField] Vector2 _MovSpeed;
+    [SerializeField] bool IsPlayer;
 
     Vector2 _Moveaxis;
 
@@ -38,7 +39,12 @@ public class movement : MonoBehaviour
     {
         LifeComp._TotalPlayerDeath += TotalPlayerDeath;
         LifeComp._ResetAll += ResetComp;
-        GameManager.Instance.PlayerShip = this.gameObject;
+        if (IsPlayer)
+        {
+            GameManager.Instance.PlayerShip = this.gameObject;
+            GameManager _GManager = FindObjectOfType<GameManager>();
+            _GManager.PlayerShip = this.gameObject;
+        }
     }
 
 

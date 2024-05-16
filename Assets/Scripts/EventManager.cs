@@ -7,9 +7,22 @@ public enum EventType
 {
     Ship_Lost,
 }
-
 public class EventManager : MonoBehaviour
 {
+    public EventManager Instance;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this; 
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     // este script será usado para el event manager del juego general, todos los eventos de este
     // objeto seran eventos globales
 

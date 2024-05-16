@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using AYellowpaper.SerializedCollections;
-
 public enum InsiderEventType
 {
     Event_HullBroken,
+    Event_CommandDeath,
+    Event_HullRepair,
 }
 
 
@@ -16,22 +16,23 @@ public class InsiderManager : MonoBehaviour
 
     [SerializeField] bool IsWorking = true; // solo esta para dejar claro que el script funciona (si no parece ser un script vacio)
   
-    [SerializedDictionary("IDobject", "Object")]
-    static SerializedDictionary<EventType, MethodToSubscribe> InsiderEvents = new SerializedDictionary<EventType, MethodToSubscribe>();
+    static Dictionary<InsiderEventType, MethodToSubscribe> InsiderEvents = new Dictionary<InsiderEventType, MethodToSubscribe>();
 
     public delegate void MethodToSubscribe(params object[] parameters);
 
 
-    public void SubscribeToEvent(EventType eventType, MethodToSubscribe methodToSubscribe)
+    public void SubscribeToEvent(InsiderEventType eventType, MethodToSubscribe methodToSubscribe)
     {
-        if (InsiderEvents == null) InsiderEvents = new SerializedDictionary<EventType, MethodToSubscribe>();
+        if (InsiderEvents == null) InsiderEvents = new Dictionary<InsiderEventType, MethodToSubscribe>();
 
         InsiderEvents.TryAdd(eventType, null);
 
         InsiderEvents[eventType] += methodToSubscribe;
+
+        print("subscribed event" + eventType + methodToSubscribe.ToString());
     }
 
-    public static void UnSubscribeToEvent(EventType eventType, MethodToSubscribe methodToUnsubscribe)
+    public void UnSubscribeToEvent(InsiderEventType eventType, MethodToSubscribe methodToUnsubscribe)
     {
         if (InsiderEvents == null) return;
 
@@ -41,12 +42,11 @@ public class InsiderManager : MonoBehaviour
         Debug.Log("UnSubscribing Event" + methodToUnsubscribe.Method.Name);
     }
 
-    public static void TriggerEvent(EventType eventType, params object[] parameters)
+    public void TriggerEvent(InsiderEventType eventType, params object[] parameters)
     {
         if (InsiderEvents == null) return;
-        if (!InsiderEvents.ContainsKey((EventType)eventType)) return;
+        if (!InsiderEvents.ContainsKey((InsiderEventType)eventType)) return;
         if (InsiderEvents[eventType] == null) return;
-
         InsiderEvents[eventType](parameters);
     }
 

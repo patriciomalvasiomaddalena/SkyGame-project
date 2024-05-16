@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class JoystickMobile : Move_Base, IDragHandler, IEndDragHandler
+public class Aim_Turret_Joystick : AimBase ,IDragHandler,IEndDragHandler
 {
+    public override event OnPlayerShooting PlayerShoot;
 
     Vector3 _initialPos;
     Vector3 _moveDir;
@@ -16,6 +17,10 @@ public class JoystickMobile : Move_Base, IDragHandler, IEndDragHandler
         _initialPos = transform.position;
     }
 
+    public void ShootMethod()
+    {
+        PlayerShoot.Invoke();
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -29,8 +34,7 @@ public class JoystickMobile : Move_Base, IDragHandler, IEndDragHandler
         _moveDir = Vector3.zero;
     }
 
-
-    public override Vector3 RunLogic()
+    public override Vector3 RunLogic(Transform _GunTransform)
     {
         Vector3 modifiedDir = new Vector3(_moveDir.x, _moveDir.y, 0);
         modifiedDir /= _maxMagnitude;
