@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6a9d60cc3de71b0419b3ffaa8596d850
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Starship Shadow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f859a446232cb7640be5e1bd2296850d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d910889909f44cd4cb888c8e41889f3b
+guid: 3c91988520e0a6348a33d2307acc25d1
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Origin Tech Demo
-  fallbackFontReferences: []
+  - Starship Shadow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6a9d60cc3de71b0419b3ffaa8596d850, type: 3}
+  - {fileID: 12800000, guid: f859a446232cb7640be5e1bd2296850d, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
