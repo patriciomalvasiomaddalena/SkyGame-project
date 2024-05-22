@@ -6,9 +6,11 @@ using UnityEngine.EventSystems;
 public class Aim_Turret_Joystick : AimBase ,IDragHandler,IEndDragHandler
 {
     public override event OnPlayerShooting PlayerShoot;
+    public override event MobilePlayerStopShoot PlayerStopShoot;
 
     Vector3 _initialPos;
     Vector3 _moveDir;
+   [SerializeField] bool _LockFire;
     [SerializeField, Range(75, 150)] float _maxMagnitude = 125f;
 
 
@@ -17,9 +19,19 @@ public class Aim_Turret_Joystick : AimBase ,IDragHandler,IEndDragHandler
         _initialPos = transform.position;
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void ShootMethod()
     {
-        PlayerShoot.Invoke();
+        _LockFire = !_LockFire;
+  
+        if(_LockFire == true)
+        {
+            PlayerShoot.Invoke();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)

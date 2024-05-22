@@ -6,6 +6,8 @@ using UnityEngine;
 public class IA_Aim_Turret : AimBase
 {
     public override event OnPlayerShooting PlayerShoot;
+    public override event MobilePlayerStopShoot PlayerStopShoot;
+
     Vector3 DrawGizmoFrom, DrawGizmoTo;
     [SerializeField] float _ShootAngle, RateOfFire;
     [SerializeField] GameObject _playerShip;
@@ -32,10 +34,6 @@ public class IA_Aim_Turret : AimBase
         DrawGizmoFrom = this.transform.position;
         DrawGizmoTo = Director;
 
-        if (RayHit.collider.CompareTag("Player"))
-        {
-            Debug.Log("seeing player");
-        }
         if (Vector3.Angle(IATurret.transform.forward, Director) < _ShootAngle / 2)
         {
             if(RateOfFire >= Pulse)
@@ -45,7 +43,6 @@ public class IA_Aim_Turret : AimBase
             else
             {
                 PlayerShoot();
-                Pulse = 0;
             }
         }
     }

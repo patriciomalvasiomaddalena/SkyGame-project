@@ -18,16 +18,36 @@ public class Aim_Mouse : AimBase
     Camera MainCam;
 
     public override event OnPlayerShooting PlayerShoot;
+    public override event MobilePlayerStopShoot PlayerStopShoot;
+    public bool IsFiring;
+
 
     private void Start()
     {
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-    } 
+
+        if (IsBeingUsed == false)
+        {
+            enabled = false;
+        }
+    }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            PlayerShoot();
+            if(IsFiring == false)
+            {
+                PlayerShoot();
+            }
+            IsFiring = true;   
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if(IsFiring == true)
+            {
+                PlayerStopShoot();
+            }
+            IsFiring = false;
         }
     }
 
