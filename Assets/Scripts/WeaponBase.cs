@@ -17,7 +17,7 @@ public class WeaponBase : ModuleBase
     [SerializeField] string _FactoryString;
     [SerializeField] int _Bulletcount;
     [SerializeField] float _BulletFireSpeed;
-    [SerializeField] float _RotationSpeed;
+    [SerializeField] float _RotationSpeed,_Recoil;
     [SerializeField] float _AmmoMag,_MaxAmmoMag,_AmmoRegenRate;
     [SerializeField] bool _FireBool;
 
@@ -84,7 +84,9 @@ public class WeaponBase : ModuleBase
             if (_WeaponPulse >= _BulletFireSpeed && _AmmoMag > 0) 
             {
                 _AmmoMag--;
+                float RecoilRand = Random.Range(-_Recoil, _Recoil);
                 var Bullet = TestBulletFactory.Instance.GetObjectFromPool(this.transform.position, this.transform.rotation);
+                Bullet.ExtraDir(RecoilRand);
                 Bullet.Fired();
                 _WeaponPulse = 0;
 
@@ -101,8 +103,10 @@ public class WeaponBase : ModuleBase
         if (_WeaponPulse >= _BulletFireSpeed && _AmmoMag > 0)
         {   
             _AmmoMag--;
+            float RecoilRand = Random.Range(-_Recoil, _Recoil);
             var Bullet = TestBulletFactory.Instance.GetObjectFromPool(this.transform.position, this.transform.rotation);
             Bullet.Fired();
+            Bullet.ExtraDir(RecoilRand);
             _WeaponPulse = 0;
         }
         else

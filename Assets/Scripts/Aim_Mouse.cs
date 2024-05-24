@@ -25,11 +25,6 @@ public class Aim_Mouse : AimBase
     private void Start()
     {
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
-        if (IsBeingUsed == false)
-        {
-            enabled = false;
-        }
     }
     private void Update()
     {

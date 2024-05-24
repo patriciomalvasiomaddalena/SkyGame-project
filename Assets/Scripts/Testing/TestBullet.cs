@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestBullet : MonoBehaviour
 {
-    [SerializeField] float _Health, _MaxHealth,_speed,_WindowDamage;
+    [SerializeField] float _Health, _MaxHealth, _speed, _WindowDamage;
     [SerializeField] bool _CanDamage;
 
     private void Awake()
@@ -31,6 +31,14 @@ public class TestBullet : MonoBehaviour
             TurnOff(this);
         }
     }
+    public void ExtraDir(float dir)
+    {
+       if(dir != 0) 
+       {
+            this.transform.rotation *= Quaternion.Euler(0, 0, dir);
+       }
+    }
+
     public void Fired()
     {
         this.transform.position += _speed * Time.deltaTime * transform.up;
