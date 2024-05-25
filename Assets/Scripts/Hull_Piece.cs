@@ -15,11 +15,12 @@ public class Hull_Piece : MonoBehaviour
 
     private void Start()
     {
+ 
         _HealthComponent = GetComponent<HealthComponent>();
         _HealthComponent.OnDeathEvent += Death;
         _InsiderManager= GetComponentInParent<InsiderManager>();
-        //_InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
-        //_InsiderManager.TriggerEvent(InsiderEventType.Event_HullRepair);
+        _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
+        _InsiderManager.TriggerEvent(InsiderEventType.Event_HullRepair);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,7 +55,15 @@ public class Hull_Piece : MonoBehaviour
 
     private void CommandDeath(object[] p)
     {
-        this._AttachedModule?.DisabledModule();
+        if(_AttachedModule is CommandModule)
+        {
+            return;
+        }
+        else
+        {
+            this._AttachedModule?.DisabledModule();
+        }
+
     }
 
     private void CheckConnected()

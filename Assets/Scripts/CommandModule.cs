@@ -12,6 +12,7 @@ public class CommandModule : ModuleBase
     public delegate void ShipDMGDel();
     public delegate void ShipRepDel();
     InsiderManager.MethodToSubscribe NewMethods;
+    bool ded = false;
 
     private void Start()
     { 
@@ -20,9 +21,9 @@ public class CommandModule : ModuleBase
         _InsiderManager = GetComponentInParent<InsiderManager>();
         if(_InsiderManager != null )
         {
-            //_InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullBroken, TakeShipDamage);
-            //_InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, TotalShipDeath);
-            //_InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullRepair, TakeShipRepair);
+            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullBroken, TakeShipDamage);
+            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, TotalShipDeath);
+            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullRepair, TakeShipRepair);
         }
         else
         {
@@ -33,8 +34,9 @@ public class CommandModule : ModuleBase
 
     private void TotalShipDeath(object[] p)
     {
+        ded = true;
         //_InsiderManager.TriggerEvent(InsiderEventType.Event_CommandDeath);
-        GameManager.Instance.ReturnToMenu();
+        //GameManager.Instance.ReturnToMenu();
     }
 
     private void TakeShipDamage(object[] p)
@@ -48,8 +50,15 @@ public class CommandModule : ModuleBase
     }
     public override void DisabledModule()
     {
-        //_InsiderManager.TriggerEvent(InsiderEventType.Event_CommandDeath);
-        GameManager.Instance.ReturnToMenu();
+        if(ded == false)
+        {
+            ded = true;
+            TotalShipDeath(default);
+        }
+        else
+        {
+            return;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
