@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Fleet_Player : Fleet_Base
@@ -8,6 +9,7 @@ public class Fleet_Player : Fleet_Base
 
     [SerializeField] float MoveSpeed;
     [SerializeField] Campaign_Input_Base MoveInput;
+    [SerializeField] LineRendererController _LRC;
     [SerializeField] Vector3 Dire;
     private bool Selected;
 
@@ -16,6 +18,8 @@ public class Fleet_Player : Fleet_Base
     {
         _SpRenderer = GetComponent<SpriteRenderer>();
         MovablePlayerFleet.Add(this);
+        _LRC = GetComponent<LineRendererController>();
+        _LRC.Points[0] = this.transform.position; 
     }
 
     private void Update()
@@ -25,16 +29,27 @@ public class Fleet_Player : Fleet_Base
 
     protected override void RunLogic()
     {
-        if (Selected)
+        if (Selected || Dire != Vector3.zero)
         {
             MovementLogic();
         }
+        else
+        {
+            Dire = Vector3.zero;
+        }
+        _LRC.Points[0] = this.transform.position;
     }
 
     private void MovementLogic()
     {
-        Dire = MoveInput.InputMachine(this.transform);
-        transform.position = Vector3.MoveTowards(this.transform.position, Dire, MoveSpeed * Time.deltaTime);
+        if (Selected)
+        {
+            Dire = MoveInput.InputMachine(this.transform);
+        }
+        if(Dire != Vector3.zero)
+        {
+            transform.position = Vector3.MoveTowards(this.transform.position, Dire, MoveSpeed * Time.deltaTime); 
+        }
     }
 
     private void OnMouseDown()
@@ -49,6 +64,5 @@ public class Fleet_Player : Fleet_Base
             }
         }
         this._SpRenderer.material.color = Color.cyan;
-        Dire = Vector3.zero;
     }
 }
