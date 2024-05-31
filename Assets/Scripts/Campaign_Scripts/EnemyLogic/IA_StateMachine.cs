@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class IA_StateMachine : MonoBehaviour
 {
+    public List<Transform> Nodes;
 
     [SerializeField] State _CurrentState;
-
+    [SerializeField] public float _PatrolVel,_PatrolDist,_PatrolRest;
     private void Start()
     {
         if(_CurrentState != null)
