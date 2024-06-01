@@ -6,10 +6,11 @@ using UnityEngine;
 public class Hull_Piece : MonoBehaviour
 {
     object[] a = null;
-    InsiderManager _InsiderManager;
+    [SerializeField] InsiderManager _InsiderManager;
     [SerializeField] GameObject[] _NeighborSnapPoints = new GameObject[4];
     [SerializeField] List<Transform> _SnappedPoint = new List<Transform>();
     [SerializeField] ModuleBase _AttachedModule;
+    public bool IsNPC;
 
     HealthComponent _HealthComponent;
 
@@ -19,7 +20,14 @@ public class Hull_Piece : MonoBehaviour
         _HealthComponent = GetComponent<HealthComponent>();
         _HealthComponent.OnDeathEvent += Death;
         _InsiderManager= GetComponentInParent<InsiderManager>();
-        _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
+        if (IsNPC)
+        {
+            _InsiderManager.SubscribeToEvent(InsiderEventType.NPC_Event_CommandDeath, CommandDeath);
+        }
+        else
+        {
+            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
+        }
         _InsiderManager.TriggerEvent(InsiderEventType.Event_HullRepair);
     }
 

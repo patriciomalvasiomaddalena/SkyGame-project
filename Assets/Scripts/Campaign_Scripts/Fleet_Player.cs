@@ -10,6 +10,7 @@ public class Fleet_Player : Fleet_Base
     [SerializeField] float MoveSpeed;
     [SerializeField] Campaign_Input_Base MoveInput;
     [SerializeField] LineRendererController _LRC;
+    [SerializeField] CircleLineDrawer _FuelRend;
     [SerializeField] Vector3 Dire;
     private bool Selected;
 
@@ -17,9 +18,10 @@ public class Fleet_Player : Fleet_Base
     private void Start()
     {
         _SpRenderer = GetComponent<SpriteRenderer>();
+
         MovablePlayerFleet.Add(this);
         _LRC = GetComponent<LineRendererController>();
-        _LRC.Points[0] = this.transform.position; 
+        _LRC.Points[0] = this.transform.position;
     }
 
     private void Update()
@@ -31,7 +33,8 @@ public class Fleet_Player : Fleet_Base
     {
         if (Selected || Dire != Vector3.zero)
         {
-            MovementLogic();
+             MovementLogic();
+            _FuelRend.DrawCircle();
         }
         else
         {

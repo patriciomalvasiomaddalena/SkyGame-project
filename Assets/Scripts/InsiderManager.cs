@@ -6,6 +6,7 @@ public enum InsiderEventType
     Event_HullBroken,
     Event_CommandDeath,
     Event_HullRepair,
+    NPC_Event_CommandDeath
 }
 
 

@@ -18,6 +18,8 @@ public class IA_StateMachine : MonoBehaviour
 
     private void Update()
     {
+        //if(pausado) = > return;
+
         if(_CurrentState != null)
         {
             _CurrentState.UpdateState();

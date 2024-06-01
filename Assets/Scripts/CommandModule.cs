@@ -13,16 +13,22 @@ public class CommandModule : ModuleBase
     public delegate void ShipRepDel();
     InsiderManager.MethodToSubscribe NewMethods;
     bool ded = false;
+    public bool IsNPC;
 
     private void Start()
     { 
-        
-
         _InsiderManager = GetComponentInParent<InsiderManager>();
         if(_InsiderManager != null )
         {
+            if (IsNPC)
+            {
+                _InsiderManager.SubscribeToEvent(InsiderEventType.NPC_Event_CommandDeath, TotalShipDeath);
+            }
+            else
+            {
+                _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, TotalShipDeath);
+            }
             _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullBroken, TakeShipDamage);
-            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, TotalShipDeath);
             _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullRepair, TakeShipRepair);
         }
         else
@@ -34,8 +40,18 @@ public class CommandModule : ModuleBase
 
     private void TotalShipDeath(object[] p)
     {
-        ded = true;
-        //_InsiderManager.TriggerEvent(InsiderEventType.Event_CommandDeath);
+        if(ded == false)
+        {
+            ded = true;
+            if (IsNPC)
+            {
+                _InsiderManager.TriggerEvent(InsiderEventType.NPC_Event_CommandDeath);
+            }
+            else
+            {
+                _InsiderManager.TriggerEvent(InsiderEventType.Event_CommandDeath);
+            }
+        }
         //GameManager.Instance.ReturnToMenu();
     }
 
@@ -52,7 +68,6 @@ public class CommandModule : ModuleBase
     {
         if(ded == false)
         {
-            ded = true;
             TotalShipDeath(default);
         }
         else

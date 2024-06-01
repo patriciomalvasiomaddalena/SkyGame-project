@@ -70,7 +70,7 @@ public class TestBullet : MonoBehaviour
             {
                 float damagedealt = _EnemyHealth.TakeDmg(_Health);
                 _Health -= damagedealt;
-                print("dealtdamage: " + damagedealt);
+                //print("dealtdamage: " + damagedealt);
             }
         }
     }
