@@ -5,18 +5,28 @@ using UnityEngine;
 public class IA_StateMachine : MonoBehaviour
 {
     public List<Transform> Nodes;
+    public Fleet_Enemy _EnemyCore { get; private set; }
 
-    [SerializeField] State _CurrentState;
-    [SerializeField] public float _PatrolVel,_PatrolDist,_PatrolRest;
+    [SerializeField] public State _CurrentState { get;private set;}
+    [SerializeField] public State _PatrolState { get;private set;}
+    [SerializeField] public State _InterceptState { get;private set;}
+    public float _PatrolVel,_PatrolDist,_PatrolRest;
     private void Start()
     {
-        if(_CurrentState != null)
+        _CurrentState = GetComponentInChildren<State_Patrol>();
+        _PatrolState = GetComponentInChildren<State_Patrol>();
+        _InterceptState = GetComponentInChildren<IAState_Intercept>();
+        _EnemyCore = GetComponent<Fleet_Enemy>();
+        if (_CurrentState != null)
         {
             _CurrentState.EnterState();
         }
+        else
+        {
+            Debug.Log("current state is null" + _CurrentState.ToString());
+        }
     }
-
-    private void Update()
+    public void RunStateMachine()
     {
         //if(pausado) = > return;
 
@@ -24,9 +34,11 @@ public class IA_StateMachine : MonoBehaviour
         {
             _CurrentState.UpdateState();
         }
+        else
+        {
+            Debug.Log("current state is null" + _CurrentState.ToString());
+        }
     }
-
-
     public void SwitchState(State state)
     {
         if(state != _CurrentState) 
@@ -36,5 +48,4 @@ public class IA_StateMachine : MonoBehaviour
         _CurrentState = state;
         _CurrentState.EnterState();
     }
-
 }
