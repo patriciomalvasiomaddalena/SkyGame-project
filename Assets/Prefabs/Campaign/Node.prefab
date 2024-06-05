@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4811995345182099177}
   - component: {fileID: 3905763315678764597}
   - component: {fileID: 5825409962834631502}
+  - component: {fileID: 4615943755188575832}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -115,11 +116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52952077fd453e8429e0248ee3dee6e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _PathManager: {fileID: 0}
   _Neighbors: []
   _Obstacles:
     serializedVersion: 2
     m_Bits: 512
-  _RayLenght: 10
+  _RayLenght: 15
   _Renderer: {fileID: 6161914331381293160}
   StartingNode: 0
   EndingNode: 0
@@ -161,3 +163,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4615943755188575832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059904962980385585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f732b756574fd944926f0f9a86ca4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CollLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _Timer: 0
+  PlayerF: {fileID: 0}

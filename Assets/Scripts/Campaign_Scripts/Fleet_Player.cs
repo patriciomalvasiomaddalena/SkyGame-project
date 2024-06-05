@@ -14,6 +14,9 @@ public class Fleet_Player : Fleet_Base
     [SerializeField] Vector3 Dire;
     private bool Selected;
 
+
+    public float FuelAmount;
+
     SpriteRenderer _SpRenderer;
     private void Start()
     {
