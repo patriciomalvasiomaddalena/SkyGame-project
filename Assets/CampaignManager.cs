@@ -13,6 +13,7 @@ public class CampaignManager : MonoBehaviour
     public List<Fleet_Enemy> _EnemyFleets = new List<Fleet_Enemy>();
 
     public static ShopManager ShopManagerInstance;
+    public Canvas _UICanvas;
 
 
     private void Awake()

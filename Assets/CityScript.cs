@@ -22,11 +22,6 @@ public class CityScript : MonoBehaviour
     [Header("City Modifiers")]
     public CityType CityMod;
 
-
-    private void Start()
-    {
-    }
-
     private void EnterCity(Fleet_Player PlayerF)
     {
         print("flota jugador: " + PlayerF.gameObject.name + " ha entrado a la ciudad " + this.gameObject.name);
@@ -57,6 +52,11 @@ public class CityScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if(PlayerF == null)
+        {
+            return;
+        }
+
         if(collision == PlayerF.gameObject.GetComponent<Collider2D>())
         {
             Entered = false;
