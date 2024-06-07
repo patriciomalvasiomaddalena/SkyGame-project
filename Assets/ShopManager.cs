@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -11,10 +12,16 @@ public class ShopManager : MonoBehaviour
     [Header("Price of Items")]
     [SerializeField] float _FuelBasePrice, _FuelMod;
 
+    [Header("References")]
+    [SerializeField] Slider _FuelSlider;
+
     public void OpenCityCanvas(CityScript.CityType Modifiers)
     {
         ConfigureCityType(Modifiers);
         ShopCanvas.gameObject.SetActive(true);
+        _FuelSlider.maxValue = Pfleet.MaxFuel;
+        _FuelSlider.minValue = Pfleet.FuelAmount;
+        _FuelSlider.value = Pfleet.FuelAmount / Pfleet.MaxFuel;
     }
 
     public void CloseCityCanvas()
@@ -23,13 +30,36 @@ public class ShopManager : MonoBehaviour
         RemovePlayerFleetRef();
     }
 
-    public void BuyFuel(float quantity)
+    public int FuelBought;
+    public void SetFuelBuyAmount(float FuelPercentage)
     {
-        if(CampaignManager.Instance.PlayerCredits > ((_FuelMod * _FuelBasePrice) * quantity))
+        float Buyfuel = FuelPercentage;
+        float FuelTank = Pfleet.MaxFuel;
+        if(Buyfuel > FuelTank)
         {
-            float cost = (_FuelMod * _FuelBasePrice) * quantity;
+            Buyfuel = FuelTank;
+        }
+
+        FuelBought = (int)Buyfuel;
+    }
+
+
+    public void BuyFuel()
+    {
+        if(CampaignManager.Instance.PlayerCredits > ((_FuelMod * _FuelBasePrice)) * FuelBought)
+        {
+            if(Pfleet.FuelAmount + FuelBought > Pfleet.MaxFuel)
+            {
+                FuelBought = (int)(Pfleet.MaxFuel - Pfleet.FuelAmount);
+            }
+
+
+            float cost = (_FuelMod * _FuelBasePrice) * FuelBought;
             CampaignManager.Instance.RemovePlayerCredits(cost);
-            Pfleet.FuelAmount += quantity;
+
+            Pfleet.FuelAmount += FuelBought;
+            _FuelSlider.value = Pfleet.FuelAmount;
+            _FuelSlider.minValue = Pfleet.FuelAmount;
         }
     }
 

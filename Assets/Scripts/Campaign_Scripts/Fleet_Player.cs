@@ -18,14 +18,14 @@ public class Fleet_Player : Fleet_Base
     private bool Selected,_HasFuel;
 
 
-    public float FuelAmount;
+    public float FuelAmount, MaxFuel;
     public float FuelEff;
 
     SpriteRenderer _SpRenderer;
     private void Start()
     {
         _SpRenderer = GetComponent<SpriteRenderer>();
-
+        FuelAmount = MaxFuel;
         MovablePlayerFleet.Add(this);
         _LRC = GetComponent<LineRendererController>();
         _LRC.Points[0] = this.transform.position;
@@ -41,7 +41,7 @@ public class Fleet_Player : Fleet_Base
     {
         if (Selected || Dire != Vector3.zero)
         {
-            if(FuelAmount > 0)
+            if(FuelAmount > 0.1f)
             {
                 _HasFuel = true;
             }
@@ -51,7 +51,7 @@ public class Fleet_Player : Fleet_Base
             }
              MovementLogic();
             _FuelRend.DrawCircle();
-            _FuelRend._Radius = FuelAmount / 10f;
+            _FuelRend._Radius = FuelAmount / 100f;
         }
         else
         {
@@ -85,25 +85,17 @@ public class Fleet_Player : Fleet_Base
         {
             _InitialFuel = FuelAmount;
             NewDirection = Director;
-            TotalDist = Dist;
+            TotalDist = Dist; // 5 *( 10 * 1)
         }
 
-        float TotalFuelCons = (TotalDist * (10 * FuelEff)) / 10; // primer 10 = consumo base de combustible, hacer variable, segundo es constante
-        if(TotalFuelCons > _InitialFuel)
+        float TotalFuelCons = (TotalDist * (10f * FuelEff));
+        FinalFuel = TotalFuelCons;
+        if(FinalFuel >= FuelAmount)
         {
             FinalFuel = 0;
         }
-        else
-        {
-            FinalFuel = TotalFuelCons;
-        }
-
-        float _NewFuel = Mathf.Lerp(FuelAmount, FinalFuel,(Dist/TotalDist)*Time.deltaTime);
-        FuelAmount -= FuelAmount - _NewFuel;
-        /*while(FuelAmount > FinalFuel)
-        {
-            FuelAmount -= ((10 * FuelEff) / 10);
-        }*/
+        //FuelAmount = Mathf.Lerp(FuelAmount, FinalFuel,Time.deltaTime);
+        FuelAmount = Mathf.MoveTowards(FuelAmount, FinalFuel, TotalFuelCons*Time.deltaTime);
     }
 
     private void OnMouseDown()

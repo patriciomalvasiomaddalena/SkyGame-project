@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    UIManager Instance;
+    public UIManager Instance;
 
     public Canvas UICanvas;
     public TMPro.TextMeshProUGUI FuelTMP;

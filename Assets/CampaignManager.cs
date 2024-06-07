@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CampaignManager : MonoBehaviour
 {
-    public float PlayerCredits { get; private set; }
+    public float PlayerCredits;
 
     public static CampaignManager Instance;
 
