@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 7f18e72c9c6c3c3449397746e110b4ea
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Campaign Layer.unity
+    guid: 906e1e683f8de174fabab059cd0a645c
+  - enabled: 1
+    path: Assets/Scenes/Mapa.unity
+    guid: 0d2ad97ec82602742bb29400c3e5fdc0
   m_configObjects: {}

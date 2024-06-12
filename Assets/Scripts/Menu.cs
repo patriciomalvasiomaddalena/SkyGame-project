@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
-        EnergyUI.text = "energia" + GameManager.Instance.Energy;
+        EnergyUI.text = "" + GameManager.Instance.Energy;
     }
 
     private void Update()
@@ -27,6 +27,24 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);
 
     }
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(2);
+
+    }
+     public void Campaign()
+    {
+        SceneManager.LoadScene(3);
+
+    }
+
+     public void Orb()
+    {
+        SceneManager.LoadScene(4);
+
+    }
+
+
 
     public void Salir()
     {
