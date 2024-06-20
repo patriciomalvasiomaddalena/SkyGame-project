@@ -3,16 +3,15 @@ using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class StartDialogo : MonoBehaviour
+public abstract class Text_Script : MonoBehaviour
 {
+
     // Text refferences
     public string[] dialogueLines;
     public TMP_Text tmpScreen;
     public TMP_FontAsset textFont;
     public float writingSpeed = 0.05f;
     private int lineaActual = 0;
-
-   
 
     // Button references
     public GameObject nextButton;
@@ -70,6 +69,7 @@ public class StartDialogo : MonoBehaviour
         }
     }
 
+ 
     public void OnNextButtonClick()
     {
         lineaActual++;
@@ -81,13 +81,15 @@ public class StartDialogo : MonoBehaviour
         skipButton.SetActive(lineaActual < dialogueLines.Length);
     }
 
-    public void OnSkipButtonClick()
-    {
-        SceneManager.LoadScene("Nivel 1");
-    }
 
     void Update()
     {
         nextButton.SetActive(lineaActual < dialogueLines.Length - 1);
     }
+
+    public void OnSkipButtonClick()
+    {
+        SceneManager.LoadScene("Nivel 1");
+    }
+
 }

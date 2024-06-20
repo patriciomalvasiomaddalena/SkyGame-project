@@ -14,12 +14,12 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
-        EnergyUI.text = "" + GameManager.Instance.Energy;
+        EnergyUI.text = " " + GameManager.Instance.Energy;
     }
 
     private void Update()
     {
-        EnergyUI.text = "energia" + GameManager.Instance.Energy;
+        EnergyUI.text = " " + GameManager.Instance.Energy;
     }
 
     public void Jugar()
@@ -43,6 +43,14 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(4);
 
     }
+    
+    public void Credits()
+    {
+        SceneManager.LoadScene(4);
+
+    }
+
+
 
 
 
