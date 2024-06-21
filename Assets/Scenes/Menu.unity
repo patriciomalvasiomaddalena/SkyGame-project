@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 64006678}
   - component: {fileID: 64006677}
   - component: {fileID: 64006680}
+  - component: {fileID: 64006681}
   m_Layer: 5
   m_Name: PLAY
   m_TagString: Untagged
@@ -553,13 +554,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 64006680}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: Jugar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -615,7 +616,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1da50f059c61e4e9e86e57b8bba167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnergyUI: {fileID: 0}
+  EnergyUI: {fileID: 35278890}
+--- !u!114 &64006681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64006675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d9e38b6c7780c4ab5a5b2fafb611ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TextID: ID_Jugar
+  localization: {fileID: 0}
+  _MyText: {fileID: 1741195674}
 --- !u!1001 &93887773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4818,12 +4834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ec9996e40c0214ea4d994f1dee9f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLines:
-  - Hidalgo, German
-  tmpScreen: {fileID: 1514845013}
-  textFont: {fileID: 11400000, guid: 188bf723d8f4a064bbe4114db2b578c3, type: 2}
-  writingSpeed: 0.05
-  lineaActual: 0
 --- !u!114 &1514845013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4921,6 +4931,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514845010}
   m_CullTransparentMesh: 1
+--- !u!1 &1546302478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546302481}
+  - component: {fileID: 1546302480}
+  m_Layer: 0
+  m_Name: LocalizationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1546302480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546302478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d603ff23e0fbfe4e8560815712f8818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _WebUrl: https://docs.google.com/spreadsheets/d/e/2PACX-1vRtkl-8nGtK1oZhoI6BKGTIBKOZkJWdE9FcJaH7zAJqLE_UHz7MhXzct-mu4KOYM949MjL_GI9h4OO-/pub?output=csv
+  _CurrentLang: 0
+--- !u!4 &1546302481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546302478}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 616.5, y: 346.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1605565404
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,12 +5766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ec9996e40c0214ea4d994f1dee9f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLines:
-  - Credits
-  tmpScreen: {fileID: 1962059738}
-  textFont: {fileID: 11400000, guid: 188bf723d8f4a064bbe4114db2b578c3, type: 2}
-  writingSpeed: 0.05
-  lineaActual: 0
 --- !u!114 &1962059738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5863,12 +5913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ec9996e40c0214ea4d994f1dee9f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueLines:
-  - Malvasio, Patricio
-  tmpScreen: {fileID: 1998725931}
-  textFont: {fileID: 11400000, guid: 188bf723d8f4a064bbe4114db2b578c3, type: 2}
-  writingSpeed: 0.05
-  lineaActual: 0
 --- !u!114 &1998725931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6455,3 +6499,4 @@ SceneRoots:
   - {fileID: 730592879}
   - {fileID: 93887773}
   - {fileID: 1847127385}
+  - {fileID: 1546302481}
