@@ -686,6 +686,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5705083877604296881, guid: bfd7ada04fb68ef469fb60ed56f44696, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705083877604296881, guid: bfd7ada04fb68ef469fb60ed56f44696, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
+      objectReference: {fileID: 0}
     - target: {fileID: 7081130225524059130, guid: bfd7ada04fb68ef469fb60ed56f44696, type: 3}
       propertyPath: m_Name
       value: ShipTest 1
@@ -1618,6 +1626,10 @@ PrefabInstance:
     - target: {fileID: 6629944090279959835, guid: ee9816d1380ef9e4f9b41d8374ad150b, type: 3}
       propertyPath: m_Name
       value: Turr (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629944090279959835, guid: ee9816d1380ef9e4f9b41d8374ad150b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
