@@ -27,5 +27,9 @@ public class IAState_Intercept : State
     public override void UpdateState()
     {
         _STMachine.transform.position = Vector3.MoveTowards(_STMachine.transform.position, _NodeTarg.transform.position, _STMachine._PatrolVel * Time.deltaTime);
+        if(Vector3.Distance(_NodeTarg.transform.position,_STMachine._EnemyCore.transform.position) < 0.1f)
+        {
+            ScreenManager.Instance.PushScreen("IDFight");
+        }
     }
 }

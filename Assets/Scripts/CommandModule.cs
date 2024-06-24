@@ -52,7 +52,8 @@ public class CommandModule : ModuleBase
                 _InsiderManager.TriggerEvent(InsiderEventType.Event_CommandDeath);
             }
         }
-        //GameManager.Instance.ReturnToMenu();
+
+        ScreenManager.Instance.PopScreen();
     }
 
     private void TakeShipDamage(object[] p)
