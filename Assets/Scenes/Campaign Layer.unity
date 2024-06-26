@@ -197,6 +197,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8501177314715441785, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
       insertIndex: -1
       addedObject: {fileID: 640652811}
+    - targetCorrespondingSourceObject: {fileID: 8501177314715441785, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 640652814}
   m_SourcePrefab: {fileID: 100100000, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
 --- !u!1 &640652810 stripped
 GameObject:
@@ -221,6 +224,24 @@ MonoBehaviour:
       Value: {fileID: 321329897}
     - Key: IDFight
       Value: {fileID: 805931080}
+--- !u!114 &640652814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640652810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fff243cf44449429bdaa65068a36e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlayerFleetComp: []
+  _EnemyFleetComp: []
+  _PlayerFleetsInCombat: []
+  _EnemyFleetsInCombat: []
+  _CombatRadius: 1.5
+  hits: []
 --- !u!114 &805931080 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7611444705410734290, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
@@ -410,6 +431,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2766832581427984883, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2766832581427984883, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 80e0c2e14c14d2f4faa33e292b1dd1df, type: 2}
     - target: {fileID: 3441833672650298328, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.9866173
@@ -450,10 +479,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 80e0c2e14c14d2f4faa33e292b1dd1df, type: 2}
     - target: {fileID: 5241143896411403786, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _ScreenComponent
       value: 
       objectReference: {fileID: 321329897}
+    - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
     - target: {fileID: 8165425687977769168, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_Name
       value: Campaign_Screen

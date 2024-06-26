@@ -17,6 +17,7 @@ public class IAState_Intercept : State
     public override void EnterState()
     {
         _NodeTarg = _STMachine._EnemyCore._PlayerTransform;
+        FoundTargetBool = false;
     }
 
     public override void ExitState()
@@ -24,12 +25,23 @@ public class IAState_Intercept : State
    
     }
 
+    bool FoundTargetBool;
     public override void UpdateState()
     {
         _STMachine.transform.position = Vector3.MoveTowards(_STMachine.transform.position, _NodeTarg.transform.position, _STMachine._PatrolVel * Time.deltaTime);
         if(Vector3.Distance(_NodeTarg.transform.position,_STMachine._EnemyCore.transform.position) < 0.1f)
         {
-            ScreenManager.Instance.PushScreen("IDFight");
+            //ScreenManager.Instance.PushScreen("IDFight");
+            if (FoundTargetBool == false)
+            {
+                FoundTarget();
+                FoundTargetBool = true;
+            }
         }
+    }
+
+    private void FoundTarget()
+    {
+        FightSetup._Instance.DragAllFleets(_STMachine._EnemyCore.transform);
     }
 }
