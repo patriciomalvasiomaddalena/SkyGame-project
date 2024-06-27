@@ -11,21 +11,11 @@ public class Pause_Menu : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            if(Pause==false)
-            {
-                PauseMenu.SetActive(true);
-                Pause = true;
-                Time.timeScale = 0;
-                Cursor.visible = true;
-               
-            }
-            else if (Pause==true)
-            {
-                Resume();
-            }
-        }
+    }
+    public void PauseAction()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
     }
 
     public void Resume()
