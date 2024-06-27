@@ -37,7 +37,14 @@ public class movement : MonoBehaviour
 
     private void Start()
     {
-        LifeComp._TotalPlayerDeath += TotalPlayerDeath;
+        if(IsPlayer == false)
+        {
+            _InsiderManagerScript.SubscribeToEvent(InsiderEventType.NPC_Event_CommandDeath, Death);
+        }
+        else
+        {
+            _InsiderManagerScript.SubscribeToEvent(InsiderEventType.Event_CommandDeath, Death);
+        }
         LifeComp._ResetAll += ResetComp;
         if (IsPlayer)
         {
@@ -58,8 +65,9 @@ public class movement : MonoBehaviour
         _MovSpeed = _2DRb.velocity;
     }
 
-    private void TotalPlayerDeath(Color rmf)
+    private void Death(object[] a)
     {
+        this.enabled = false;
     }
 
     private void ResetComp()

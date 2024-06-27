@@ -24,12 +24,25 @@ public class Fleet_Player : Fleet_Base
     SpriteRenderer _SpRenderer;
     private void Start()
     {
+        if (_FleetComposition.Count <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
         _SpRenderer = GetComponent<SpriteRenderer>();
         FuelAmount = MaxFuel;
         MovablePlayerFleet.Add(this);
         _LRC = GetComponent<LineRendererController>();
         _LRC.Points[0] = this.transform.position;
         CampaignManager.Instance._PlayerFleets.Add(this);
+    }
+
+    private void OnEnable()
+    {
+        if (_FleetComposition.Count <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void Update()
@@ -52,9 +65,12 @@ public class Fleet_Player : Fleet_Base
              MovementLogic();
             _FuelRend.DrawCircle();
             _FuelRend._Radius = FuelAmount / 100f;
+            int fcount = (int)FuelAmount;
+            UIManager.Instance.SetTMP("FuelTMP","Fuel: " + fcount.ToString());
         }
         else
         {
+            _FuelRend._Radius = 0;
             Dire = Vector3.zero;
         }
         _LRC.Points[0] = this.transform.position;
@@ -110,5 +126,11 @@ public class Fleet_Player : Fleet_Base
             }
         }
         this._SpRenderer.material.color = Color.cyan;
+    }
+
+    public override void DestroySelf()
+    {
+        CampaignManager.Instance._PlayerFleets.Remove(this);
+        Destroy(this.gameObject);
     }
 }

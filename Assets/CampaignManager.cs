@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CampaignManager : MonoBehaviour
@@ -14,6 +15,9 @@ public class CampaignManager : MonoBehaviour
 
     public static ShopManager ShopManagerInstance;
     public Canvas _UICanvas;
+    public UIManager uIManager;
+
+    public TextMeshProUGUI _FuelCount,_CreditCount;
 
 
     private void Awake()
@@ -32,15 +36,21 @@ public class CampaignManager : MonoBehaviour
             ShopManagerInstance = GetComponent<ShopManager>();
         }
     }
+    private void Start()
+    {
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits.ToString());
+    }
 
     public void AddPlayerCredits(float ValueToAdd)
     {
         PlayerCredits += ValueToAdd;
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits.ToString());
     }
 
     public void RemovePlayerCredits(float ValueToRemove)
     {
         PlayerCredits -= ValueToRemove;
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits.ToString());
     }
 
 }

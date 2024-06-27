@@ -11,7 +11,6 @@ public class CommandModule : ModuleBase
     public delegate void TotalShipDeathDel();
     public delegate void ShipDMGDel();
     public delegate void ShipRepDel();
-    InsiderManager.MethodToSubscribe NewMethods;
     bool ded = false;
     public bool IsNPC;
 
@@ -27,9 +26,9 @@ public class CommandModule : ModuleBase
             else
             {
                 _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, TotalShipDeath);
+                _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullBroken, TakeShipDamage);
+                _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullRepair, TakeShipRepair);
             }
-            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullBroken, TakeShipDamage);
-            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_HullRepair, TakeShipRepair);
         }
         else
         {
@@ -46,14 +45,18 @@ public class CommandModule : ModuleBase
             if (IsNPC)
             {
                 _InsiderManager.TriggerEvent(InsiderEventType.NPC_Event_CommandDeath);
+                EventManager.TriggerEvent(EventType.Enemy_Ship_Lost);
+                GameObject Yippie = _InsiderManager.gameObject;
+                Destroy(Yippie);
             }
             else
             {
                 _InsiderManager.TriggerEvent(InsiderEventType.Event_CommandDeath);
+                EventManager.TriggerEvent(EventType.Player_Ship_Lost);
+                GameObject Yippie = _InsiderManager.gameObject;
+                Destroy(Yippie);
             }
         }
-
-        ScreenManager.Instance.PopScreen();
     }
 
     private void TakeShipDamage(object[] p)
@@ -85,6 +88,5 @@ public class CommandModule : ModuleBase
             this.gameObject.transform.SetParent(_ModuleAttach.transform, true);
             GetComponentInParent<Hull_Piece>().ModuleAttach(this);
         }
-        Debug.Log("fuck u");
     }
 }

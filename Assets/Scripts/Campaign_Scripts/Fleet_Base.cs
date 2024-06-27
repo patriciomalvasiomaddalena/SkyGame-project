@@ -7,5 +7,7 @@ public abstract class Fleet_Base : MonoBehaviour
     public List<ShipScriptableOBJ> _FleetComposition;
     protected abstract void RunLogic();
 
+    public abstract void DestroySelf();
+
 
 }
