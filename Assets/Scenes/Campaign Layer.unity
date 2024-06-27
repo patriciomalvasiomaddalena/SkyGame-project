@@ -306,8 +306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 132, y: -97}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 200.32718, y: -97.446594}
+  m_SizeDelta: {x: 336.6544, y: 50.8932}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937194323
 MonoBehaviour:
@@ -620,6 +620,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 111015333414523053, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300.9277
+      objectReference: {fileID: 0}
+    - target: {fileID: 111015333414523053, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 51.7863
+      objectReference: {fileID: 0}
+    - target: {fileID: 111015333414523053, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 185.46387
+      objectReference: {fileID: 0}
+    - target: {fileID: 111015333414523053, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -54.893127
+      objectReference: {fileID: 0}
     - target: {fileID: 2766832581427984883, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.size
       value: 1
@@ -719,6 +735,14 @@ PrefabInstance:
     - target: {fileID: 7298299635966450363, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: TMProDicc._serializedList.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298299635966450363, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: TMProDicc._serializedList.Array.data[0].Key
+      value: FuelTMP
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298299635966450363, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: TMProDicc._serializedList.Array.data[1].Key
+      value: CreditTMP
       objectReference: {fileID: 0}
     - target: {fileID: 7298299635966450363, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: TMProDicc._serializedList.Array.data[0].Value
