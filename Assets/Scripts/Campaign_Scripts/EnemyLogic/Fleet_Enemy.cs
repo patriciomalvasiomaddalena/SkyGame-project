@@ -14,9 +14,22 @@ public class Fleet_Enemy : Fleet_Base
     SpriteRenderer _SpRenderer;
     private void Start()
     {
+        if (_FleetComposition.Count <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
         _StateMachine = GetComponent<IA_StateMachine>();
         CampaignManager.Instance._EnemyFleets.Add(this);
     }
+    private void OnEnable()
+    {
+        if (_FleetComposition.Count <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 
     private void Update()
     {
@@ -72,5 +85,17 @@ public class Fleet_Enemy : Fleet_Base
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(this.transform.position, DetectDistance);
+    }
+
+    public override void DestroySelf()
+    {
+        CampaignManager.Instance._EnemyFleets.Remove(this);
+        Destroy(gameObject);
+    }
+
+    public void CanModify()
+    {
+        Debug.Log("yup, can do it");
+        MoveSpeed = 69;
     }
 }

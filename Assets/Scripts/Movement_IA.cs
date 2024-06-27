@@ -9,9 +9,10 @@ public class Movement_IA : Move_Base
     [SerializeField] float ModDist;
 
     float Distance;
+
+
     public override Vector3 RunLogic()
     {
-        
         if(_TargetPos!= null)
         {
             Distance = Vector3.Distance(_TargetPos.position, transform.position);
@@ -42,7 +43,6 @@ public class Movement_IA : Move_Base
     {
 
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(this.transform.position, _ArrivalDist);

@@ -15,7 +15,9 @@ public class FightSetup : MonoBehaviour
 
     public List<Fleet_Enemy> _EnemyFleetsInCombat;
 
-    [SerializeField] float _CombatRadius;
+    [SerializeField] float _CombatRadius, _SwitchSceneCooldown, _CooldownDuration, PlayerShipsLeft, NPCShipsLeft;
+
+    bool Fighting,wololo = false;
     private void Awake()
     {
         if(_Instance == null)
@@ -28,6 +30,27 @@ public class FightSetup : MonoBehaviour
         }
     }
     [SerializeField] Collider2D[] hits = new Collider2D[10];
+
+    private void Start()
+    {
+        EventManager.SubscribeToEvent(EventType.Enemy_Ship_Lost, NextNPCSpawn);
+        EventManager.SubscribeToEvent(EventType.Player_Ship_Lost, NextPlayerSpawn);
+    }
+
+    private void Update()
+    {
+        if(_SwitchSceneCooldown > 0 )
+        {
+            _SwitchSceneCooldown = _SwitchSceneCooldown - 1 * Time.deltaTime;
+        }
+
+        if (Fighting && NPCShipsLeft <= 0 || PlayerShipsLeft <=0)
+        {
+            CheckForInjuries();
+
+            ScreenManager.Instance.PopScreen();
+        }
+    }
 
     public void DragAllFleets(Transform CombatPosition)
     {
@@ -77,6 +100,50 @@ public class FightSetup : MonoBehaviour
                 _EnemyFleetComp.Add(SCEB);
             }
         }
+
+        if(_SwitchSceneCooldown <= 0)
+        {
+            FightTime();
+        }
+    }
+
+    private void FightTime()
+    {
+        NPCShipsLeft = _EnemyFleetComp.Count;
+        PlayerShipsLeft = _PlayerFleetComp.Count;
+        ScreenManager.Instance.PushScreen("IDFight");
+        Fighting = true;
+    }
+
+    private void CheckForInjuries()
+    {
+        Fighting = false;
+    }
+
+    public void NextNPCSpawn(object[] a)
+    {
+        for(int i = 0;i < _EnemyFleetsInCombat.Count; i++)
+        {
+            var wawa = _EnemyFleetsInCombat[i].GetComponent<Fleet_Enemy>();
+            if(wawa._FleetComposition.Count > 0)
+            {
+                wawa._FleetComposition.RemoveAt(0);
+            }
+        }
+        NPCShipsLeft--;
+    }
+
+    public void NextPlayerSpawn(object[] a)
+    {
+        for (int i = 0; i < _PlayerFleetsInCombat.Count; i++)
+        {
+            var wawa = _PlayerFleetsInCombat[i].GetComponent<Fleet_Player>();
+            if (wawa._FleetComposition.Count > 0)
+            {
+                //wawa._FleetComposition.Remove(wawa._FleetComposition[0]);
+            }
+        }
+        PlayerShipsLeft--;
     }
 
 }

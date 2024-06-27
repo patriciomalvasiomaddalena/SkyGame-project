@@ -5,7 +5,8 @@ using UnityEngine;
 
 public enum EventType
 {
-    Ship_Lost,
+    Player_Ship_Lost,
+    Enemy_Ship_Lost
 }
 public class EventManager : MonoBehaviour
 {

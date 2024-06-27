@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public UIManager Instance;
+    public static UIManager Instance;
 
     public Canvas UICanvas;
-    public TMPro.TextMeshProUGUI FuelTMP;
-
     [SerializedDictionary("TextMeshProID", "TextMeshPro")]
     [SerializeField] SerializedDictionary<string, TMPro.TextMeshProUGUI> TMProDicc = new SerializedDictionary<string, TMPro.TextMeshProUGUI>();
 
@@ -24,16 +22,11 @@ public class UIManager : MonoBehaviour
             Destroy(this);
         }
     }
-    private void Start()
-    {
-        TMProDicc.Add("FuelID", FuelTMP);
-    }
-
     public void SetTMP(string TMP_ID,string TMP_VAL)
     {
         if (TMProDicc.ContainsKey(TMP_ID))
         {
-            TMProDicc[TMP_ID].text += TMP_VAL;
+            TMProDicc[TMP_ID].text = TMP_VAL;
         }
         else
         {
