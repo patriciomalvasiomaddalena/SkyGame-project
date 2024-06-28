@@ -15,7 +15,7 @@ public class Pause_Menu : MonoBehaviour
     public void PauseAction()
     {
         Time.timeScale = 0;
-        Cursor.visible = true;
+       
     }
 
     public void Resume()
@@ -23,7 +23,7 @@ public class Pause_Menu : MonoBehaviour
         PauseMenu.SetActive(false);
         Pause = false;
         Time.timeScale = 1;
-        Cursor.visible = false;
+        
         
     }
 

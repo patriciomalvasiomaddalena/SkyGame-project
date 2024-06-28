@@ -996,7 +996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &268953570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &338241698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3789,7 +3789,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Espa\xF1ol"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b63870ee12266d41bbf8390dd9e4a57, type: 2}
   m_sharedMaterial: {fileID: -1430660497579878061, guid: 7b63870ee12266d41bbf8390dd9e4a57, type: 2}
@@ -3816,7 +3816,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57.7
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4752,7 +4752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1235975071
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5431,6 +5431,7 @@ GameObject:
   - component: {fileID: 1440777972}
   - component: {fileID: 1440777971}
   - component: {fileID: 1440777970}
+  - component: {fileID: 1440777973}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5455,8 +5456,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -66.18701, y: -158.07027}
-  m_SizeDelta: {x: 358.94, y: 191.2686}
+  m_AnchoredPosition: {x: -66.18701, y: -242.75}
+  m_SizeDelta: {x: 358.94, y: 295.51}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1440777970
 MonoBehaviour:
@@ -5552,6 +5553,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440777968}
   m_CullTransparentMesh: 1
+--- !u!114 &1440777973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440777968}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d9e38b6c7780c4ab5a5b2fafb611ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TextID: ID_Back
+  localization: {fileID: 0}
+  _MyText: {fileID: 1028662091}
 --- !u!1 &1455939961
 GameObject:
   m_ObjectHideFlags: 0
@@ -6181,7 +6197,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.75
+  m_fontSize: 39.6
   m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7040,6 +7056,7 @@ GameObject:
   - component: {fileID: 1962059739}
   - component: {fileID: 1962059738}
   - component: {fileID: 1962059737}
+  - component: {fileID: 1962059740}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7098,7 +7115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Espa\xF1ol"
+  m_text: Creditos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 188bf723d8f4a064bbe4114db2b578c3, type: 2}
   m_sharedMaterial: {fileID: -7754518613910417456, guid: 188bf723d8f4a064bbe4114db2b578c3, type: 2}
@@ -7107,7 +7124,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281290024
   m_fontColor: {r: 0.15686275, g: 0.3019608, b: 0.18431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -7125,7 +7142,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7175,6 +7192,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962059735}
   m_CullTransparentMesh: 1
+--- !u!114 &1962059740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962059735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d9e38b6c7780c4ab5a5b2fafb611ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TextID: ID_Creditos
+  localization: {fileID: 0}
+  _MyText: {fileID: 1028662091}
 --- !u!1 &1998725928
 GameObject:
   m_ObjectHideFlags: 0
@@ -7187,6 +7219,7 @@ GameObject:
   - component: {fileID: 1998725932}
   - component: {fileID: 1998725931}
   - component: {fileID: 1998725930}
+  - component: {fileID: 1998725933}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -7208,11 +7241,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 977551956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -128, y: 79.908}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 115, y: 47.5}
   m_SizeDelta: {x: 1470.3062, y: 95}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1998725930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7245,7 +7278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Espa\xF1ol"
+  m_text: Malvasio Patricio Hidalgo German
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 188bf723d8f4a064bbe4114db2b578c3, type: 2}
   m_sharedMaterial: {fileID: -7754518613910417456, guid: 188bf723d8f4a064bbe4114db2b578c3, type: 2}
@@ -7254,7 +7287,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281290024
   m_fontColor: {r: 0.15686275, g: 0.3019608, b: 0.18431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -7272,7 +7305,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7308,7 +7341,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 658.56934, w: -152.71169}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7322,6 +7355,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998725928}
   m_CullTransparentMesh: 1
+--- !u!114 &1998725933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998725928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d9e38b6c7780c4ab5a5b2fafb611ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TextID: ID_Names
+  localization: {fileID: 0}
+  _MyText: {fileID: 1028662091}
 --- !u!1 &2025356106
 GameObject:
   m_ObjectHideFlags: 0

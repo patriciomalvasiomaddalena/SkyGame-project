@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cdbdf674bc6a1c54ebee60aad3cc977c
+guid: 4ee938858d435014786b27f77c1261f1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Torpedos_0
+      name: clud 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 350
-        width: 200
-        height: 50
+        y: 540
+        width: 960
+        height: 540
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fca4c138cc9c655458ddc59174ddd88e
-      internalID: -471119735
+      spriteID: f0cee1113a4fd36458dc893a89d6605c
+      internalID: 4517817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torpedos_1
+      name: clud 1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 300
-        width: 200
-        height: 50
+        x: 960
+        y: 540
+        width: 960
+        height: 540
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,125 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 834cad7af2d1c7440a014aa4bd562bb5
-      internalID: -1007526156
+      spriteID: 7d5d930832b8f114aacfe61ef7252ac8
+      internalID: -691364507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torpedos_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 250
-        width: 200
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f249a3d3b31323a4c8433b71d704fdfd
-      internalID: 846654105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Torpedos_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 200
-        width: 200
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d92b6b4eb2d99f643a22036597e5c9b1
-      internalID: -121965812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Torpedos_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 150
-        width: 200
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4345e3c20800e5f42a794db8b051d316
-      internalID: 590538741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Torpedos_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 200
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ede32fdaee4e5742abe34a8d6f51d5c
-      internalID: -1705546576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Torpedos_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 50
-        width: 200
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc59cec277cc7944ab279479a004f6f0
-      internalID: 1154742683
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Torpedos_7
+      name: clud 1_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 50
+        width: 960
+        height: 540
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +179,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df07219c29a0d9c4b8dbd94c6b1a78f7
-      internalID: 1346940866
+      spriteID: 1681e116263b5fe4d8a3c9df5eb925bb
+      internalID: 172694163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clud 1_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f355fd5c5c4db498bd5cc46b514f2c
+      internalID: 625962620
       vertices: []
       indices: 
       edges: []
@@ -301,14 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Torpedos_0: -471119735
-      Torpedos_1: -1007526156
-      Torpedos_2: 846654105
-      Torpedos_3: -121965812
-      Torpedos_4: 590538741
-      Torpedos_5: -1705546576
-      Torpedos_6: 1154742683
-      Torpedos_7: 1346940866
+      clud 1_0: 4517817
+      clud 1_1: -691364507
+      clud 1_2: 172694163
+      clud 1_3: 625962620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

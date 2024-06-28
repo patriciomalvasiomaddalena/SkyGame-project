@@ -279,11 +279,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ModuleAttach: {fileID: 0}
   _AimInput: {fileID: 4331322722986748000}
-  _BulletPrefab: {fileID: 7397709042525321059, guid: 61c4208c3018c3543a15cc38703e7ed5, type: 3}
+  _BulletPrefab: {fileID: 8052172603995785662, guid: eca5c18d46eba394a87715356d818a30, type: 3}
   _FactoryString: 
   _Bulletcount: 0
   _BulletFireSpeed: 0.1
   _RotationSpeed: 100
+  _Recoil: 0
   _AmmoMag: 0
   _MaxAmmoMag: 10
   _AmmoRegenRate: 0.7
