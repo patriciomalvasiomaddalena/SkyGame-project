@@ -9,9 +9,6 @@ public class Pause_Menu : MonoBehaviour
     public GameObject PauseMenu;
     public bool Pause = false;
 
-    private void Update()
-    {
-    }
     public void PauseAction()
     {
         Time.timeScale = 0;

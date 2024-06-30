@@ -19,11 +19,6 @@ public class Aim_Turret_Joystick : AimBase ,IDragHandler,IEndDragHandler
         _initialPos = transform.position;
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void ShootMethod()
     {
         _LockFire = !_LockFire;

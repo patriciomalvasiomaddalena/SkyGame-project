@@ -15,6 +15,8 @@ public class ButtonLocalization : MonoBehaviour
     private void Start()
     {
         Localization_Manager.Instance.OnUpdate += ChangeText;
+
+        ChangeText();
     }
 
     void ChangeText()
