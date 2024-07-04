@@ -38,19 +38,19 @@ public class CampaignManager : MonoBehaviour
     }
     private void Start()
     {
-        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits.ToString());
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);
     }
 
     public void AddPlayerCredits(float ValueToAdd)
     {
         PlayerCredits += ValueToAdd;
-        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits.ToString());
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);
     }
 
     public void RemovePlayerCredits(float ValueToRemove)
     {
         PlayerCredits -= ValueToRemove;
-        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits.ToString());
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);
     }
 
 }

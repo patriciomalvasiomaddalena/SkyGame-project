@@ -64,7 +64,7 @@ public class Fleet_Player : Fleet_Base
             }
              MovementLogic();
             _FuelRend.DrawCircle();
-            _FuelRend._Radius = FuelAmount / 100f;
+            _FuelRend._Radius = FuelAmount / 10f;
             int fcount = (int)FuelAmount;
             UIManager.Instance.SetTMP("FuelTMP","Fuel: " + fcount.ToString());
         }
@@ -110,8 +110,12 @@ public class Fleet_Player : Fleet_Base
         {
             FinalFuel = 0;
         }
+        else
+        {
+            FinalFuel = FuelAmount - FinalFuel;
+        }
         //FuelAmount = Mathf.Lerp(FuelAmount, FinalFuel,Time.deltaTime);
-        FuelAmount = Mathf.MoveTowards(FuelAmount, FinalFuel, TotalFuelCons*Time.deltaTime);
+        FuelAmount = Mathf.MoveTowards(FuelAmount, FinalFuel,TotalFuelCons * Time.deltaTime);
     }
 
     private void OnMouseDown()
