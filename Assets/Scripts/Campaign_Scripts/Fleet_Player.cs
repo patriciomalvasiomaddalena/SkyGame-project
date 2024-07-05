@@ -35,6 +35,8 @@ public class Fleet_Player : Fleet_Base
         _LRC = GetComponent<LineRendererController>();
         _LRC.Points[0] = this.transform.position;
         CampaignManager.Instance._PlayerFleets.Add(this);
+
+        //staminacomp.rechargestamina(sarasa);
     }
 
     private void OnEnable()

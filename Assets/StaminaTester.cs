@@ -17,8 +17,7 @@ public class StaminaTester : MonoBehaviour
         _StaminaRegen._MaxStaminaCount= MaxStamina;
         _StaminaRegen._CurrentStamina= CurrentStamina;
         _StaminaRegen._StaminaRegen = RegenRate;
-        // CurrentStamina = _StaminaRegen.RechargeStamina(CurrentStamina,MaxStamina,StaminaRegenComp.TimeScale.Seconds); 
-
+        CurrentStamina = _StaminaRegen.RechargeStamina(CurrentStamina,MaxStamina,StaminaRegenComp.TimeScale.Seconds); 
     }
 
     private void Update()
@@ -26,10 +25,8 @@ public class StaminaTester : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K)) 
         {
             CurrentStamina = _StaminaRegen.RechargeStamina(CurrentStamina, MaxStamina, StaminaRegenComp.TimeScale.Seconds);
-
         }
-
-
+      
     }
 
 }

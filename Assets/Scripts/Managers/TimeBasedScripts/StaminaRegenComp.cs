@@ -10,11 +10,8 @@ public class StaminaRegenComp : MonoBehaviour
     public float _CurrentStamina;
     public float _StaminaRegen;
 
-
-
-
-    DateTime _NextStaminaTime;
-    DateTime _LastStaminaTime;
+    [SerializeField] DateTime _NextStaminaTime;
+    [SerializeField] DateTime _LastStaminaTime;
 
     string CurrentTimeKey;
     string LastTimeKey;
@@ -45,6 +42,10 @@ public class StaminaRegenComp : MonoBehaviour
         PlayerPrefs.SetString(LastTimeKey, _LastStaminaTime.ToString());
     }
 
+    private void DeleteAllCache()
+    {
+    }
+
     private DateTime StringToDataTime(string EnterValue)
     {
         if (string.IsNullOrEmpty(EnterValue)) return DateTime.UtcNow;
@@ -71,32 +72,31 @@ public class StaminaRegenComp : MonoBehaviour
 
     bool recharging;
 
+
     public float RechargeStamina(float CurrentStamina, float MaxStamina, TimeScale TimeMod)
     {
         recharging = true;
         float ReturningStamina = CurrentStamina;
+        _NextStaminaTime = AddDuration(DateTime.Now, ReturningStamina,TimeMod);
 
         while (ReturningStamina < MaxStamina)
         {
             DateTime Current = DateTime.Now;
             DateTime NextTime = _NextStaminaTime;
 
-
             bool AddStamina = false;
 
             while (Current > NextTime)
             {
-                if (ReturningStamina >= MaxStamina - 1f) break; // -1 por errores de redondeo de conversion entre int y float
+
+                if (ReturningStamina >= MaxStamina) break; // -1 por errores de redondeo de conversion entre int y float
                 ReturningStamina++;
 
                 AddStamina = true;
                 // predecir siguiente suma de stamina
 
                 DateTime TimeToAdd = NextTime;
-
-
                 // chequear si el usuario cerro la app
-
                 if (_LastStaminaTime > NextTime)
                 {
                     TimeToAdd = _LastStaminaTime;
@@ -110,15 +110,13 @@ public class StaminaRegenComp : MonoBehaviour
                 _NextStaminaTime = NextTime;
                 _LastStaminaTime = DateTime.Now;
             }
-
+            Debug.Log(_NextStaminaTime.ToString());
             SaveData();
 
         }
-
         recharging = false;
         return ReturningStamina;
     }
-
 
     public enum TimeScale
     {
@@ -128,6 +126,7 @@ public class StaminaRegenComp : MonoBehaviour
         days,
         months
     }  
+
     DateTime AddDuration(DateTime TimeToAdd,float TimerToRecharge,TimeScale TimeScaleModifier)
     {
         switch (TimeScaleModifier)
