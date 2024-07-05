@@ -1,0 +1,20 @@
+
+
+alumnos: patricio malvasio maddalena, german hidalgo
+
+patrones de diseño aplicados:
+
+strategy:
+
+movement script - variable input (puede ser input_mouse)
+turretscript - variable Input (puede ser aim_mouse, aim joystick, IA_Aim) (la torreta pasa su logica de apuntado como un input propio)
+
+Localization:
+
+textos del menú poseen localizacion entre Español e Inglés
+
+Screen Manager:
+
+Campaign scene, utilizado para cambiar entre la campaña y el combate (esto lo hicimos para no andar descargando y cargando una escena cada vez que el jugador entra en combate)
+
+codigo: :)

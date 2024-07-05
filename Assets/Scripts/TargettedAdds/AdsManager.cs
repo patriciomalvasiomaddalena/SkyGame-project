@@ -10,6 +10,8 @@ public class AdsManager : MonoBehaviour
     public RewardedAds _RewardedAdsScript;
     public AdsInitializer _AdsInitializer;
 
+    [SerializeField] bool _UseAds;
+
     public static AdsManager Instance { get; private set; }
 
     private void Awake()
@@ -27,7 +29,10 @@ public class AdsManager : MonoBehaviour
 
     private void Start()
     {
-        _RewardedAdsScript.LoadRewardedAdd();
+        if(_UseAds)
+        {
+            _RewardedAdsScript.LoadRewardedAdd();
+        }
     }
 
 }

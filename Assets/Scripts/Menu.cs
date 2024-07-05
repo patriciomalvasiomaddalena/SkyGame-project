@@ -12,19 +12,11 @@ public class Menu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI EnergyUI;
 
-    private void Start()
-    {
-        EnergyUI.text = " " + GameManager.Instance.Energy;
-    }
 
-    private void Update()
-    {
-        EnergyUI.text = " " + GameManager.Instance.Energy;
-    }
 
     public void Jugar()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
 
     }
     public void Tutorial()
@@ -34,7 +26,7 @@ public class Menu : MonoBehaviour
     }
      public void Campaign()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
 
     }
 

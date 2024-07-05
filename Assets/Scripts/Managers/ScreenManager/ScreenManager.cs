@@ -19,12 +19,17 @@ public class ScreenManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
 
-        PushScreen(ScreenDiccionary["IDCampaign"]);
+    private void Start()
+    {
+        PushScreen("IDCampaign");
     }
 
     public void PushScreen(Iscreen PushingScreen)
     {
+        print("pushscreen");
+
         //si tengo una screen activa previamente
         if(_ScreenStacks.Count > 0)
         {
@@ -49,7 +54,14 @@ public class ScreenManager : MonoBehaviour
             if (_ScreenStacks.Count > 0)
             {
                 //la desactivamos sin sacarla del stack
-                _ScreenStacks.Peek().Deactivate();
+                if(_ScreenStacks.Peek() != null)
+                {
+                    _ScreenStacks.Peek().Deactivate();
+                }
+                else
+                {
+                    Debug.LogWarning("screenstack is null");
+                }
             }
 
             //pusheamos la screen nueva
