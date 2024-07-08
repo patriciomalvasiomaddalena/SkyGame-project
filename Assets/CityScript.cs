@@ -18,7 +18,6 @@ public class CityScript : MonoBehaviour
     [SerializeField] Fleet_Player PlayerF;
     [SerializeField] bool Entered;
 
-
     [Header("City Modifiers")]
     public CityType CityMod;
 
@@ -26,8 +25,12 @@ public class CityScript : MonoBehaviour
     {
         print("flota jugador: " + PlayerF.gameObject.name + " ha entrado a la ciudad " + this.gameObject.name);
         Entered = true;
+        CampaignManager.Instance.TogglePlayerUI(false);
+        GameManager.Instance.TogglePauseButton(false);
         CampaignManager.ShopManagerInstance.SetPlayerFleetRef(PlayerF);
         CampaignManager.ShopManagerInstance.OpenCityCanvas(this.CityMod);
+
+
     }
 
     float pulse;

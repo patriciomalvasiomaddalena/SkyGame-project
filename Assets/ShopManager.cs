@@ -14,11 +14,13 @@ public class ShopManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] Slider _FuelSlider;
+    [SerializeField] TMPro.TextMeshProUGUI _PlayerCreditsTMP;
 
     public void OpenCityCanvas(CityScript.CityType Modifiers)
     {
         ConfigureCityType(Modifiers);
         ShopCanvas.gameObject.SetActive(true);
+        _PlayerCreditsTMP.text = "Credits: " + CampaignManager.Instance.PlayerCredits;
         _FuelSlider.maxValue = Pfleet.MaxFuel;
         _FuelSlider.minValue = Pfleet.FuelAmount;
         _FuelSlider.value = Pfleet.FuelAmount / Pfleet.MaxFuel;
@@ -56,6 +58,7 @@ public class ShopManager : MonoBehaviour
 
             float cost = (_FuelMod * _FuelBasePrice) * FuelBought;
             CampaignManager.Instance.RemovePlayerCredits(cost);
+            _PlayerCreditsTMP.text = "Credits: " + CampaignManager.Instance.PlayerCredits;
 
             Pfleet.FuelAmount += FuelBought;
             _FuelSlider.value = Pfleet.FuelAmount;

@@ -19,6 +19,9 @@ public class CampaignManager : MonoBehaviour
 
     public TextMeshProUGUI _FuelCount,_CreditCount;
 
+    [SerializeField] GameObject PlayerUI;
+
+
 
     private void Awake()
     {
@@ -38,7 +41,7 @@ public class CampaignManager : MonoBehaviour
     }
     private void Start()
     {
-        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);   
     }
 
     public void AddPlayerCredits(float ValueToAdd)
@@ -51,6 +54,11 @@ public class CampaignManager : MonoBehaviour
     {
         PlayerCredits -= ValueToRemove;
         UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);
+    }
+
+    public void TogglePlayerUI(bool Toggle)
+    {
+        PlayerUI.SetActive(Toggle);
     }
 
 }

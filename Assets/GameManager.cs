@@ -1,6 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerShip;
     [SerializeField]TestBulletFactory TestBulletFactory;
     [SerializeField] bool DeleteAllCache;
+
+    [SerializeField] GameObject PauseObject;
 
     public Dictionary<string, GameObject> FactoryDictionary = new Dictionary<string, GameObject>();
 
@@ -34,7 +37,15 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
         }
-        LoadData();   
+        LoadData();
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(PauseObject == null)
+        {
+            PauseObject = FindObjectOfType<Pause_Menu>().GetComponent<GameObject>();
+        }
     }
 
     public void CreateFactory(string FactoryId, int bulletcount)
@@ -69,5 +80,13 @@ public class GameManager : MonoBehaviour
         Energy--;
         PlayerPrefs.SetInt("Energy", Energy);
         SceneManager.LoadScene(1);
+    }
+
+    public void TogglePauseButton(bool toggle)
+    {
+        if(PauseObject!= null)
+        {
+            PauseObject.SetActive(toggle);
+        }
     }
 }
