@@ -6,6 +6,6 @@ public interface Iscreen
 {
     ScreenComponent ScreenComp { get;}
     void Activate();
-    void Deactivate();
+    void Deactivate( bool hideScrren);
     void Free();
 }

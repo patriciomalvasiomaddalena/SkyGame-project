@@ -13,6 +13,7 @@ public class AudioIndexerComponent : MonoBehaviour
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        AudioManager.instance?.PlayMasterSfxAudio(IDAudio);
         Setup();
     }
 

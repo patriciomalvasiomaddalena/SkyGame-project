@@ -68,7 +68,7 @@ public class ScreenComponent : MonoBehaviour, Iscreen
         }
     }
 
-    public void Deactivate()
+    public void Deactivate(bool hideScreen)
     {
         if(_BeforeDeactivation.Count > 0)
         {
@@ -79,7 +79,7 @@ public class ScreenComponent : MonoBehaviour, Iscreen
             }
         }
 
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(hideScreen);
     }
 
     public void Free()

@@ -26,7 +26,7 @@ public class ScreenManager : MonoBehaviour
         PushScreen("IDCampaign");
     }
 
-    public void PushScreen(Iscreen PushingScreen)
+    public void PushScreen(Iscreen PushingScreen, bool hideScreen = true)
     {
         print("pushscreen");
 
@@ -34,7 +34,7 @@ public class ScreenManager : MonoBehaviour
         if(_ScreenStacks.Count > 0)
         {
             //la desactivamos sin sacarla del stack
-            _ScreenStacks.Peek().Deactivate();
+            _ScreenStacks.Peek().Deactivate(hideScreen);
         }
 
         //pusheamos la screen nueva
@@ -45,7 +45,7 @@ public class ScreenManager : MonoBehaviour
         print("pushed scene" + PushingScreen.ToString());
     }
 
-    public void PushScreen(string ScreenID)
+    public void PushScreen(string ScreenID, bool hideScreen = true)
     {
         if(ScreenDiccionary.ContainsKey(ScreenID))
         {
@@ -56,7 +56,7 @@ public class ScreenManager : MonoBehaviour
                 //la desactivamos sin sacarla del stack
                 if(_ScreenStacks.Peek() != null)
                 {
-                    _ScreenStacks.Peek().Deactivate();
+                    _ScreenStacks.Peek().Deactivate(hideScreen);
                 }
                 else
                 {

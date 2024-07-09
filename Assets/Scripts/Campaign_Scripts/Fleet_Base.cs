@@ -8,6 +8,4 @@ public abstract class Fleet_Base : MonoBehaviour
     protected abstract void RunLogic();
 
     public abstract void DestroySelf();
-
-
 }

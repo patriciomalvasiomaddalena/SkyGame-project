@@ -10,7 +10,7 @@ public class CampaignManager : MonoBehaviour
     public static CampaignManager Instance;
 
     public List<Fleet_Player> _PlayerFleets = new List<Fleet_Player>();
-
+   
     public List<Fleet_Enemy> _EnemyFleets = new List<Fleet_Enemy>();
 
     public static ShopManager ShopManagerInstance;
