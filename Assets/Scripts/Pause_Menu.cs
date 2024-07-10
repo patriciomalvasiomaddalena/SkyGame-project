@@ -12,7 +12,8 @@ public class Pause_Menu : MonoBehaviour
     public void PauseAction()
     {
         Time.timeScale = 0;
-       
+        AudioManager.instance?.PlayMasterMusicAudio ("ID_Pause");
+
     }
 
     public void Resume()

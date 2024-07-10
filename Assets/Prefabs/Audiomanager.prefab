@@ -50,8 +50,32 @@ MonoBehaviour:
     _serializedList:
     - Key: ID_MetalPipe
       Value: {fileID: 8300000, guid: 4b90cdbfc4370ba4da52a29fe5781e23, type: 3}
+    - Key: ID_Motor
+      Value: {fileID: 8300000, guid: 48befd5af3e4e3442b16040ab75f2ae7, type: 3}
+    - Key: ID_Explosion
+      Value: {fileID: 8300000, guid: 52d859cddb480e947b859d6365060e66, type: 3}
+    - Key: ID_Click
+      Value: {fileID: 8300000, guid: 82fc35d617835b047815764325c46a43, type: 3}
+    - Key: ID_Shoot
+      Value: {fileID: 8300000, guid: 5d54a15075f5a9b4a839ea96d0d3adbf, type: 3}
+    - Key: ID_Coin
+      Value: {fileID: 8300000, guid: 12017691ea6515347b72bbd9c9fcee9f, type: 3}
+    - Key: ID_Kaboom
+      Value: {fileID: 8300000, guid: 073072e07d9383245b3103645aa0a1e3, type: 3}
   MusicDictionary:
-    _serializedList: []
+    _serializedList:
+    - Key: ID_Menu
+      Value: {fileID: 8300000, guid: 44af3ef44cc0e30468b68a5269b983ab, type: 3}
+    - Key: ID_Pause
+      Value: {fileID: 8300000, guid: bce9b03197a32904e877dab6271bf328, type: 3}
+    - Key: ID_Radar
+      Value: {fileID: 8300000, guid: d53c3fceff3d7144d80d8b3063c66ee5, type: 3}
+    - Key: ID_Campaigne
+      Value: {fileID: 8300000, guid: 44af3ef44cc0e30468b68a5269b983ab, type: 3}
+    - Key: ID_Shop
+      Value: {fileID: 8300000, guid: 239d1696910c9754da0850d34b703d72, type: 3}
+    - Key: ID_Battle
+      Value: {fileID: 8300000, guid: 44af3ef44cc0e30468b68a5269b983ab, type: 3}
   AudioSources: []
 --- !u!82 &2647498768153690003
 AudioSource:
@@ -65,7 +89,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

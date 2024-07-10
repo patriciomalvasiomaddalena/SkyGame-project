@@ -267,6 +267,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2799777828133389091}
     m_Modifications:
+    - target: {fileID: 3738433314842155718, guid: 5114448cea5fddc4d8f8a137294b3350, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738433314842155718, guid: 5114448cea5fddc4d8f8a137294b3350, type: 3}
+      propertyPath: InitialModule.startColor.minColor.a
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738433314842155718, guid: 5114448cea5fddc4d8f8a137294b3350, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.00725066
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738433314842155718, guid: 5114448cea5fddc4d8f8a137294b3350, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738433314842155718, guid: 5114448cea5fddc4d8f8a137294b3350, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
     - target: {fileID: 6808670815175455547, guid: 5114448cea5fddc4d8f8a137294b3350, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.10493813
