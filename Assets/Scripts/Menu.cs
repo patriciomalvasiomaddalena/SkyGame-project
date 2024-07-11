@@ -54,7 +54,16 @@ public class Menu : MonoBehaviour
 
     public void Salir()
     {
-        AudioManager.instance?.PlayMasterSfxAudio("ID_Click");
+        AudioManager.instance?.PlayMasterSfxAudio("ID_Abort");
+        StartCoroutine(WaitAndQuit());
+      
+        
+    }
+
+    private IEnumerator WaitAndQuit()
+    {
+        yield return new WaitForSeconds(1f);
         Application.Quit();
+        
     }
 }

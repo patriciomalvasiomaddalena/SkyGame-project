@@ -3991,6 +3991,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 730592878}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1039307637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4129,10 +4141,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 730592878}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6331,6 +6343,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[1].Key
+      value: ID_Abort
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[2].Key
+      value: ID_error
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[3].Key
+      value: ID_Motor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[4].Key
+      value: ID_Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[5].Key
+      value: ID_Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[6].Key
+      value: ID_Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[7].Key
+      value: ID_Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[8].Key
+      value: ID_Kaboom
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[1].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: c7be79f7f2d414d4bbdc4a951479949f, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[2].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c1f1d1534aac7c478db05c7d2e95476, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[3].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 48befd5af3e4e3442b16040ab75f2ae7, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 52d859cddb480e947b859d6365060e66, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[5].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 82fc35d617835b047815764325c46a43, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[6].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d54a15075f5a9b4a839ea96d0d3adbf, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[7].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 12017691ea6515347b72bbd9c9fcee9f, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[8].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 073072e07d9383245b3103645aa0a1e3, type: 3}
     - target: {fileID: 4540315924348423381, guid: 67033be955b3d004f81ec5523b876548, type: 3}
       propertyPath: m_Name
       value: Audiomanager
