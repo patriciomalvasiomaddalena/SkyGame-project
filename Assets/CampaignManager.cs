@@ -41,7 +41,9 @@ public class CampaignManager : MonoBehaviour
     }
     private void Start()
     {
-        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);   
+        UIManager.Instance.SetTMP("CreditTMP", "Credits: " + PlayerCredits);
+        AudioManager.instance?.PlayMasterMusicAudio("ID_Radar");
+
     }
 
     public void AddPlayerCredits(float ValueToAdd)

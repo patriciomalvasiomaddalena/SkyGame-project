@@ -16,16 +16,19 @@ public class PulseRadar : MonoBehaviour
     [SerializeField] private Transform pinRadar;
     [SerializeField] LayerMask radarLayerMask;
 
+    
     private void Awake()
     {
         pulseTransform = transform.Find("Circle");
         rangeMax =10f ;
         fadeRange=0;
-        rangeSpeed = rangeMax;
+        rangeSpeed = 7.6f;
         pingedColliderCheck = new List<Collider2D>();
+      
     }
     void Update()
     {
+       
         range += rangeSpeed * Time.deltaTime;
         if (range > rangeMax)
         {

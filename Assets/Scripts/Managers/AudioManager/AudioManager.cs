@@ -87,6 +87,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopMasterMusicAudio(string AudioID)
+    {
+        if (AudioSources[0].clip != null && AudioSources[0].clip.name == MusicDictionary[AudioID].name)
+        {
+            AudioSources[0].Stop();
+        }
+        else
+        {
+            Debug.LogError("Music with ID not playing: " + AudioID);
+        }
+    }
+
     //play a SFX from the AudioManager, incase We Dont want to save those values
     public void PlayMasterSfxAudio(string AudioID)
     {

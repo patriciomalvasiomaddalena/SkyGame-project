@@ -8,16 +8,22 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
-    AudioSource AU;
+   
 
     [SerializeField] TextMeshProUGUI EnergyUI;
+
+    private void Start()
+    {
+        AudioManager.instance?.PlayMasterMusicAudio("ID_Menu");
+    }
 
 
 
     public void Jugar()
     {
+       
         SceneManager.LoadScene(1);
-
+        
     }
     public void Tutorial()
     {
@@ -39,15 +45,16 @@ public class Menu : MonoBehaviour
     public void Credits()
     {
         SceneManager.LoadScene(4);
+     
+    } public void Click()
+    {
+        AudioManager.instance?.PlayMasterSfxAudio("ID_Click");
 
     }
 
-
-
-
-
     public void Salir()
     {
+        AudioManager.instance?.PlayMasterSfxAudio("ID_Click");
         Application.Quit();
     }
 }

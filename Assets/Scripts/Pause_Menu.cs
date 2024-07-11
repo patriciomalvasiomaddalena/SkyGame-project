@@ -18,16 +18,18 @@ public class Pause_Menu : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.instance?.StopMasterMusicAudio("ID_Pause");
         PauseMenu.SetActive(false);
         Pause = false;
+        AudioManager.instance?.PlayMasterMusicAudio("ID_Radar");
         Time.timeScale = 1;
-        
         
     }
 
     public void MainMenu(string MenuName)
     {
         SceneManager.LoadScene(MenuName);
+        AudioManager.instance?.StopMasterMusicAudio("ID_Pause");
     }
     public void Quit( )
     {

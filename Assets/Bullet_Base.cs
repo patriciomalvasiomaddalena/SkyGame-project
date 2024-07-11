@@ -14,6 +14,8 @@ public class Bullet_Base : MonoBehaviour
     public PoolFabricator _BaseBulletPool;
     [SerializeField] bool _IsFired;
 
+    
+
     private void Awake()
     {
         _Health = _MaxHealth;
@@ -99,12 +101,15 @@ public class Bullet_Base : MonoBehaviour
 
     private void TotalBulletDeath()
     {
+
+        
         this.transform.position = _BaseBulletPool.transform.position;
         _BaseBulletPool.AddObjToPool(this.gameObject);
         Resetvalues();
         _IsFired = false;
-        //AudioManager.instance?.PlayMasterSfxAudio("ID_Kaboom");
+        AudioManager.instance?.PlayMasterSfxAudio("ID_Kaboom");
         gameObject.SetActive(false);
+
     }
 
 }

@@ -63,7 +63,9 @@ public class ShopManager : MonoBehaviour
             Pfleet.FuelAmount += FuelBought;
             _FuelSlider.value = Pfleet.FuelAmount;
             _FuelSlider.minValue = Pfleet.FuelAmount;
+
         }
+        AudioManager.instance?.PlayMasterSfxAudio("ID_Coin");
     }
 
     public void SetPlayerFleetRef(Fleet_Player fleet_Player)
