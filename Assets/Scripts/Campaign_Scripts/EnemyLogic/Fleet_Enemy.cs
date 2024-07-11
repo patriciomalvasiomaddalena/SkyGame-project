@@ -33,7 +33,10 @@ public class Fleet_Enemy : Fleet_Base
 
     private void Update()
     {
-        RunLogic();
+        if (!CampaignManager.ShopManagerInstance.PlayerIsInCityUI)
+        {
+            RunLogic();
+        }
     }
 
     protected override void RunLogic()
