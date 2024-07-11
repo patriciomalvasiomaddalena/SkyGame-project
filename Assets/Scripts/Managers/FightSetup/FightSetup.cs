@@ -42,13 +42,15 @@ public class FightSetup : MonoBehaviour
         if(_SwitchSceneCooldown > 0 )
         {
             _SwitchSceneCooldown = _SwitchSceneCooldown - 1 * Time.deltaTime;
+
         }
 
-        if (Fighting && NPCShipsLeft <= 0 || PlayerShipsLeft <=0)
+        if (Fighting && NPCShipsLeft <= 0 || PlayerShipsLeft <= 0)
         {
             CheckForInjuries();
 
             ScreenManager.Instance.PopScreen();
+            
         }
     }
 
@@ -113,6 +115,7 @@ public class FightSetup : MonoBehaviour
         PlayerShipsLeft = _PlayerFleetComp.Count;
         ScreenManager.Instance.PushScreen("IDFight");
         Fighting = true;
+
     }
 
     private void CheckForInjuries()

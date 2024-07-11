@@ -41,6 +41,7 @@ public class Aim_Mouse : AimBase
             if(IsFiring == true)
             {
                 PlayerStopShoot();
+                AudioManager.instance?.PlayMasterSfxAudio("ID_Shoot");
             }
             IsFiring = false;
         }

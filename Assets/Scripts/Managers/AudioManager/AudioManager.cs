@@ -95,7 +95,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Music with ID not playing: " + AudioID);
+            Debug.Log("Music with ID not playing: " + AudioID);
         }
     }
 

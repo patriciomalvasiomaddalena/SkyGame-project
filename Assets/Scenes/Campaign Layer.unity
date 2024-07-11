@@ -11230,6 +11230,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: SFXDictionary._serializedList.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: b4edf77fa42608b49b447cd1e4344662, type: 3}
+    - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
+      propertyPath: MusicDictionary._serializedList.Array.data[3].Value
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e8697e366854714e987ec3587394c80, type: 3}
     - target: {fileID: 4540315924348423381, guid: 67033be955b3d004f81ec5523b876548, type: 3}
       propertyPath: m_Name
       value: Audiomanager

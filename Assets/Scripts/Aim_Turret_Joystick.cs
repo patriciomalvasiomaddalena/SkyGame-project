@@ -22,10 +22,11 @@ public class Aim_Turret_Joystick : AimBase ,IDragHandler,IEndDragHandler
     public void ShootMethod()
     {
         _LockFire = !_LockFire;
-  
         if(_LockFire == true)
         {
             PlayerShoot.Invoke();
+            AudioManager.instance?.PlayMasterSfxAudio("ID_Shoot");
+
         }
     }
 

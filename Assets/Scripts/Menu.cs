@@ -55,6 +55,7 @@ public class Menu : MonoBehaviour
     public void Salir()
     {
         AudioManager.instance?.PlayMasterSfxAudio("ID_Abort");
+        AudioManager.instance?.PlayMasterSfxAudio("ID_MotorTurnOff");
         StartCoroutine(WaitAndQuit());
       
         
