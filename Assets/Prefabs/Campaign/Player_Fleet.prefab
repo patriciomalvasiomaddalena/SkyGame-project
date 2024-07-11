@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7785591951152816487}
   - component: {fileID: 8147761332847190209}
   - component: {fileID: 6705629600135400941}
+  - component: {fileID: 6713018993447226562}
   m_Layer: 16
   m_Name: Player_Fleet
   m_TagString: PlayerFleet
@@ -110,8 +111,10 @@ MonoBehaviour:
   MoveInput: {fileID: 6136382356656378495}
   _LRC: {fileID: 0}
   _FuelRend: {fileID: 2466356228812818447}
+  _StaminaComp: {fileID: 0}
   FuelAmount: 3000
   MaxFuel: 3000
+  FuelRegenRate: 0
   FuelEff: 1
   _InitialFuel: 0
   FinalFuel: 0
@@ -307,6 +310,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6713018993447226562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89548230185132249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc43aeebefd2103458a112c17397aff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MaxStaminaCount: 0
+  _CurrentStamina: 0
+  _StaminaRegen: 0
 --- !u!1 &129119873773145769
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3b678e5ebf0a6459672bc9da273578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _LRC: {fileID: 0}
 --- !u!1 &556081074981856672
 GameObject:
   m_ObjectHideFlags: 0

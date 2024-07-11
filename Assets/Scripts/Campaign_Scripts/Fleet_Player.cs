@@ -14,11 +14,12 @@ public class Fleet_Player : Fleet_Base
     [SerializeField] Campaign_Input_Base MoveInput;
     [SerializeField] LineRendererController _LRC;
     [SerializeField] CircleLineDrawer _FuelRend;
+    [SerializeField] StaminaRegenComp _StaminaComp;
     Vector3 Dire;
     private bool Selected,_HasFuel;
 
 
-    public float FuelAmount, MaxFuel;
+    public float FuelAmount, MaxFuel, FuelRegenRate;
     public float FuelEff;
 
     SpriteRenderer _SpRenderer;
@@ -35,8 +36,16 @@ public class Fleet_Player : Fleet_Base
         _LRC = GetComponent<LineRendererController>();
         _LRC.Points[0] = this.transform.position;
         CampaignManager.Instance._PlayerFleets.Add(this);
+        _StaminaComp = GetComponent<StaminaRegenComp>();
+        RegenerateStamina();
+    }
 
-        //staminacomp.rechargestamina(sarasa);
+    private void RegenerateStamina()
+    {
+        _StaminaComp._CurrentStamina = FuelAmount;
+        _StaminaComp._MaxStaminaCount = MaxFuel;
+        _StaminaComp._StaminaRegen = FuelRegenRate;
+        FuelAmount = _StaminaComp.RechargeStamina(_StaminaComp._CurrentStamina, MaxFuel, StaminaRegenComp.TimeScale.Seconds);
     }
 
     private void OnEnable()
