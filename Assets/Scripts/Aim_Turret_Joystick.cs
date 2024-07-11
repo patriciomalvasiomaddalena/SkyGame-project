@@ -28,6 +28,10 @@ public class Aim_Turret_Joystick : AimBase ,IDragHandler,IEndDragHandler
             AudioManager.instance?.PlayMasterSfxAudio("ID_Shoot");
 
         }
+        else if(_LockFire == false)
+        {
+            PlayerStopShoot.Invoke();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)

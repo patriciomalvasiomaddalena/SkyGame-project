@@ -49,7 +49,10 @@ public class Fleet_Player : Fleet_Base
 
     private void Update()
     {
+        if (!CampaignManager.ShopManagerInstance.PlayerIsInCityUI)
+        {
         RunLogic();
+        }
     }
 
     protected override void RunLogic()

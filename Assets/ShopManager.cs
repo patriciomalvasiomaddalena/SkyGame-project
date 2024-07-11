@@ -16,10 +16,14 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Slider _FuelSlider;
     [SerializeField] TMPro.TextMeshProUGUI _PlayerCreditsTMP;
 
+    public bool PlayerIsInCityUI { get; private set; }
+
     public void OpenCityCanvas(CityScript.CityType Modifiers)
     {
+        PlayerIsInCityUI = true;
         ConfigureCityType(Modifiers);
         ShopCanvas.gameObject.SetActive(true);
+        UIManager.Instance.UICanvas.gameObject.SetActive(false);
         _PlayerCreditsTMP.text = "Credits: " + CampaignManager.Instance.PlayerCredits;
         _FuelSlider.maxValue = Pfleet.MaxFuel;
         _FuelSlider.minValue = Pfleet.FuelAmount;
@@ -28,6 +32,8 @@ public class ShopManager : MonoBehaviour
 
     public void CloseCityCanvas()
     {
+        PlayerIsInCityUI = false;
+        UIManager.Instance.UICanvas.gameObject.SetActive(true);
         ShopCanvas.gameObject.SetActive(false);
         RemovePlayerFleetRef();
     }
@@ -54,8 +60,6 @@ public class ShopManager : MonoBehaviour
             {
                 FuelBought = (int)(Pfleet.MaxFuel - Pfleet.FuelAmount);
             }
-
-
             float cost = (_FuelMod * _FuelBasePrice) * FuelBought;
             CampaignManager.Instance.RemovePlayerCredits(cost);
             _PlayerCreditsTMP.text = "Credits: " + CampaignManager.Instance.PlayerCredits;
