@@ -50,6 +50,10 @@ MonoBehaviour:
     _serializedList:
     - Key: ID_MetalPipe
       Value: {fileID: 8300000, guid: 4b90cdbfc4370ba4da52a29fe5781e23, type: 3}
+    - Key: ID_Abort
+      Value: {fileID: 8300000, guid: c7be79f7f2d414d4bbdc4a951479949f, type: 3}
+    - Key: ID_MotorTurnOff
+      Value: {fileID: 8300000, guid: bf4ffdbb1c15d5e4493c2e1e1c24a077, type: 3}
     - Key: ID_Motor
       Value: {fileID: 8300000, guid: 48befd5af3e4e3442b16040ab75f2ae7, type: 3}
     - Key: ID_Explosion
@@ -57,7 +61,7 @@ MonoBehaviour:
     - Key: ID_Click
       Value: {fileID: 8300000, guid: 82fc35d617835b047815764325c46a43, type: 3}
     - Key: ID_Shoot
-      Value: {fileID: 8300000, guid: 5d54a15075f5a9b4a839ea96d0d3adbf, type: 3}
+      Value: {fileID: 8300000, guid: b4edf77fa42608b49b447cd1e4344662, type: 3}
     - Key: ID_Coin
       Value: {fileID: 8300000, guid: 12017691ea6515347b72bbd9c9fcee9f, type: 3}
     - Key: ID_Kaboom

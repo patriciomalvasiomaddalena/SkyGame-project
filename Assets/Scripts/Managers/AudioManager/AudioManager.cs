@@ -113,5 +113,16 @@ public class AudioManager : MonoBehaviour
             Debug.LogError("ID not Found: " + AudioID);
         }
     }
+    public void StopMasterSfxAudio(string AudioID)
+    {
+        if (AudioSources[1].clip != null && AudioSources[0].clip.name == MusicDictionary[AudioID].name)
+        {
+            AudioSources[1].Stop();
+        }
+        else
+        {
+            Debug.Log("Music with ID not playing: " + AudioID);
+        }
+    }
 
 }

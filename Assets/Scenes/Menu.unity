@@ -1623,27 +1623,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_LocalScale.x
@@ -1687,11 +1687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 34
+      value: 32.597
       objectReference: {fileID: 0}
     - target: {fileID: 4527834571579208103, guid: 8ec36f85cc59cd946bbd15b9806b5cb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6570,7 +6570,7 @@ PrefabInstance:
     - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
       propertyPath: SFXDictionary._serializedList.Array.data[7].Value
       value: 
-      objectReference: {fileID: 8300000, guid: 5d54a15075f5a9b4a839ea96d0d3adbf, type: 3}
+      objectReference: {fileID: 8300000, guid: b4edf77fa42608b49b447cd1e4344662, type: 3}
     - target: {fileID: 4270430358534039501, guid: 67033be955b3d004f81ec5523b876548, type: 3}
       propertyPath: SFXDictionary._serializedList.Array.data[8].Value
       value: 

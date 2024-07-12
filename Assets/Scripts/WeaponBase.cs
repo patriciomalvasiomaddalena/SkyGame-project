@@ -89,7 +89,7 @@ public class WeaponBase : ModuleBase
                 Bullet.ExtraDir(RecoilRand);
                 Bullet.Fired();
                 _WeaponPulse = 0;
-
+            AudioManager.instance?.PlayMasterSfxAudio("ID_Shoot");
             }
             else
             {
