@@ -28,19 +28,22 @@ public class Movement_IA : Move_Base
 
             if (Distance < _MinDistance) 
             {
-                CreateNewNode();
+                MoveTargetNode();
             }
         }
         else
         {
-            CreateNewNode();
+            Debug.LogError("IATarget Is Null");
+            return this.transform.position;
         }
         Vector3 Director = (_TargetPos.transform.position - this.transform.position).normalized * ModDist;
         return Director;
     }
 
-    private void CreateNewNode()
+    private void MoveTargetNode()
     {
+        Vector3 NewPositionToMove = new Vector3(Random.Range(-6, 7), Random.Range(-3, 3));
+        _TargetPos.transform.position = NewPositionToMove;
 
     }
     private void OnDrawGizmos()
