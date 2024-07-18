@@ -62,7 +62,7 @@ public class Fleet_Enemy : Fleet_Base
             _StateMachine.SwitchState(_StateMachine._PatrolState);
         }
     }
-
+     
 
     private void CheckNearbyEnemy()
     {

@@ -19,7 +19,7 @@ public class Movement_IA : Move_Base
 
             if(Distance < _ArrivalDist)
             {
-                ModDist = -0.2f*(Distance/ _ArrivalDist);
+                ModDist = 0.9f;
             }
             else
             {
@@ -42,6 +42,7 @@ public class Movement_IA : Move_Base
 
     private void MoveTargetNode()
     {
+        Debug.Log("movetarget");
         Vector3 NewPositionToMove = new Vector3(Random.Range(-6, 7), Random.Range(-3, 3));
         _TargetPos.transform.position = NewPositionToMove;
 

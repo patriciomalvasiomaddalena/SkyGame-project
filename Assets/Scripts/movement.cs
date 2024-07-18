@@ -12,7 +12,8 @@ public class movement : MonoBehaviour
 
     [SerializeField] InsiderManager _InsiderManagerScript;
 
-    [SerializeField] float _Speed; // velocidad final; observacion, parece que cada 50 velocidad x 1 masa es velocidad rapida.
+    [SerializeField] float _Speed; // velocidad final;
+    [SerializeField] float _MaxSpeedClamp; // clamp de velocidad final, SOLO SE APLICA A LA IA
     [SerializeField] float _Weight; // peso final
     [SerializeField] Vector2 _MovSpeed;
     [SerializeField] bool IsPlayer;
@@ -61,7 +62,14 @@ public class movement : MonoBehaviour
     {
         _Moveaxis = _MovementInput.RunLogic();
 
-            _2DRb.AddForce(_Moveaxis * _Speed, ForceMode2D.Force);
+        _2DRb.AddForce(_Moveaxis * _Speed, ForceMode2D.Force);
+        if (!IsPlayer)
+        {
+            if(_2DRb.velocity.magnitude > _MaxSpeedClamp)
+            {
+                _2DRb.velocity = Vector2.ClampMagnitude(_2DRb.velocity, _MaxSpeedClamp);
+            }
+        }
         _MovSpeed = _2DRb.velocity;
     }
 
