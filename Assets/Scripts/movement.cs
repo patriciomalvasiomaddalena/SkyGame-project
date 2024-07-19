@@ -75,7 +75,17 @@ public class movement : MonoBehaviour
 
     private void Death(object[] a)
     {
+        if (IsPlayer)
+        {
+            _InsiderManagerScript.UnSubscribeToEvent(InsiderEventType.Event_CommandDeath, Death);
+        }
+        else
+        {
+            _InsiderManagerScript.UnSubscribeToEvent(InsiderEventType.NPC_Event_CommandDeath, Death);
+        }
+          
         this.enabled = false;
+
     }
 
     private void ResetComp()

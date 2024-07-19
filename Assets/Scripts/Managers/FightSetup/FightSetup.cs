@@ -15,6 +15,8 @@ public class FightSetup : MonoBehaviour
 
     public List<Fleet_Enemy> _EnemyFleetsInCombat;
 
+    private List<GameObject> _ShipsInCombat;
+
     [SerializeField] float _CombatRadius, _SwitchSceneCooldown, _CooldownDuration, PlayerShipsLeft, NPCShipsLeft;
 
     bool Fighting,wololo = false;
@@ -56,8 +58,7 @@ public class FightSetup : MonoBehaviour
 
     public void DragAllFleets(Transform CombatPosition)
     {
-        Debug.Log("DragAllFleets");
-
+        ClearVariables();
         hits = Physics2D.OverlapCircleAll(CombatPosition.position,_CombatRadius);
         foreach (Collider2D _CurrentCol in hits)
         {
@@ -83,6 +84,14 @@ public class FightSetup : MonoBehaviour
         {
             GetPlayerCompositions();
         }
+    }
+
+    private void ClearVariables()
+    {
+        _EnemyFleetComp.Clear();
+        _EnemyFleetsInCombat.Clear();
+        _PlayerFleetComp.Clear();
+        _PlayerFleetsInCombat.Clear();
     }
 
     private void GetPlayerCompositions()
@@ -114,13 +123,20 @@ public class FightSetup : MonoBehaviour
         NPCShipsLeft = _EnemyFleetComp.Count;
         PlayerShipsLeft = _PlayerFleetComp.Count;
         ScreenManager.Instance.PushScreen("IDFight");
+        NextNPCSpawn(default);
         Fighting = true;
 
     }
 
     private void CheckForInjuries()
     {
-        Fighting = false;
+        for(int i = 0; i < _ShipsInCombat.Count; i++)
+        {
+            if (_ShipsInCombat[i].gameObject.activeSelf ==false)
+            {
+                
+            }
+        }
     }
 
     public void NextNPCSpawn(object[] a)
@@ -130,10 +146,9 @@ public class FightSetup : MonoBehaviour
             var wawa = _EnemyFleetsInCombat[i].GetComponent<Fleet_Enemy>();
             if(wawa._FleetComposition.Count > 0)
             {
-                wawa._FleetComposition.RemoveAt(0);
+               SpawnNPCShip(wawa);
             }
-        }
-        NPCShipsLeft--;
+        } 
     }
 
     public void NextPlayerSpawn(object[] a)
@@ -147,6 +162,17 @@ public class FightSetup : MonoBehaviour
             }
         }
         PlayerShipsLeft--;
+
     }
+
+    private void SpawnNPCShip(Fleet_Enemy EnemyFleet)
+    {
+        GameObject NewShip = Instantiate(EnemyFleet._FleetComposition[0].ShipBlueprint, this.transform.position, Quaternion.identity);
+        EnemyFleet._FleetComposition[0].ShipObjectReference = NewShip;
+        NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
+        NPCShipsLeft--;
+        _ShipsInCombat.Add(NewShip);
+    }
+
 
 }

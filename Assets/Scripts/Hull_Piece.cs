@@ -63,7 +63,17 @@ public class Hull_Piece : MonoBehaviour
 
     private void CommandDeath(object[] p)
     {
-        if(_AttachedModule is CommandModule)
+        if (IsNPC)
+        {
+            _InsiderManager.UnSubscribeToEvent(InsiderEventType.NPC_Event_CommandDeath, CommandDeath);
+        }
+        else
+        {
+            _InsiderManager.UnSubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
+        }
+
+
+        if (_AttachedModule is CommandModule)
         {
             return;
         }

@@ -15656,7 +15656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1265257438473890981, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1311514083945254403, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
       propertyPath: IsPlayer
@@ -15884,11 +15884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5080248028032952361, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.86
+      value: -13.72
       objectReference: {fileID: 0}
     - target: {fileID: 5080248028032952361, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23
+      value: 12.18
       objectReference: {fileID: 0}
     - target: {fileID: 5080248028032952361, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15900,7 +15900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5207315743622877363, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5532018616462578481, guid: 86f5da0f7d3a59547a878725c8dbcdd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21299,6 +21299,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+    - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
     - target: {fileID: 6583074157608532185, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -21449,7 +21461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8165425687977769168, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8939401784649088706, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_RenderMode

@@ -1,10 +1,9 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CommandModule : ModuleBase
 {
-
     object[] a =null;
     [SerializeField] float _ShipHealth;
     [SerializeField]InsiderManager _InsiderManager;
