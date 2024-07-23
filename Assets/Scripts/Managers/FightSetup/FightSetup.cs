@@ -19,7 +19,7 @@ public class FightSetup : MonoBehaviour
 
     [SerializeField] float _CombatRadius, _SwitchSceneCooldown, _CooldownDuration, PlayerShipsLeft, NPCShipsLeft;
 
-    bool Fighting,wololo = false;
+    bool Fighting = false,FirstBorns = false;
     private void Awake()
     {
         if(_Instance == null)
@@ -44,15 +44,17 @@ public class FightSetup : MonoBehaviour
         if(_SwitchSceneCooldown > 0 )
         {
             _SwitchSceneCooldown = _SwitchSceneCooldown - 1 * Time.deltaTime;
-
         }
 
-        if (Fighting && NPCShipsLeft <= 0 || PlayerShipsLeft <= 0)
+        if(Fighting == false)
+        {
+            return;
+        }
+
+        if (Fighting == true && NPCShipsLeft <= 0 || PlayerShipsLeft <= 0 && (_EnemyFleetsInCombat.Count > 0 && _PlayerFleetsInCombat.Count > 0))
         {
             CheckForInjuries();
-
             ScreenManager.Instance.PopScreen();
-            
         }
     }
 
@@ -92,6 +94,7 @@ public class FightSetup : MonoBehaviour
         _EnemyFleetsInCombat.Clear();
         _PlayerFleetComp.Clear();
         _PlayerFleetsInCombat.Clear();
+        FirstBorns = true;
     }
 
     private void GetPlayerCompositions()
@@ -130,13 +133,7 @@ public class FightSetup : MonoBehaviour
 
     private void CheckForInjuries()
     {
-        for(int i = 0; i < _ShipsInCombat.Count; i++)
-        {
-            if (_ShipsInCombat[i].gameObject.activeSelf ==false)
-            {
-                
-            }
-        }
+         
     }
 
     public void NextNPCSpawn(object[] a)
@@ -147,6 +144,7 @@ public class FightSetup : MonoBehaviour
             if(wawa._FleetComposition.Count > 0)
             {
                SpawnNPCShip(wawa);
+               wawa._FleetComposition.RemoveAt(0);
             }
         } 
     }
@@ -171,7 +169,6 @@ public class FightSetup : MonoBehaviour
         EnemyFleet._FleetComposition[0].ShipObjectReference = NewShip;
         NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
         NPCShipsLeft--;
-        _ShipsInCombat.Add(NewShip);
     }
 
 
