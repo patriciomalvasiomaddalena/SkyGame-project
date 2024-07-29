@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Fleet_Base : MonoBehaviour
 {
-    public List<ShipScriptableOBJ> _FleetComposition;
+    public List<ShipData> _FleetComposition;
     protected abstract void RunLogic();
 
     public abstract void DestroySelf();

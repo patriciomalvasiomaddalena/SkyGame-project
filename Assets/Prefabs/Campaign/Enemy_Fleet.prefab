@@ -100,9 +100,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6585139238166755588}
   - component: {fileID: 3862396850514378818}
-  - component: {fileID: 5042162596760390574}
-  - component: {fileID: 4404345773280292753}
+  - component: {fileID: 8517548530483665144}
   - component: {fileID: 3746727587025883451}
+  - component: {fileID: 5042162596760390574}
   m_Layer: 0
   m_Name: Enemy_Fleet
   m_TagString: Untagged
@@ -179,6 +179,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8517548530483665144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323245332459850819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22dd4792b40c0944bb417fcd96aaed76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _FleetComposition: []
+  MoveSpeed: 3
+  DetectDistance: 4
+  _StateMachine: {fileID: 3746727587025883451}
+  _PlayerDetected: 0
+  _PlayerTransform: {fileID: 0}
+--- !u!114 &3746727587025883451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323245332459850819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c28c1016d59064299639a170e5fd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _PatrolVel: 3
+  _PatrolDist: 0.3
+  _PatrolRest: 3
 --- !u!61 &5042162596760390574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,41 +261,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4404345773280292753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8323245332459850819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22dd4792b40c0944bb417fcd96aaed76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _FleetComposition:
-  - {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
-  MoveSpeed: 3
-  DetectDistance: 4
-  _StateMachine: {fileID: 3746727587025883451}
-  _PlayerDetected: 0
-  _PlayerTransform: {fileID: 0}
---- !u!114 &3746727587025883451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8323245332459850819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c28c1016d59064299639a170e5fd28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _PatrolVel: 3
-  _PatrolDist: 0.3
-  _PatrolRest: 3

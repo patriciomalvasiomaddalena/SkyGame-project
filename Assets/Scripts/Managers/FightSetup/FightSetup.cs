@@ -7,9 +7,9 @@ public class FightSetup : MonoBehaviour
 {
     public static FightSetup _Instance;
 
-    public List<ShipScriptableOBJ> _PlayerFleetComp;
+    public List<ShipData> _PlayerFleetComp;
 
-    public List<ShipScriptableOBJ> _EnemyFleetComp;
+    public List<ShipData> _EnemyFleetComp;
 
     public List<Fleet_Player> _PlayerFleetsInCombat;
 
@@ -51,7 +51,7 @@ public class FightSetup : MonoBehaviour
             return;
         }
 
-        if (Fighting == true && NPCShipsLeft <= 0 || PlayerShipsLeft <= 0 && (_EnemyFleetsInCombat.Count > 0 && _PlayerFleetsInCombat.Count > 0))
+        if (Fighting == true && (NPCShipsLeft <= 0 || PlayerShipsLeft <= 0) && (_EnemyFleetsInCombat.Count > 0 && _PlayerFleetsInCombat.Count > 0))
         {
             CheckForInjuries();
             ScreenManager.Instance.PopScreen();
@@ -78,7 +78,7 @@ public class FightSetup : MonoBehaviour
                 }
            }
         }
-        if (_PlayerFleetsInCombat.Count < 0 || _EnemyFleetsInCombat.Count < 0)
+        if (_PlayerFleetsInCombat.Count <= 0 || _EnemyFleetsInCombat.Count <= 0)
         {
             return;
         }
@@ -101,18 +101,21 @@ public class FightSetup : MonoBehaviour
     {
         foreach(Fleet_Player PlayerF in _PlayerFleetsInCombat)
         {
-            foreach(ShipScriptableOBJ SCOB in PlayerF._FleetComposition)
+            foreach(ShipData SCOB in PlayerF._FleetComposition)
             {
                 _PlayerFleetComp.Add(SCOB);
             }
+           
         }
 
         foreach(Fleet_Enemy EnemyF in _EnemyFleetsInCombat)
         {
-            foreach(ShipScriptableOBJ SCEB in EnemyF._FleetComposition)
+            
+            foreach(ShipData SCEB in EnemyF._FleetComposition)
             {
                 _EnemyFleetComp.Add(SCEB);
             }
+            
         }
 
         if(_SwitchSceneCooldown <= 0)
@@ -133,19 +136,36 @@ public class FightSetup : MonoBehaviour
 
     private void CheckForInjuries()
     {
-         
+        if(_EnemyFleetComp.Count <= 0)
+        {
+            foreach(Fleet_Enemy Fenemy in _EnemyFleetsInCombat)
+            {
+                Fenemy._FleetComposition.Clear();
+            }
+        }
+        if (_PlayerFleetComp.Count <= 0)
+        {
+            foreach(Fleet_Player Fplayer in _PlayerFleetsInCombat)
+            {
+                Fplayer._FleetComposition.Clear();
+            }
+        }
     }
-
     public void NextNPCSpawn(object[] a)
     {
-        for(int i = 0;i < _EnemyFleetsInCombat.Count; i++)
+        for(int i = 0;i < _EnemyFleetComp.Count; i++)
         {
-            var wawa = _EnemyFleetsInCombat[i].GetComponent<Fleet_Enemy>();
-            if(wawa._FleetComposition.Count > 0)
+            if (_EnemyFleetComp[i].ShipBaseData.ShipBlueprint != null) 
             {
-               SpawnNPCShip(wawa);
-               wawa._FleetComposition.RemoveAt(0);
-            }
+                #region spawnLogic
+                GameObject NewShip = Instantiate(_EnemyFleetComp[i].ShipBaseData.ShipBlueprint, this.transform.position, Quaternion.identity);
+                _EnemyFleetComp[i].CurrentShipInstance = NewShip;
+                NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
+                NPCShipsLeft--;
+                #endregion
+
+                _EnemyFleetComp.RemoveAt(i);
+            }   
         } 
     }
 
@@ -163,12 +183,9 @@ public class FightSetup : MonoBehaviour
 
     }
 
-    private void SpawnNPCShip(Fleet_Enemy EnemyFleet)
+    private void SpawnNPCShip(ShipData ShipTable)
     {
-        GameObject NewShip = Instantiate(EnemyFleet._FleetComposition[0].ShipBlueprint, this.transform.position, Quaternion.identity);
-        EnemyFleet._FleetComposition[0].ShipObjectReference = NewShip;
-        NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
-        NPCShipsLeft--;
+       
     }
 
 

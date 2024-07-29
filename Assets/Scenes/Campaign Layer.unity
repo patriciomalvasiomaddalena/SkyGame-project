@@ -21187,6 +21187,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[0].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+    - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[1].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+    - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[2].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
     - target: {fileID: 2815780391879629327, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1
@@ -21251,6 +21267,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: FuelEff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: MaxFuel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: MoveInput
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: MoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FuelRend
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: FuelAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[0].ShipBaseData
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850480843266604854, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[1].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 80e0c2e14c14d2f4faa33e292b1dd1df, type: 2}
     - target: {fileID: 3920656085747744005, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1
@@ -21301,16 +21361,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: FuelEff
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: MaxFuel
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: MoveInput
+      value: 
+      objectReference: {fileID: 8455722014180548008}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: MoveSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FuelRend
+      value: 
+      objectReference: {fileID: 8455722014180548009}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: FuelAmount
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _StaminaComp
+      value: 
+      objectReference: {fileID: 8455722014180548010}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: FuelRegenRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[0].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 80e0c2e14c14d2f4faa33e292b1dd1df, type: 2}
     - target: {fileID: 6583074157608532185, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -21477,6 +21577,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+--- !u!114 &8455722014180548008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5766934185247535286, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+  m_PrefabInstance: {fileID: 8455722014180548007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3b678e5ebf0a6459672bc9da273578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8455722014180548009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6578457118010864998, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+  m_PrefabInstance: {fileID: 8455722014180548007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689b4dd63678b554190a9b6828d3ded2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8455722014180548010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618967686499529131, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+  m_PrefabInstance: {fileID: 8455722014180548007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc43aeebefd2103458a112c17397aff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

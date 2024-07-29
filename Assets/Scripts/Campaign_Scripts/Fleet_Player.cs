@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class Fleet_Player : Fleet_Base
+public class Fleet_Player :Fleet_Base
 {
     public static List<Fleet_Player> MovablePlayerFleet= new List<Fleet_Player>();
 

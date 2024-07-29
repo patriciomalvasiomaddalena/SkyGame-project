@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3815943685720934071}
   - component: {fileID: 8388550563585690005}
-  - component: {fileID: 5485025785884607071}
+  - component: {fileID: 3324663404749748086}
   - component: {fileID: 8740243672296328959}
   - component: {fileID: 7785591951152816487}
   - component: {fileID: 8147761332847190209}
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5485025785884607071
+--- !u!114 &3324663404749748086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,16 +106,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _FleetComposition:
-  - {fileID: 11400000, guid: 80e0c2e14c14d2f4faa33e292b1dd1df, type: 2}
-  MoveSpeed: 5
-  MoveInput: {fileID: 6136382356656378495}
+  - ShipBaseData: {fileID: 0}
+    CurrentShipInstance: {fileID: 0}
+  MoveSpeed: 0
+  MoveInput: {fileID: 0}
   _LRC: {fileID: 0}
-  _FuelRend: {fileID: 2466356228812818447}
+  _FuelRend: {fileID: 0}
   _StaminaComp: {fileID: 0}
-  FuelAmount: 3000
-  MaxFuel: 3000
+  FuelAmount: 0
+  MaxFuel: 0
   FuelRegenRate: 0
-  FuelEff: 1
+  FuelEff: 0
   _InitialFuel: 0
   FinalFuel: 0
   TotalDist: 0
