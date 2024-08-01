@@ -15,9 +15,8 @@ public class FightSetup : MonoBehaviour
 
     public List<Fleet_Enemy> _EnemyFleetsInCombat;
 
-    private List<GameObject> _ShipsInCombat;
-
     [SerializeField] float _CombatRadius, _SwitchSceneCooldown, _CooldownDuration, PlayerShipsLeft, NPCShipsLeft;
+    [SerializeField] int NPCShipIndex, PlayerShipIndex;
 
     bool Fighting = false,FirstBorns = false;
     private void Awake()
@@ -62,6 +61,7 @@ public class FightSetup : MonoBehaviour
     {
         ClearVariables();
         hits = Physics2D.OverlapCircleAll(CombatPosition.position,_CombatRadius);
+        print("draging all fleets");
         foreach (Collider2D _CurrentCol in hits)
         {
             Debug.Log("checking all collisions");
@@ -95,6 +95,8 @@ public class FightSetup : MonoBehaviour
         _PlayerFleetComp.Clear();
         _PlayerFleetsInCombat.Clear();
         FirstBorns = true;
+        NPCShipIndex = 0;
+        PlayerShipIndex = 0;
     }
 
     private void GetPlayerCompositions()
@@ -153,20 +155,27 @@ public class FightSetup : MonoBehaviour
     }
     public void NextNPCSpawn(object[] a)
     {
-        for(int i = 0;i < _EnemyFleetComp.Count; i++)
+        if (_EnemyFleetComp[NPCShipIndex] == null)
         {
-            if (_EnemyFleetComp[i].ShipBaseData.ShipBlueprint != null) 
-            {
-                #region spawnLogic
-                GameObject NewShip = Instantiate(_EnemyFleetComp[i].ShipBaseData.ShipBlueprint, this.transform.position, Quaternion.identity);
-                _EnemyFleetComp[i].CurrentShipInstance = NewShip;
-                NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
-                NPCShipsLeft--;
-                #endregion
+            Debug.LogError("NPCSpawn not Working");
+            return;
+        }
+        if(NPCShipIndex > _EnemyFleetComp.Count)
+        {
+            return;
+        }
 
-                _EnemyFleetComp.RemoveAt(i);
-            }   
-        } 
+        if (_EnemyFleetComp[NPCShipIndex].ShipBaseData.ShipBlueprint != null)
+        {
+            #region spawnLogic
+            GameObject NewShip = Instantiate(_EnemyFleetComp[NPCShipIndex].ShipBaseData.ShipBlueprint, this.transform.position, Quaternion.identity);
+            _EnemyFleetComp[NPCShipIndex].CurrentShipInstance = NewShip;
+            NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
+
+            #endregion
+            NPCShipIndex++;
+            NPCShipsLeft--;
+        }
     }
 
     public void NextPlayerSpawn(object[] a)
@@ -182,11 +191,4 @@ public class FightSetup : MonoBehaviour
         PlayerShipsLeft--;
 
     }
-
-    private void SpawnNPCShip(ShipData ShipTable)
-    {
-       
-    }
-
-
 }
