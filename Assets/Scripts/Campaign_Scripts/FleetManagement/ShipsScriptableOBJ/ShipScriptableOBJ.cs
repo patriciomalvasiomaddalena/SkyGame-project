@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShipScriptableOBJ : ScriptableObject
 {
     public string ShipName;
-    public GameObject ShipBlueprint, ShipObjectReference;
+    public GameObject ShipBlueprint;
    public ShipScriptableOBJ(string NewName, GameObject NewShipBlueprint)
    {
         ShipName = NewName;
