@@ -10,15 +10,16 @@ public class Hull_Piece : MonoBehaviour
     [SerializeField] GameObject[] _NeighborSnapPoints = new GameObject[4];
     [SerializeField] List<Transform> _SnappedPoint = new List<Transform>();
     [SerializeField] ModuleBase _AttachedModule;
+    public float _HP;
     public bool IsNPC;
 
-    HealthComponent _HealthComponent;
+    public HealthComponent _HealthComponent;
 
     private void Start()
     {
- 
-        _HealthComponent = GetComponent<HealthComponent>();
+        _HealthComponent =GetComponent<HealthComponent>();
         _HealthComponent.OnDeathEvent += Death;
+        _HealthComponent.SetHealth(_HP);
         _InsiderManager= GetComponentInParent<InsiderManager>();
         if (IsNPC)
         {
@@ -26,9 +27,9 @@ public class Hull_Piece : MonoBehaviour
         }
         else
         {
-            _InsiderManager.SubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
+            _InsiderManager?.SubscribeToEvent(InsiderEventType.Event_CommandDeath, CommandDeath);
         }
-        _InsiderManager.TriggerEvent(InsiderEventType.Event_HullRepair);
+        _InsiderManager?.TriggerEvent(InsiderEventType.Event_HullRepair);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,13 +53,13 @@ public class Hull_Piece : MonoBehaviour
     private void Death()
     {
         DeathSubscriber(a);
-        this.gameObject.SetActive(false);
         _AttachedModule?.DisabledModule();
+        //this.gameObject.SetActive(false);
     }
 
     private void DeathSubscriber(object[] p)
     {
-        _InsiderManager.TriggerEvent(InsiderEventType.Event_HullBroken);
+        _InsiderManager?.TriggerEvent(InsiderEventType.Event_HullBroken);
     }
 
     private void CommandDeath(object[] p)

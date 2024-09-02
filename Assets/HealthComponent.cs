@@ -6,6 +6,7 @@ public class HealthComponent : MonoBehaviour
 {
    [SerializeField] private float _Maxhealth;
    [SerializeField] private float _Health;
+   [SerializeField] private bool IsAlive = true;
 
     public delegate void OnDeath();
     public event OnDeath OnDeathEvent;
@@ -18,6 +19,12 @@ public class HealthComponent : MonoBehaviour
         _Health = _Maxhealth;
     }
 
+    public void SetHealth(float health)
+    {
+        _Maxhealth = health;
+        _Health= health;
+    }
+
     public float TakeDmg(float damage)
     {
         if(damage < 0)
@@ -26,8 +33,9 @@ public class HealthComponent : MonoBehaviour
         }
         _Health -= damage;
 
-        if(_Health <= 0)
+        if(_Health <= 0 && IsAlive)
         {
+            IsAlive = false;
             Death();
             return 0;
         }
@@ -43,6 +51,7 @@ public class HealthComponent : MonoBehaviour
 
     public void Revive()
     {
+        IsAlive = true;
         OnReviveEvent?.Invoke();
     }
 
