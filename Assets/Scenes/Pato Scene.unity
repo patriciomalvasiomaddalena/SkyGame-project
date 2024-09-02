@@ -314,9 +314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ModuleAttach: {fileID: 0}
   _FuelAmount: 0
-  _ExplosionRadius: 0
-  _ExplosionDMG: 0
-  _HealthMalus: 0
+  _ExplosionRadius: 3
+  _ExplosionDMG: 10
+  _HealthMalus: 50
 --- !u!212 &221899713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -444,6 +444,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2381943524977037132, guid: 140d9f9b301c02642aef2d4ef8e6a291, type: 3}
+      propertyPath: _HP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4057090303603962910, guid: 140d9f9b301c02642aef2d4ef8e6a291, type: 3}
       propertyPath: m_Name
       value: HullPiece (2)
@@ -590,6 +594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2372586856712413422, guid: bfd7ada04fb68ef469fb60ed56f44696, type: 3}
+      propertyPath: _HP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2953912883223106366, guid: bfd7ada04fb68ef469fb60ed56f44696, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.58
@@ -633,6 +641,10 @@ PrefabInstance:
     - target: {fileID: 7081130225524059130, guid: bfd7ada04fb68ef469fb60ed56f44696, type: 3}
       propertyPath: m_Name
       value: ShipTest 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505235494481006092, guid: bfd7ada04fb68ef469fb60ed56f44696, type: 3}
+      propertyPath: _MaxSpeedClamp
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -849,6 +861,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2381943524977037132, guid: 140d9f9b301c02642aef2d4ef8e6a291, type: 3}
+      propertyPath: _HP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4057090303603962910, guid: 140d9f9b301c02642aef2d4ef8e6a291, type: 3}
       propertyPath: m_Name
       value: HullPiece (1)
