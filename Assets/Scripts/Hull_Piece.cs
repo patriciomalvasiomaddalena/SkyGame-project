@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Hull_Piece : MonoBehaviour
 {
-    object[] a = null;
-    [SerializeField] InsiderManager _InsiderManager;
-    [SerializeField] GameObject[] _NeighborSnapPoints = new GameObject[4];
-    [SerializeField] List<Transform> _SnappedPoint = new List<Transform>();
-    [SerializeField] ModuleBase _AttachedModule;
+    protected object[] a = null;
+    [SerializeField] protected InsiderManager _InsiderManager;
+    [SerializeField] protected GameObject[] _NeighborSnapPoints = new GameObject[4];
+    [SerializeField] protected List<Transform> _SnappedPoint = new List<Transform>();
+    [SerializeField] protected ModuleBase _AttachedModule;
     public float _HP;
     public bool IsNPC;
 
@@ -50,19 +50,19 @@ public class Hull_Piece : MonoBehaviour
         }
     }
 
-    private void Death()
+    protected void Death()
     {
         DeathSubscriber(a);
         _AttachedModule?.DisabledModule();
         //this.gameObject.SetActive(false);
     }
 
-    private void DeathSubscriber(object[] p)
+    protected void DeathSubscriber(object[] p)
     {
         _InsiderManager?.TriggerEvent(InsiderEventType.Event_HullBroken);
     }
 
-    private void CommandDeath(object[] p)
+    protected void CommandDeath(object[] p)
     {
         if (IsNPC)
         {
@@ -85,7 +85,7 @@ public class Hull_Piece : MonoBehaviour
 
     }
 
-    private void CheckConnected()
+    protected void CheckConnected()
     {
         if(_SnappedPoint.Count <= 0)
         {
