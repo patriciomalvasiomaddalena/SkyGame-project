@@ -7,10 +7,12 @@ public class HullMod_Fuel_Tank : ModuleBase
     [SerializeField] private float _FuelAmount;
     [SerializeField] private float _ExplosionRadius, _ExplosionDMG;
     [SerializeField] private float _HealthMalus;
-
+    [SerializeField] private Vfx_Exp_Script _VFXScript;
     public override void DisabledModule()
     {
         AoEManager.AoECalculation(this.transform, _ExplosionRadius, _ExplosionDMG);
+        _VFXScript.ActivateGMOB();
+        _VFXScript.PlayVFX();
         this.gameObject.SetActive(false);
     }
 
