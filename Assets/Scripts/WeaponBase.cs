@@ -9,7 +9,7 @@ public class WeaponBase : ModuleBase
 {
     [Header("Refs")]
     [SerializeField] AimBase _AimInput;
-    [SerializeField] GameObject _BulletPrefab;
+    [SerializeField] TestBullet _BulletType;
 
     [Header("Variables")]
     float Rotz;
@@ -85,11 +85,11 @@ public class WeaponBase : ModuleBase
             {
                 _AmmoMag--;
                 float RecoilRand = Random.Range(-_Recoil, _Recoil);
-                var Bullet = TestBulletFactory.Instance.GetObjectFromPool(this.transform.position, this.transform.rotation);
+                var Bullet = TestBulletFactory.InstanceDictionary[_BulletType].GetObjectFromPool(this.transform.position, this.transform.rotation);
                 Bullet.ExtraDir(RecoilRand);
                 Bullet.Fired();
                 _WeaponPulse = 0;
-            AudioManager.instance?.PlayMasterSfxAudio("ID_Shoot");
+                AudioManager.instance?.PlayMasterSfxAudio("ID_Shoot");
             }
             else
             {
@@ -104,7 +104,7 @@ public class WeaponBase : ModuleBase
         {   
             _AmmoMag--;
             float RecoilRand = Random.Range(-_Recoil, _Recoil);
-            var Bullet = TestBulletFactory.Instance.GetObjectFromPool(this.transform.position, this.transform.rotation);
+            var Bullet = TestBulletFactory.InstanceDictionary[_BulletType].GetObjectFromPool(this.transform.position, this.transform.rotation);
             Bullet.Fired();
             Bullet.ExtraDir(RecoilRand);
             _WeaponPulse = 0;

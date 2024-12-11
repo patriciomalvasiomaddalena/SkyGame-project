@@ -80,6 +80,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6538067457308019637}
+  - {fileID: 2700726176560560637}
   - {fileID: 7682230991657133183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95,10 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ca40a2f749ee94eaed182962007f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Energy: 0
+  Energy: 10
   PlayerShip: {fileID: 0}
   TestBulletFactory: {fileID: 1600961002046051467}
   DeleteAllCache: 0
+  PauseObject: {fileID: 0}
 --- !u!114 &3486846195140481565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +140,8 @@ MonoBehaviour:
   _CooldownDuration: 0
   PlayerShipsLeft: 0
   NPCShipsLeft: 0
+  NPCShipIndex: 0
+  PlayerShipIndex: 0
   hits: []
 --- !u!1 &8963293486526030788
 GameObject:
@@ -189,6 +193,7 @@ MonoBehaviour:
   _IosAdsID: 5650759
   _RewardedAdsScript: {fileID: 6261117784237748673}
   _AdsInitializer: {fileID: 3663724489465445307}
+  _UseAds: 0
 --- !u!114 &3663724489465445307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,3 +225,66 @@ MonoBehaviour:
   IosAdUnitId: Rewarded_iOS
   FullReward: 10000
   PartialReward: 5000
+  AD_ID: 
+--- !u!1001 &4079557683644922286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7220358894969659010}
+    m_Modifications:
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707424663228760992, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+      propertyPath: m_Name
+      value: ExplosiveBulletFactory
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+--- !u!4 &2700726176560560637 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2154805567772901459, guid: 75a41a9b18c97634db0121bf0a5c0e20, type: 3}
+  m_PrefabInstance: {fileID: 4079557683644922286}
+  m_PrefabAsset: {fileID: 0}

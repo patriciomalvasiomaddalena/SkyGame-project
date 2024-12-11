@@ -15,7 +15,6 @@ public class HullMod_Fuel_Tank : ModuleBase
         _VFXScript.PlayVFX();
         this.gameObject.SetActive(false);
     }
-
     protected override void RunLogic()
     {
 
@@ -37,6 +36,4 @@ public class HullMod_Fuel_Tank : ModuleBase
             }
         }
     }
-
-
 }

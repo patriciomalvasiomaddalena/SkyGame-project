@@ -21189,7 +21189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.data[0].ShipBaseData
@@ -21201,6 +21201,18 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
     - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.data[2].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+    - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[3].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+    - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[4].ShipBaseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
+    - target: {fileID: 1963432626026765561, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      propertyPath: _FleetComposition.Array.data[5].ShipBaseData
       value: 
       objectReference: {fileID: 11400000, guid: 4c3144371e5c1534785c2e9ae23c0ad5, type: 2}
     - target: {fileID: 2815780391879629327, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}

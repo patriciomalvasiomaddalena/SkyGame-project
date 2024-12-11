@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TestBullet : MonoBehaviour
+public class Bullet_Explosive : TestBullet
 {
-    [SerializeField] protected float _Health, _MaxHealth, _speed, _WindowDamage;
-    [SerializeField] protected bool _CanDamage;
-    public TestBulletFactory _ThisFactory; 
+    [SerializeField] float _radius;
 
     private void Awake()
     {
@@ -15,9 +13,9 @@ public class TestBullet : MonoBehaviour
     }
     private void Update()
     {
-        if(_Health > 0)
+        if (_Health > 0)
         {
-            _Health = _Health - (1*Time.deltaTime);
+            _Health = _Health - (1 * Time.deltaTime);
             Fired();
 
             _WindowDamage = _WindowDamage - (1 * Time.deltaTime);
@@ -32,47 +30,43 @@ public class TestBullet : MonoBehaviour
             TurnOff(this);
         }
     }
-    public void ExtraDir(float dir)
+    public new void ExtraDir(float dir)
     {
-       if(dir != 0) 
-       {
+        if (dir != 0)
+        {
             this.transform.rotation *= Quaternion.Euler(0, 0, dir);
-       }
+        }
     }
 
-    public void Fired()
+    public new void Fired()
     {
         this.transform.position += _speed * Time.deltaTime * transform.up;
     }
-    protected virtual void ResetVal()
+    private new void ResetVal()
     {
         _Health = _MaxHealth;
         _CanDamage = false;
         _WindowDamage = 0.2f;
     }
 
-    public static void TurnOn(TestBullet b)
+    public static void TurnOn(Bullet_Explosive b)
     {
-        b.ResetVal();
-        b.gameObject.SetActive(true);
+            b.ResetVal();
+            b.gameObject.SetActive(true);
     }
 
-    public static void TurnOff(TestBullet b)
+    public static void TurnOff(Bullet_Explosive b)
     {
         b.gameObject.SetActive(false);
     }
 
-    protected void OnTriggerEnter2D(Collider2D Other)
+    private new void OnTriggerEnter2D(Collider2D Other)
     {
         if (Other.gameObject.CompareTag("ShipPart") && _CanDamage == true && Other.gameObject.activeSelf == true)
         {
-            HealthComponent _EnemyHealth = Other.GetComponent<HealthComponent>();
-            if (_EnemyHealth != null)
-            {
-                float damagedealt = _EnemyHealth.TakeDmg(_Health);
-                _Health -= damagedealt;
-                //print("dealtdamage: " + damagedealt);
-            }
+            AoEManager.AoECalculation(this.transform, _radius, _Health);
+            _Health = -1;
         }
     }
+
 }

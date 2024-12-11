@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -6,7 +7,8 @@ using UnityEngine;
 
 public class TestBulletFactory : MonoBehaviour
 {
-    public static TestBulletFactory Instance { get; private set; }
+    [SerializedDictionary("TestBullet", "FactoryBullet")]
+    public static Dictionary<TestBullet,TestBulletFactory> InstanceDictionary = new Dictionary<TestBullet, TestBulletFactory>();
 
     [SerializeField] private TestBullet _bulletPrefab;
     [SerializeField] private GameObject _FactoryPrefab;
@@ -16,12 +18,16 @@ public class TestBulletFactory : MonoBehaviour
 
     void Awake()
     {
-        if (Instance)
+        if(InstanceDictionary.ContainsKey(_bulletPrefab))
         {
-            Destroy(gameObject);
-            return;
+            Destroy(this);
         }
-        Instance = this;
+        else
+        {
+            InstanceDictionary.Add(_bulletPrefab, this);
+        }
+
+
         //GameManager.Instance.FactoryDictionary.Add(FactoryID, this.gameObject);
         _Pool = new Pool<TestBullet>(CreateObject, TestBullet.TurnOn, TestBullet.TurnOff, initialAmount);
         //this.gameObject.SetActive(false);
@@ -30,7 +36,8 @@ public class TestBulletFactory : MonoBehaviour
     TestBullet CreateObject()
     {
         var TestBullet = Instantiate(_bulletPrefab, this.transform);
-        TestBullet.transform.SetParent(TestBulletFactory.Instance.transform);
+        TestBullet.transform.SetParent(this.transform);
+        TestBullet._ThisFactory = this;
         return TestBullet;
     }
 
