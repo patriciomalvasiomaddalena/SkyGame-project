@@ -5,19 +5,27 @@ using UnityEngine;
 public class Bullet_Explosive : TestBullet
 {
     [SerializeField] float _radius;
+    public HealthComponent _HealthComponent { get; private set; }
+    [SerializeField] Vfx_Exp_Script _ExplosionVfx;
 
     private void Awake()
     {
+        _HealthComponent = GetComponent<HealthComponent>();
         _CanDamage = false;
-        _Health = _MaxHealth;
+        _HealthComponent.SetHealth(_MaxHealth);
     }
+    private void Start()
+    {
+        _ExplosionVfx.SetParent(this.transform);
+    }
+
     private void Update()
     {
-        if (_Health > 0)
-        {
-            _Health = _Health - (1 * Time.deltaTime);
-            Fired();
 
+        if (_HealthComponent._Health > 0)
+        {
+            _HealthComponent.TakeDmg(1 * Time.deltaTime);
+            Fired();
             _WindowDamage = _WindowDamage - (1 * Time.deltaTime);
             if (_WindowDamage <= 0)
             {
@@ -44,7 +52,7 @@ public class Bullet_Explosive : TestBullet
     }
     private new void ResetVal()
     {
-        _Health = _MaxHealth;
+        _HealthComponent.Revive();
         _CanDamage = false;
         _WindowDamage = 0.2f;
     }
@@ -62,11 +70,19 @@ public class Bullet_Explosive : TestBullet
 
     private new void OnTriggerEnter2D(Collider2D Other)
     {
-        if (Other.gameObject.CompareTag("ShipPart") && _CanDamage == true && Other.gameObject.activeSelf == true)
+        var EnemyHealth = Other.GetComponent<HealthComponent>();
+        if (EnemyHealth != null && _CanDamage)
         {
-            AoEManager.AoECalculation(this.transform, _radius, _Health);
-            _Health = -1;
+            _ExplosionVfx.ActivateGMOB();
+            _ExplosionVfx.SetParent(this.transform);
+            _ExplosionVfx.PlayVFX();
+            AoEManager.AoECalculation(this.transform, _radius, _HealthComponent._Health);
+           _HealthComponent.TakeDmg(100);
         }
     }
 
+    private void OnEnable()
+    {
+        ResetVal();
+    }
 }

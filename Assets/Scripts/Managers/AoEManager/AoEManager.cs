@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -10,13 +11,6 @@ public abstract class AoEManager : MonoBehaviour
     private static  float _GizmoRadius;
     private static Vector3 _Gizmoposition;
     private static bool _DrawMeSomeGizmos;
-
-
-    private void Awake()
-    {
-
-    }
-
 
     public static void AoECalculation(Transform PositionOfAoE,float AoERadius,float AoEDamage)
     {

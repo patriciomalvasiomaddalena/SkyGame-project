@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6589982860176541899}
   - component: {fileID: 2385070741341847264}
   - component: {fileID: 6720140964552628957}
+  - component: {fileID: -2952934535895132267}
   - component: {fileID: 8103164109125704572}
   m_Layer: 0
   m_Name: PD_Bullet
@@ -98,12 +99,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5520a8405c0fb0d409f0b30491719576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 5
-  _MaxHealth: 5
+  _MaxHealth: 1
   _speed: 60
   _WindowDamage: 0.1
   _CanDamage: 0
+  _HPComp: {fileID: 0}
   _ThisFactory: {fileID: 0}
+--- !u!114 &-2952934535895132267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425602194729199868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723dd559e4fbae74db1c5c434b24d3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Maxhealth: 0
+  _Health: 0
+  IsAlive: 1
 --- !u!70 &8103164109125704572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

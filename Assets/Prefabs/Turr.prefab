@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ModuleAttach: {fileID: 0}
   _AimInput: {fileID: 4331322722986748000}
-  _BulletPrefab: {fileID: 8052172603995785662, guid: eca5c18d46eba394a87715356d818a30, type: 3}
+  _BulletType: {fileID: 5247075586880246212, guid: 61c4208c3018c3543a15cc38703e7ed5, type: 3}
   _FactoryString: 
   _Bulletcount: 0
   _BulletFireSpeed: 0.1

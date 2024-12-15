@@ -144,6 +144,7 @@ public class WeaponBase : ModuleBase
 
     public override void DisabledModule()
     {
+        GetComponent<Renderer>().material.color = Color.black;
        this.enabled= false;
     }
 

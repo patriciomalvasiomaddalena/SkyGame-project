@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class TestBullet : MonoBehaviour
 {
-    [SerializeField] protected float _Health, _MaxHealth, _speed, _WindowDamage;
+    [SerializeField] protected float  _MaxHealth, _speed, _WindowDamage;
     [SerializeField] protected bool _CanDamage;
+    public HealthComponent _HPComp;
     public TestBulletFactory _ThisFactory; 
 
     private void Awake()
     {
         _CanDamage = false;
-        _Health = _MaxHealth;
+        _HPComp = GetComponent<HealthComponent>();
+        _HPComp.SetHealth(_MaxHealth);
     }
     private void Update()
     {
-        if(_Health > 0)
+        if(_HPComp._Health > 0)
         {
-            _Health = _Health - (1*Time.deltaTime);
+            _HPComp.TakeDmg(1 * Time.deltaTime);
             Fired();
 
             _WindowDamage = _WindowDamage - (1 * Time.deltaTime);
@@ -46,7 +48,7 @@ public class TestBullet : MonoBehaviour
     }
     protected virtual void ResetVal()
     {
-        _Health = _MaxHealth;
+        _HPComp.Revive();
         _CanDamage = false;
         _WindowDamage = 0.2f;
     }
@@ -64,15 +66,16 @@ public class TestBullet : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D Other)
     {
-        if (Other.gameObject.CompareTag("ShipPart") && _CanDamage == true && Other.gameObject.activeSelf == true)
+        var tryout =Other.GetComponent<HealthComponent>();
+        if(tryout != null && _CanDamage)
         {
-            HealthComponent _EnemyHealth = Other.GetComponent<HealthComponent>();
-            if (_EnemyHealth != null)
-            {
-                float damagedealt = _EnemyHealth.TakeDmg(_Health);
-                _Health -= damagedealt;
-                //print("dealtdamage: " + damagedealt);
-            }
+            float damagedealt = tryout.TakeDmg(_HPComp._Health);
+            _HPComp.TakeDmg(damagedealt);
         }
+    }
+    
+    public virtual void TakeDamage(float DMG)
+    {
+        _HPComp.TakeDmg(DMG);
     }
 }

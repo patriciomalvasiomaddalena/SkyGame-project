@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthComponent : MonoBehaviour
 {
    [SerializeField] private float _Maxhealth;
-   [SerializeField] private float _Health;
+    [SerializeField] public float _Health;
    [SerializeField] private bool IsAlive = true;
 
     public delegate void OnDeath();
@@ -51,8 +51,10 @@ public class HealthComponent : MonoBehaviour
 
     public void Revive()
     {
+        _Health = _Maxhealth;
         IsAlive = true;
         OnReviveEvent?.Invoke();
+        this.enabled= true;
     }
 
 }

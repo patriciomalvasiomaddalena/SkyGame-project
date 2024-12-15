@@ -7,14 +7,18 @@ public class Vfx_Exp_Script : MonoBehaviour
 {
     [SerializeField] ParticleSystem[] _ExplosionVFX = new ParticleSystem[5];
     [SerializeField] float _pulse, _timer;
+    [SerializeField] Transform _Parent;
     private void Awake()
     {
         _ExplosionVFX = GetComponentsInChildren<ParticleSystem>();
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
     public void PlayVFX()
     {
-        this.transform.parent = null;
+        if(_Parent!= null)
+        {
+            this.transform.parent = null;
+        }
         foreach(ParticleSystem p in _ExplosionVFX)
         {
             p.Play();
@@ -24,6 +28,7 @@ public class Vfx_Exp_Script : MonoBehaviour
     public void ActivateGMOB()
     {
         this.gameObject.SetActive(true);
+        _pulse = 0;
     }
 
     private void Update()
@@ -34,7 +39,23 @@ public class Vfx_Exp_Script : MonoBehaviour
         }
         else
         {
+            if (this.transform.parent == null)
+            {
+                this.transform.parent = _Parent;
+            }
             this.gameObject.SetActive(false);
         }
+    }
+
+    public void SetParent(Transform parent)
+    {
+        _Parent = parent;
+        this.transform.parent = parent;
+        this.gameObject.SetActive(_Parent != null);
+    }
+
+    private void OnEnable()
+    {
+        _pulse = 0;
     }
 }

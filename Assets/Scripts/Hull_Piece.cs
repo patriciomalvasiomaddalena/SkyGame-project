@@ -54,6 +54,7 @@ public class Hull_Piece : MonoBehaviour
     {
         DeathSubscriber(a);
         _AttachedModule?.DisabledModule();
+        GetComponent<Renderer>().material.color = Color.gray;
         //this.gameObject.SetActive(false);
     }
 

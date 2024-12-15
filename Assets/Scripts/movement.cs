@@ -71,6 +71,7 @@ public class movement : MonoBehaviour
             }
         }
         _MovSpeed = _2DRb.velocity;
+        this.transform.rotation = Quaternion.identity;
     }
 
     private void Death(object[] a)

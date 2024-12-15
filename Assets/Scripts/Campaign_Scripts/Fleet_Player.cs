@@ -38,7 +38,7 @@ public class Fleet_Player :Fleet_Base
         _LRC.Points[0] = this.transform.position;
         CampaignManager.Instance._PlayerFleets.Add(this);
         _StaminaComp = GetComponent<StaminaRegenComp>();
-        RegenerateStamina();
+        //RegenerateStamina();
     }
 
     private void RegenerateStamina()

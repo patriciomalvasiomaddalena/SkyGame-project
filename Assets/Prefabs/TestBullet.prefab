@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5096256611867479283}
   - component: {fileID: 5247075586880246212}
+  - component: {fileID: 6748529855055286954}
   - component: {fileID: 7454343565493037124}
   - component: {fileID: 5835230682839166751}
   m_Layer: 0
@@ -46,11 +47,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5520a8405c0fb0d409f0b30491719576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 10
   _MaxHealth: 10
-  _speed: 50
+  _speed: 20
   _WindowDamage: 0.1
   _CanDamage: 0
+  _HPComp: {fileID: 6748529855055286954}
+  _ThisFactory: {fileID: 0}
+--- !u!114 &6748529855055286954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397709042525321059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723dd559e4fbae74db1c5c434b24d3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Maxhealth: 0
+  IsAlive: 1
 --- !u!212 &7454343565493037124
 SpriteRenderer:
   m_ObjectHideFlags: 0

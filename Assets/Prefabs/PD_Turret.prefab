@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6945791204544042787
 Transform:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.402, y: -0.477, z: -0.466}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4881261, y: 0.4881261, z: 0.4881261}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3950027275260263203}
@@ -367,6 +367,7 @@ Transform:
   - {fileID: 8701567119461272978}
   - {fileID: 6945791204544042787}
   - {fileID: 535687685055378230}
+  - {fileID: 7230712319273861835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1010877443299271605
@@ -479,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ModuleAttach: {fileID: 0}
-  _AimInput: {fileID: 8831588259727286210}
+  _AimInput: {fileID: 5855615768707472745}
   _BulletType: {fileID: 6720140964552628957, guid: e809bb66dadfedc4eb357c0c6c007ed2, type: 3}
   _FactoryString: 
   _Bulletcount: 0
@@ -490,3 +491,51 @@ MonoBehaviour:
   _MaxAmmoMag: 50
   _AmmoRegenRate: 0.3
   _FireBool: 0
+--- !u!1 &9191340991582627845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7230712319273861835}
+  - component: {fileID: 5855615768707472745}
+  m_Layer: 7
+  m_Name: AimMode_IATurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7230712319273861835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191340991582627845}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.048651, y: 2.048651, z: 2.048651}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 144484460067334906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5855615768707472745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191340991582627845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b8393b70c725b47842b802495aded4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsBeingUsed: 0
+  _ShootAngle: 270
+  RateOfFire: 0.7
+  _playerShip: {fileID: 0}

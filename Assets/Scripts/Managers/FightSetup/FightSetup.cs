@@ -153,6 +153,8 @@ public class FightSetup : MonoBehaviour
             }
         }
     }
+
+    bool FirstTime;
     public void NextNPCSpawn(object[] a)
     {
         if (_EnemyFleetComp[NPCShipIndex] == null)
@@ -171,6 +173,14 @@ public class FightSetup : MonoBehaviour
             GameObject NewShip = Instantiate(_EnemyFleetComp[NPCShipIndex].ShipBaseData.ShipBlueprint, this.transform.position, Quaternion.identity);
             _EnemyFleetComp[NPCShipIndex].CurrentShipInstance = NewShip;
             NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
+            if (FirstTime == false)
+            {
+                _EnemyFleetComp.RemoveAt(NPCShipIndex);
+            }
+            else
+            {
+                FirstTime = false;
+            }
 
             #endregion
             NPCShipIndex++;
@@ -178,6 +188,7 @@ public class FightSetup : MonoBehaviour
         }
     }
 
+    bool playerFirstTime;
     public void NextPlayerSpawn(object[] a)
     {
         for (int i = 0; i < _PlayerFleetsInCombat.Count; i++)
@@ -187,6 +198,15 @@ public class FightSetup : MonoBehaviour
             {
                 //wawa._FleetComposition.Remove(wawa._FleetComposition[0]);
             }
+            if(playerFirstTime == false)
+            {
+                wawa._FleetComposition.RemoveAt(i);
+            }
+            else
+            {
+                playerFirstTime = false;
+            }
+
         }
         PlayerShipsLeft--;
 

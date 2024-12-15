@@ -32,7 +32,7 @@ public class Aim_Mouse : AimBase
         {
             if(IsFiring == false)
             {
-                PlayerShoot();
+                PlayerShoot?.Invoke();
             }
             IsFiring = true;   
         }
@@ -40,7 +40,8 @@ public class Aim_Mouse : AimBase
         {
             if(IsFiring == true)
             {
-                PlayerStopShoot();
+
+                    PlayerStopShoot?.Invoke();
                 AudioManager.instance?.PlayMasterSfxAudio("ID_Shoot");
             }
             IsFiring = false;
