@@ -21677,15 +21677,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586128856958516190, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.71
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 5586128856958516190, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.54
+      value: -13.43
       objectReference: {fileID: 0}
     - target: {fileID: 5586128856958516190, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.18
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 5770390910814694288, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.size
@@ -21733,7 +21733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6292247525009246751, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       propertyPath: _FleetComposition.Array.data[0].ShipBaseData

@@ -18,7 +18,7 @@ public class FightSetup : MonoBehaviour
     [SerializeField] float _CombatRadius, _SwitchSceneCooldown, _CooldownDuration, PlayerShipsLeft, NPCShipsLeft;
     [SerializeField] int NPCShipIndex, PlayerShipIndex;
 
-    bool Fighting = false,FirstBorns = false;
+    bool Fighting = false;
     private void Awake()
     {
         if(_Instance == null)
@@ -94,7 +94,6 @@ public class FightSetup : MonoBehaviour
         _EnemyFleetsInCombat.Clear();
         _PlayerFleetComp.Clear();
         _PlayerFleetsInCombat.Clear();
-        FirstBorns = true;
         NPCShipIndex = 0;
         PlayerShipIndex = 0;
     }
@@ -128,9 +127,11 @@ public class FightSetup : MonoBehaviour
 
     private void FightTime()
     {
-        NPCShipsLeft = _EnemyFleetComp.Count;
-        PlayerShipsLeft = _PlayerFleetComp.Count;
+        NPCShipsLeft = _EnemyFleetComp.Count +1;
+        PlayerShipsLeft = _PlayerFleetComp.Count +1;
         ScreenManager.Instance.PushScreen("IDFight");
+        FirstTime = true;
+        playerFirstTime = true;
         NextNPCSpawn(default);
         Fighting = true;
 
@@ -138,14 +139,14 @@ public class FightSetup : MonoBehaviour
 
     private void CheckForInjuries()
     {
-        if(_EnemyFleetComp.Count <= 0)
+        if(NPCShipsLeft <= 0)
         {
             foreach(Fleet_Enemy Fenemy in _EnemyFleetsInCombat)
             {
                 Fenemy._FleetComposition.Clear();
             }
         }
-        if (_PlayerFleetComp.Count <= 0)
+        if (PlayerShipsLeft <= 0)
         {
             foreach(Fleet_Player Fplayer in _PlayerFleetsInCombat)
             {
@@ -154,16 +155,18 @@ public class FightSetup : MonoBehaviour
         }
     }
 
-    bool FirstTime;
+    bool FirstTime = true;
     public void NextNPCSpawn(object[] a)
     {
+        if (NPCShipIndex >= _EnemyFleetComp.Count)
+        {
+            NPCShipsLeft = -1;
+            NPCShipIndex = 0;
+            return;
+        }
         if (_EnemyFleetComp[NPCShipIndex] == null)
         {
             Debug.LogError("NPCSpawn not Working");
-            return;
-        }
-        if(NPCShipIndex > _EnemyFleetComp.Count)
-        {
             return;
         }
 
@@ -173,22 +176,28 @@ public class FightSetup : MonoBehaviour
             GameObject NewShip = Instantiate(_EnemyFleetComp[NPCShipIndex].ShipBaseData.ShipBlueprint, this.transform.position, Quaternion.identity);
             _EnemyFleetComp[NPCShipIndex].CurrentShipInstance = NewShip;
             NewShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
-            if (FirstTime == false)
+            if(FirstTime == true && NPCShipIndex == 0)
             {
-                _EnemyFleetComp.RemoveAt(NPCShipIndex);
+                NPCShipIndex++;
             }
-            else
+            else if(FirstTime == true && NPCShipIndex >= 1)
             {
                 FirstTime = false;
+                NPCShipsLeft--;
             }
 
+            if(FirstTime == false)
+            {
+                NPCShipIndex++;
+                NPCShipsLeft--;
+            }
+     
             #endregion
-            NPCShipIndex++;
-            NPCShipsLeft--;
+
         }
     }
 
-    bool playerFirstTime;
+    bool playerFirstTime = true;
     public void NextPlayerSpawn(object[] a)
     {
         for (int i = 0; i < _PlayerFleetsInCombat.Count; i++)
@@ -205,6 +214,7 @@ public class FightSetup : MonoBehaviour
             else
             {
                 playerFirstTime = false;
+                i = -1;
             }
 
         }

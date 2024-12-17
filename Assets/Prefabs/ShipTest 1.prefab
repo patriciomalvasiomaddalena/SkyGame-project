@@ -373,7 +373,9 @@ MonoBehaviour:
   - {fileID: 8777072220252284364}
   _SnappedPoint: []
   _AttachedModule: {fileID: 0}
+  _HP: 100
   IsNPC: 0
+  _HealthComponent: {fileID: 0}
 --- !u!114 &4372091145992408051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Maxhealth: 100
   _Health: 0
+  IsAlive: 1
 --- !u!50 &1269522110029402878
 Rigidbody2D:
   serializedVersion: 4
@@ -833,7 +836,9 @@ MonoBehaviour:
   - {fileID: 7914816962852091852}
   _SnappedPoint: []
   _AttachedModule: {fileID: 0}
+  _HP: 100
   IsNPC: 0
+  _HealthComponent: {fileID: 0}
 --- !u!114 &255716303051283700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Maxhealth: 100
   _Health: 0
+  IsAlive: 1
 --- !u!50 &6828423842566284765
 Rigidbody2D:
   serializedVersion: 4
@@ -1163,7 +1169,9 @@ MonoBehaviour:
   - {fileID: 5837718264462152601}
   _SnappedPoint: []
   _AttachedModule: {fileID: 0}
+  _HP: 100
   IsNPC: 0
+  _HealthComponent: {fileID: 0}
 --- !u!114 &2153888245729168516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1178,6 +1186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Maxhealth: 100
   _Health: 0
+  IsAlive: 1
 --- !u!50 &2169936527514060343
 Rigidbody2D:
   serializedVersion: 4
@@ -1986,6 +1995,7 @@ MonoBehaviour:
   _MovementInput: {fileID: 4520778807037052740}
   _InsiderManagerScript: {fileID: 5889526621019980979}
   _Speed: 50
+  _MaxSpeedClamp: 0
   _Weight: 0
   _MovSpeed: {x: 0, y: 0}
   IsPlayer: 0

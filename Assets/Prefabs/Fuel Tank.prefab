@@ -274,7 +274,7 @@ MonoBehaviour:
   _ExplosionRadius: 3
   _ExplosionDMG: 10
   _HealthMalus: 50
-  _VFXScript: {fileID: 391633579776684686}
+  _VFXScript: {fileID: 6279172822352281587}
 --- !u!61 &7283085963898768291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -387,38 +387,21 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6140508896402138060, guid: 220d256d733752a448ebc5e77bad6ab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 391633579776684686}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220d256d733752a448ebc5e77bad6ab3, type: 3}
 --- !u!4 &5827200845983468151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9155232393108148975, guid: 220d256d733752a448ebc5e77bad6ab3, type: 3}
   m_PrefabInstance: {fileID: 3446251046222895256}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8855470360938937172 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6140508896402138060, guid: 220d256d733752a448ebc5e77bad6ab3, type: 3}
+--- !u!114 &6279172822352281587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8716595551056373611, guid: 220d256d733752a448ebc5e77bad6ab3, type: 3}
   m_PrefabInstance: {fileID: 3446251046222895256}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &391633579776684686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8855470360938937172}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12aeaf63432c13c4b80682557893a3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ExplosionVFX:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _pulse: 0
-  _timer: 0

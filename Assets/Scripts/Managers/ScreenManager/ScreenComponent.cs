@@ -64,7 +64,10 @@ public class ScreenComponent : MonoBehaviour, Iscreen
     {
         foreach(var pair in _BeforeDeactivation)
         {
-            pair.Key.enabled = pair.Value;
+            if(pair.Key != null)
+            {
+                pair.Key.enabled = pair.Value;
+            }
         }
     }
 
@@ -75,7 +78,10 @@ public class ScreenComponent : MonoBehaviour, Iscreen
             foreach (Behaviour behaviour in ChildrenBehaviours)
             {
                 //_BeforeDeactivation[behaviour] = behaviour.enabled;
-                behaviour.enabled = false;
+                if(behaviour != null)
+                {
+                    behaviour.enabled = false;
+                }
             }
         }
 
