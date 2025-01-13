@@ -1923,6 +1923,7 @@ GameObject:
   - component: {fileID: 5889526621019980979}
   - component: {fileID: 6278326747736094762}
   - component: {fileID: 4520778807037052740}
+  - component: {fileID: 8876471644884394015}
   m_Layer: 0
   m_Name: ShipTest 1
   m_TagString: Player
@@ -1993,12 +1994,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MovementInput: {fileID: 4520778807037052740}
+  _KeyboardInput: {fileID: 4520778807037052740}
+  _GyroInput: {fileID: 8876471644884394015}
   _InsiderManagerScript: {fileID: 5889526621019980979}
   _Speed: 50
   _MaxSpeedClamp: 0
   _Weight: 0
   _MovSpeed: {x: 0, y: 0}
   IsPlayer: 0
+  _CurrentController: 0
 --- !u!114 &5889526621019980979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2069,6 +2073,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231c78b6e128d22498ab1c0cbbee1c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8876471644884394015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081130225524059130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc4253ed485fbe4f8fadaec3b2f03e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MovementInput: {x: 0, y: 0}
 --- !u!1 &7474379192056366102
 GameObject:
   m_ObjectHideFlags: 0

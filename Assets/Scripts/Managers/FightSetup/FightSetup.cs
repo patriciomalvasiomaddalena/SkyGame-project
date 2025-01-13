@@ -15,10 +15,13 @@ public class FightSetup : MonoBehaviour
 
     public List<Fleet_Enemy> _EnemyFleetsInCombat;
 
+    public GameObject _JoystickUI;
+
     [SerializeField] float _CombatRadius, _SwitchSceneCooldown, _CooldownDuration, PlayerShipsLeft, NPCShipsLeft;
     [SerializeField] int NPCShipIndex, PlayerShipIndex;
 
     bool Fighting = false;
+
     private void Awake()
     {
         if(_Instance == null)
@@ -35,7 +38,7 @@ public class FightSetup : MonoBehaviour
     private void Start()
     {
         EventManager.SubscribeToEvent(EventType.Enemy_Ship_Lost, NextNPCSpawn);
-        EventManager.SubscribeToEvent(EventType.Player_Ship_Lost, NextPlayerSpawn);
+        EventManager.SubscribeToEvent(EventType.Player_Ship_Lost, NextPlayerSpawn);  
     }
 
     private void Update()
@@ -134,6 +137,16 @@ public class FightSetup : MonoBehaviour
         playerFirstTime = true;
         NextNPCSpawn(default);
         Fighting = true;
+
+
+        if (config_manager._Instance.CurrentController != ControllerType.KyM)
+        {
+            _JoystickUI.SetActive(true);
+        }
+        else
+        {
+            _JoystickUI.SetActive(false);
+        }
 
     }
 

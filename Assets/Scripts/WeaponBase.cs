@@ -8,7 +8,8 @@ using UnityEngine.Rendering;
 public class WeaponBase : ModuleBase
 {
     [Header("Refs")]
-    [SerializeField] AimBase _AimInput;
+    [SerializeField] AimBase _AimInput; // this is the variable used to set current input
+    [SerializeField] AimBase _AimKyM, _AimJoystick, _AimGyro, _AimNpC; // this is used to know what input we have available
     [SerializeField] TestBullet _BulletType;
 
     [Header("Variables")]
@@ -20,21 +21,50 @@ public class WeaponBase : ModuleBase
     [SerializeField] float _RotationSpeed,_Recoil;
     [SerializeField] float _AmmoMag,_MaxAmmoMag,_AmmoRegenRate;
     [SerializeField] bool _FireBool;
+    [SerializeField] ControllerType _CurrentController;
 
     [Header("Npc config")]
     bool _IsNPC = false;
     bool _NPCDischarge;
     private void Start()
     {
-        _AimInput.IsBeingUsed = true;
-        _AimInput.PlayerShoot += StartFiring;
-        _AimInput.PlayerStopShoot += StopFiring;
+        _CurrentController = config_manager._Instance.CurrentController;
 
-        if(_AimInput is IA_Aim_Turret)
+        if(_AimInput is IA_Aim_Turret) // this turret is an IA, so we skip the other checks
         {
             _IsNPC = true;
             _AmmoRegenRate = _AmmoRegenRate * 1.2f;
         }
+        else
+        {
+            SwitchController();
+        }
+        _AimInput.IsBeingUsed = true;
+        _AimInput.PlayerShoot += StartFiring;
+        _AimInput.PlayerStopShoot += StopFiring;
+    }
+
+    private void SwitchController()
+    {
+        _CurrentController = config_manager._Instance.CurrentController;
+
+        switch( _CurrentController )
+        {
+            case ControllerType.KyM:
+                _AimInput = _AimKyM;
+                break;
+
+            case ControllerType.Gyro_Touch:
+                _AimInput = config_manager._Instance.JoystickAim.GetComponent<Aim_Turret_Joystick>();
+
+            break;
+            case ControllerType.Joystick:
+                _AimInput = config_manager._Instance.JoystickAim.GetComponent<Aim_Turret_Joystick>();
+
+                break;
+        }
+        _AimInput.gameObject.SetActive(true);
+        _AimInput.enabled = true;
     }
 
     float _ammopulse;

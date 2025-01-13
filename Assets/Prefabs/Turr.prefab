@@ -84,6 +84,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5660043466114580958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7729330733918719159}
+  - component: {fileID: 6955350784760506959}
+  m_Layer: 7
+  m_Name: AimMode_NPC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7729330733918719159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660043466114580958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5941336642322712659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6955350784760506959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660043466114580958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b8393b70c725b47842b802495aded4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsBeingUsed: 0
+  _ShootAngle: 180
+  RateOfFire: 10
+  _playerShip: {fileID: 0}
 --- !u!1 &6514719068045127719
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +214,7 @@ Transform:
   - {fileID: 2638985828715158418}
   - {fileID: 9006962644133346512}
   - {fileID: 6188410149184799081}
+  - {fileID: 7729330733918719159}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2180051919830557451
@@ -279,6 +328,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ModuleAttach: {fileID: 0}
   _AimInput: {fileID: 4331322722986748000}
+  _AimKyM: {fileID: 4331322722986748000}
+  _AimJoystick: {fileID: 0}
+  _AimGyro: {fileID: 0}
+  _AimNpC: {fileID: 6955350784760506959}
   _BulletType: {fileID: 5247075586880246212, guid: 61c4208c3018c3543a15cc38703e7ed5, type: 3}
   _FactoryString: 
   _Bulletcount: 0
@@ -289,6 +342,7 @@ MonoBehaviour:
   _MaxAmmoMag: 10
   _AmmoRegenRate: 0.7
   _FireBool: 0
+  _CurrentController: 0
 --- !u!1 &7094855697705982369
 GameObject:
   m_ObjectHideFlags: 0

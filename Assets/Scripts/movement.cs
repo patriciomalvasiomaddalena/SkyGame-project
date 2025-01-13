@@ -17,6 +17,7 @@ public class movement : MonoBehaviour
     [SerializeField] float _Weight; // peso final
     [SerializeField] Vector2 _MovSpeed;
     [SerializeField] bool IsPlayer;
+    [SerializeField] ControllerType _CurrentController;
 
     Vector2 _Moveaxis;
 
@@ -52,8 +53,34 @@ public class movement : MonoBehaviour
             GameManager.Instance.PlayerShip = this.gameObject;
             GameManager _GManager = FindObjectOfType<GameManager>();
             _GManager.PlayerShip = this.gameObject;
+
+            SwitchControllerInput();
         }
     }
+
+    private void  SwitchControllerInput()
+    {
+        _CurrentController = config_manager._Instance.CurrentController;
+
+        switch (_CurrentController)
+        {
+            case ControllerType.KyM:
+                _MovementInput = GetComponentInChildren<Movement_Keyboard>();
+                break;
+
+            case ControllerType.Gyro_Touch:
+                _MovementInput = GetComponent<Movement_Accelerometer>();
+
+                break;
+            case ControllerType.Joystick:
+                _MovementInput = config_manager._Instance.JoystickMovement;
+
+                break;
+        }
+        _MovementInput.gameObject.SetActive(true);
+        _MovementInput.enabled = true;
+    }
+
 
 
     //ideas, cuando el jugador no deja inputs, incrementar la gravedad para hacer que caiga mas rapido
