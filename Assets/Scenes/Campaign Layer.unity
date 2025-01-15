@@ -10773,6 +10773,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 239178179261488849, guid: 749b3ac53d82af3418b563f08eda34d5, type: 3}
   m_PrefabInstance: {fileID: 1049494649}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1370390118 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3237743239378671093, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+  m_PrefabInstance: {fileID: 8455722014180548007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1424551049
 GameObject:
   m_ObjectHideFlags: 0
@@ -11017,6 +11022,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889e05d78bbbd9845947567ae907f182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CamInputKyM: {fileID: 1726110423}
+  CamInputTouch: {fileID: 1726110424}
+--- !u!114 &1726110423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726110417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b1cf207f419d64582dfff587148af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CampaignCamera: {fileID: 1370390118}
+  DragCamera: 0
+--- !u!114 &1726110424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726110417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c65ba1cb1f0b3448ae0203b9da4251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CampCam: {fileID: 1370390118}
 --- !u!1 &1773104399
 GameObject:
   m_ObjectHideFlags: 0
@@ -22001,6 +22035,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5336618939690608814, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1726110422}
+    - targetCorrespondingSourceObject: {fileID: 5336618939690608814, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1726110424}
+    - targetCorrespondingSourceObject: {fileID: 5336618939690608814, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1726110423}
     - targetCorrespondingSourceObject: {fileID: 8087003146892126044, guid: add8c19c975dcbb45b5c8fd4df342497, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8455722014180548013}

@@ -17,7 +17,8 @@ public class Fleet_Player :Fleet_Base
     [SerializeField] CircleLineDrawer _FuelRend;
     [SerializeField] StaminaRegenComp _StaminaComp;
     Vector3 Dire;
-    private bool Selected,_HasFuel;
+    [SerializeField]private bool Selected;
+    bool _HasFuel;
 
 
     public float FuelAmount, MaxFuel, FuelRegenRate;
@@ -38,7 +39,29 @@ public class Fleet_Player :Fleet_Base
         _LRC.Points[0] = this.transform.position;
         CampaignManager.Instance._PlayerFleets.Add(this);
         _StaminaComp = GetComponent<StaminaRegenComp>();
+
+        SwitchControllerType();
+
         //RegenerateStamina();
+    }
+
+    private void SwitchControllerType()
+    {
+        switch (config_manager._Instance.CurrentController)
+        {
+            case ControllerType.KyM:
+                MoveInput = GetComponentInChildren<Campaign_Input_PC>(true);
+                break;
+
+            case ControllerType.Gyro_Touch:
+            case ControllerType.Joystick:
+                MoveInput = GetComponentInChildren<Campaign_Input_Mobile>(true);
+                break; 
+        }
+        if(!MoveInput.gameObject.activeSelf)
+        {
+            MoveInput.gameObject.SetActive(true);
+        }
     }
 
     private void RegenerateStamina()
@@ -145,6 +168,7 @@ public class Fleet_Player :Fleet_Base
             }
         }
         this._SpRenderer.material.color = Color.cyan;
+        CampaignManager.Instance.FleetSelected = true;
     }
 
     public override void DestroySelf()

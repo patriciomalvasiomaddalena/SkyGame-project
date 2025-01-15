@@ -1,20 +1,29 @@
 
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] CamInput_base CamInputKyM, CamInputTouch;
+
+    private void LateUpdate()
     {
-        
+      switch (config_manager._Instance.CurrentController)
+        {
+            case ControllerType.KyM:
+                CamInputKyM.RunLogic();
+
+                break;
+
+            case ControllerType.Gyro_Touch:
+
+            case ControllerType.Joystick:
+                CamInputTouch.RunLogic();
+            break;
+
+        }
+
     }
 }

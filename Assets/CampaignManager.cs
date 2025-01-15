@@ -7,6 +7,8 @@ public class CampaignManager : MonoBehaviour
 {
     public float PlayerCredits;
 
+    public bool FleetSelected;
+
     public static CampaignManager Instance;
 
     public List<Fleet_Player> _PlayerFleets = new List<Fleet_Player>();
