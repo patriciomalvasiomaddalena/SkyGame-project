@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
-   
-
     [SerializeField] TextMeshProUGUI EnergyUI;
 
     private void Start()
@@ -21,32 +19,17 @@ public class Menu : MonoBehaviour
 
     public void Jugar()
     {
-       
-        SceneManager.LoadScene(1);
-        
-    }
-    public void Tutorial()
-    {
-        SceneManager.LoadScene(2);
 
+        AsyncLoadManager._Instance.LoadAsyncLevel("Campaign Layer");
+        
     }
      public void Campaign()
     {
-        SceneManager.LoadScene(1);
+        AsyncLoadManager._Instance.LoadAsyncLevel("Campaign Layer");
 
     }
 
-     public void Orb()
-    {
-        SceneManager.LoadScene(4);
-
-    }
-    
-    public void Credits()
-    {
-        SceneManager.LoadScene(4);
-     
-    } public void Click()
+    public void Click()
     {
         AudioManager.instance?.PlayMasterSfxAudio("ID_Click");
 

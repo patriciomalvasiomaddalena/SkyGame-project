@@ -7,9 +7,6 @@ public class CamInputTouch : CamInput_base
     [SerializeField] private Camera _CampCam;
 
     Vector2 StartPos, dragStartPos, DragEndPos, Finger0Pos;
-
-    
-
     //
     // TO DO: ADD A WAY TO UNLOCK FLEET SELECTION :)
 

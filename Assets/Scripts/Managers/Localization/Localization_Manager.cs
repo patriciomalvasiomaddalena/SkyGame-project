@@ -48,12 +48,11 @@ public class Localization_Manager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-        StartCoroutine(DownloadCodex(_WebUrl));
-
         if(Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this);
+            StartCoroutine(DownloadCodex(_WebUrl));
         }
         else
         {

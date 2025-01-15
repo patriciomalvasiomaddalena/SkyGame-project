@@ -44,7 +44,15 @@ public class GameManager : MonoBehaviour
     {
         if(PauseObject == null)
         {
-            PauseObject = FindObjectOfType<Pause_Menu>().GetComponent<GameObject>();
+            var pause_Menu = FindObjectOfType<Pause_Menu>();
+            if(pause_Menu != null)
+            {
+                PauseObject = pause_Menu.gameObject;
+            }
+            else
+            {
+                pause_Menu = null;
+            }
         }
     }
 
@@ -72,14 +80,14 @@ public class GameManager : MonoBehaviour
     {
         Energy--;
         PlayerPrefs.SetInt("Energy", Energy);
-        SceneManager.LoadScene(0);
+        AsyncLoadManager._Instance.LoadAsyncLevel("Menu");
     }
 
     public void ReturnToMenu()
     {
         Energy--;
         PlayerPrefs.SetInt("Energy", Energy);
-        SceneManager.LoadScene(1);
+        AsyncLoadManager._Instance.LoadAsyncLevel("Campaign Layer");
     }
 
     public void TogglePauseButton(bool toggle)
