@@ -1,7 +1,16 @@
 using AYellowpaper.SerializedCollections;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Device;
+
+public enum IScreenActive
+{
+    ScreenCampaign,
+    ScreenFight
+}
 
 public class ScreenManager : MonoBehaviour
 {
@@ -12,6 +21,9 @@ public class ScreenManager : MonoBehaviour
     [SerializedDictionary("Scene ID", "SceneComponentPrefab")]
     public SerializedDictionary<string, ScreenComponent> ScreenDiccionary;
 
+    public IScreenActive activeScreen;
+
+    public event Action SwitchedScene = delegate { }; 
 
     private void Awake()
     {
@@ -26,8 +38,10 @@ public class ScreenManager : MonoBehaviour
         PushScreen("IDCampaign");
     }
 
+    float pulse, timer = 3;
     public void PushScreen(Iscreen PushingScreen, bool hideScreen = true)
     {
+        AsyncLoadManager._Instance.FadeOutManager.StartFadeOut();
         print("pushscreen");
 
         //si tengo una screen activa previamente
@@ -41,46 +55,62 @@ public class ScreenManager : MonoBehaviour
         _ScreenStacks.Push(PushingScreen);
         //activamos la screen nueva
         PushingScreen.Activate();
-
-        print("pushed scene" + PushingScreen.ToString());
     }
 
     public void PushScreen(string ScreenID, bool hideScreen = true)
     {
-        if(ScreenDiccionary.ContainsKey(ScreenID))
+        if (ScreenDiccionary.ContainsKey(ScreenID))
         {
-            Iscreen PushingScreen = ScreenDiccionary[ScreenID];
+            StartCoroutine(PushScreenAsync(ScreenID, hideScreen));
+        }
+    }
 
-            if (_ScreenStacks.Count > 0)
+    private IEnumerator PushScreenAsync( string ScreenID, bool hideScreen)
+    {
+        Iscreen PushingScreen = ScreenDiccionary[ScreenID];
+
+        if (_ScreenStacks.Count > 0)
+        {
+            //la desactivamos sin sacarla del stack
+            if (_ScreenStacks.Peek() != null)
             {
-                //la desactivamos sin sacarla del stack
-                if(_ScreenStacks.Peek() != null)
-                {
-                    _ScreenStacks.Peek().Deactivate(hideScreen);
-                }
-                else
-                {
-                    Debug.LogWarning("screenstack is null");
-                }
+                _ScreenStacks.Peek().Deactivate(hideScreen);
             }
-
-            //pusheamos la screen nueva
-            _ScreenStacks.Push(PushingScreen);
-
-            //activamos la screen nueva
-            if(!PushingScreen.ScreenComp.gameObject.activeSelf) 
+            else
             {
-                PushingScreen.ScreenComp.gameObject.SetActive(true);
-                PushingScreen.Activate();
+                Debug.LogWarning("screenstack is null");
             }
+        }
 
+        SwitchedScene.Invoke();
+
+        if(ScreenID == "IDCampaign") //hack para saber que escena estoy usando
+        {
+            activeScreen = IScreenActive.ScreenCampaign;
+        }
+        else
+        {
+            activeScreen = IScreenActive.ScreenFight;
+        }
+
+        AsyncLoadManager._Instance.FadeOutManager.StartFadeOut();
+
+        yield return new WaitForSeconds(2);
+        //pusheamos la screen nueva
+        _ScreenStacks.Push(PushingScreen);
+
+        //activamos la screen nueva
+        if (!PushingScreen.ScreenComp.gameObject.activeSelf)
+        {
+            PushingScreen.ScreenComp.gameObject.SetActive(true);
+            PushingScreen.Activate();
             Debug.Log("pushing screen" + PushingScreen);
         }
         else
         {
             Debug.LogWarning("ScreenID not found: " + ScreenID);
         }
-
+        yield return null;
     }
 
     public void PopScreen()

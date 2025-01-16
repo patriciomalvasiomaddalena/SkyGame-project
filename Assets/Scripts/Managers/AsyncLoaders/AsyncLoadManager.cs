@@ -12,6 +12,7 @@ public class AsyncLoadManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject _LoadingScreen;
     [SerializeField] private UnityEngine.UI.Slider _LoadingScreenSlider;
+    public FadeOutManager FadeOutManager;
 
 
     private void Awake()
@@ -19,7 +20,7 @@ public class AsyncLoadManager : MonoBehaviour
         if(_Instance == null && _Instance != this)
         {
             _Instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -40,7 +41,7 @@ public class AsyncLoadManager : MonoBehaviour
         AsyncOperation LoadOperation = SceneManager.LoadSceneAsync(LevelToLoad);
         while(!LoadOperation.isDone)
         {
-            float ProgressBar = Mathf.Clamp01(LoadOperation.progress / 0.9f);
+            float ProgressBar = Mathf.Clamp01(LoadOperation.progress / 1);
             _LoadingScreenSlider.value = ProgressBar;
             yield return null;
         }
