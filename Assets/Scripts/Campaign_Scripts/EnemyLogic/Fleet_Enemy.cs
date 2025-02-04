@@ -93,6 +93,7 @@ public class Fleet_Enemy : Fleet_Base
     public override void DestroySelf()
     {
         CampaignManager.Instance._EnemyFleets.Remove(this);
+        CampaignManager.Instance.AddPlayerCredits(30000);
         this.gameObject.SetActive(false);
     }
 

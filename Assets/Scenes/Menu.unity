@@ -1627,6 +1627,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Joystick
       m_Image: {fileID: 0}
+    - m_Text: Accelerometer
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

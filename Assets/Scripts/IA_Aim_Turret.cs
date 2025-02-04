@@ -21,7 +21,7 @@ public class IA_Aim_Turret : AimBase
         }
         else
         {
-            Director = (_playerShip.transform.position - _GunTransform.transform.position);
+            return Vector3.zero;
         }
         AiShoot(_GunTransform, Director);
         return Director;

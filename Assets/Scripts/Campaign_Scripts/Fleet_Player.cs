@@ -168,12 +168,18 @@ public class Fleet_Player :Fleet_Base
             }
         }
         this._SpRenderer.material.color = Color.cyan;
-        CampaignManager.Instance.FleetSelected = true;
+        CampaignManager.Instance.SelectFleet();
     }
 
     public override void DestroySelf()
     {
         CampaignManager.Instance._PlayerFleets.Remove(this);
         Destroy(this.gameObject);
+    }
+
+    public void LoseSelection()
+    {
+        Selected = false;
+        this._SpRenderer.material.color = Color.blue;
     }
 }

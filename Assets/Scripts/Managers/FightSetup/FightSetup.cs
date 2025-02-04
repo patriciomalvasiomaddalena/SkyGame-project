@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -213,25 +214,44 @@ public class FightSetup : MonoBehaviour
     bool playerFirstTime = true;
     public void NextPlayerSpawn(object[] a)
     {
-        for (int i = 0; i < _PlayerFleetsInCombat.Count; i++)
+        if (PlayerShipIndex >= _PlayerFleetComp.Count)
         {
-            var wawa = _PlayerFleetsInCombat[i].GetComponent<Fleet_Player>();
-            if (wawa._FleetComposition.Count > 0)
+            PlayerShipsLeft = -1;
+            PlayerShipIndex = 0;
+            return;
+        }
+
+        if (_PlayerFleetComp[PlayerShipIndex] == null)
+        {
+            Debug.LogError("Player fleet composition doesnt have index");
+            return;
+        }
+
+        if (_PlayerFleetComp[PlayerShipIndex].ShipBaseData != null)
+        {
+            #region SpawnShips
+            GameObject NewPlayerShip = Instantiate(_PlayerFleetComp[PlayerShipIndex].ShipBaseData.ShipBlueprint, this.transform.position, Quaternion.identity);
+            _PlayerFleetComp[PlayerShipIndex].CurrentShipInstance = NewPlayerShip;
+            NewPlayerShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
+
+            if(playerFirstTime == true && PlayerShipIndex == 0)
             {
-                //wawa._FleetComposition.Remove(wawa._FleetComposition[0]);
+                PlayerShipIndex++;
             }
-            if(playerFirstTime == false)
-            {
-                wawa._FleetComposition.RemoveAt(i);
-            }
-            else
+            else if(playerFirstTime == true && PlayerShipIndex >= 1)
             {
                 playerFirstTime = false;
-                i = -1;
+                PlayerShipsLeft--;
             }
 
+            if (playerFirstTime == false)
+            {
+                PlayerShipIndex++;
+                PlayerShipsLeft--;
+            }
+            #endregion
         }
-        PlayerShipsLeft--;
+
 
     }
 }

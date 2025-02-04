@@ -21,7 +21,7 @@ public class CampaignManager : MonoBehaviour
 
     public TextMeshProUGUI _FuelCount,_CreditCount;
 
-    [SerializeField] GameObject PlayerUI;
+    [SerializeField] GameObject PlayerUI, ButtonLoseSelection;
 
 
 
@@ -63,6 +63,25 @@ public class CampaignManager : MonoBehaviour
     public void TogglePlayerUI(bool Toggle)
     {
         PlayerUI.SetActive(Toggle);
+    }
+
+    public void SelectFleet()
+    {
+        FleetSelected = true;
+        if(config_manager._Instance.CurrentController != ControllerType.KyM)
+        {
+            ButtonLoseSelection.gameObject.SetActive(true);
+        }
+    }
+
+    public void DeselectFleet()
+    {
+        foreach(Fleet_Player Pfleet in _PlayerFleets)
+        {
+            Pfleet.LoseSelection();
+        }
+        FleetSelected = false;
+        ButtonLoseSelection.gameObject.SetActive(false);
     }
 
 }
