@@ -6,13 +6,12 @@ using UnityEngine;
 
 public class ScreenComponent : MonoBehaviour, Iscreen
 {
-
     Transform _Root;
-
     [SerializedDictionary("component","Status")]
     [SerializeField] SerializedDictionary<Behaviour, bool> _BeforeDeactivation = new SerializedDictionary<Behaviour, bool>();
     Behaviour[] ChildrenBehaviours;
     [SerializeField] bool _DestroyableRoot;
+    ScreenComponent Instance;
 
     public ScreenComponent _ScreenComponent;
 
@@ -27,6 +26,14 @@ public class ScreenComponent : MonoBehaviour, Iscreen
         _BeforeDeactivation= new SerializedDictionary<Behaviour, bool>();
     }
 
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
         _Root = this.gameObject.transform;
@@ -39,7 +46,6 @@ public class ScreenComponent : MonoBehaviour, Iscreen
             }
         }
     }
-
     private void OnEnable()
     {
         if (_Root == null)

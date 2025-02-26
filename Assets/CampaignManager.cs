@@ -23,6 +23,7 @@ public class CampaignManager : MonoBehaviour
 
     [SerializeField] GameObject PlayerUI, ButtonLoseSelection;
 
+    public GameObject JoystickUI;
 
 
     private void Awake()

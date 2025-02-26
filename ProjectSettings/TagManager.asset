@@ -9,6 +9,8 @@ TagManager:
   - ShipPart
   - PlayerFleet
   - Localization
+  - FightSC
+  - CampSC
   layers:
   - Default
   - TransparentFX

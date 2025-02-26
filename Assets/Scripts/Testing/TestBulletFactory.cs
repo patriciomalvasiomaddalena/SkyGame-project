@@ -10,8 +10,8 @@ public class TestBulletFactory : MonoBehaviour
     [SerializedDictionary("TestBullet", "FactoryBullet")]
     public static Dictionary<TestBullet,TestBulletFactory> InstanceDictionary = new Dictionary<TestBullet, TestBulletFactory>();
 
-    [SerializeField] private TestBullet _bulletPrefab;
-    [SerializeField] private GameObject _FactoryPrefab;
+    public TestBullet _bulletPrefab;
+    public GameObject _FactoryPrefab;
     [SerializeField] private int initialAmount = 0;
 
     private Pool<TestBullet> _Pool;

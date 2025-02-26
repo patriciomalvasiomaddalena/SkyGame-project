@@ -11,10 +11,10 @@ public class GameManager : MonoBehaviour
     public int Energy;
     public static GameManager Instance { get; private set; }
     public GameObject PlayerShip;
-    [SerializeField]TestBulletFactory TestBulletFactory;
+    public TestBulletFactory TestBulletFactory;
     [SerializeField] bool DeleteAllCache;
 
-    [SerializeField] GameObject PauseObject;
+    public GameObject PauseObject;
 
     public Dictionary<string, GameObject> FactoryDictionary = new Dictionary<string, GameObject>();
 
@@ -38,6 +38,15 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteAll();
         }
         LoadData();
+    }
+
+    private void Update()
+    {
+        if(TestBulletFactory == null)
+        {
+            TestBulletFactory = GetComponentInChildren<TestBulletFactory>();
+        }
+ 
     }
 
     private void OnLevelWasLoaded(int level)

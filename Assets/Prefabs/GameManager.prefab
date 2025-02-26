@@ -104,7 +104,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7220358894969659010}
   - component: {fileID: 8561122685961697942}
-  - component: {fileID: 3486846195140481565}
   - component: {fileID: 5414192150731069265}
   - component: {fileID: 6676934050845345395}
   m_Layer: 0
@@ -151,24 +150,6 @@ MonoBehaviour:
   TestBulletFactory: {fileID: 1600961002046051467}
   DeleteAllCache: 0
   PauseObject: {fileID: 0}
---- !u!114 &3486846195140481565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8501177314715441785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f6d0c00675e114e89358266c7d9518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScreenDiccionary:
-    _serializedList:
-    - Key: IDCampaign
-      Value: {fileID: 0}
-    - Key: IDFight
-      Value: {fileID: 0}
 --- !u!114 &5414192150731069265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +166,7 @@ MonoBehaviour:
   _EnemyFleetComp: []
   _PlayerFleetsInCombat: []
   _EnemyFleetsInCombat: []
+  _JoystickUI: {fileID: 0}
   _CombatRadius: 1.5
   _SwitchSceneCooldown: 0
   _CooldownDuration: 0
@@ -192,8 +174,6 @@ MonoBehaviour:
   NPCShipsLeft: 0
   NPCShipIndex: 0
   PlayerShipIndex: 0
-  JoystickLeft: {fileID: 0}
-  JoystickRight: {fileID: 0}
   hits: []
 --- !u!114 &6676934050845345395
 MonoBehaviour:
@@ -208,6 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentController: 0
+  JoystickAim: {fileID: 0}
+  JoystickMovement: {fileID: 0}
 --- !u!1 &8963293486526030788
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7682230991657133183
 Transform:
   m_ObjectHideFlags: 0

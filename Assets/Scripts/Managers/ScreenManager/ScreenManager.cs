@@ -33,6 +33,15 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(ScreenDiccionary.Values == null)
+        {
+            ScreenDiccionary["IDFight"] = GameObject.FindGameObjectWithTag("FightSC").GetComponent<ScreenComponent>();
+            ScreenDiccionary["IDCampaign"] = GameObject.FindGameObjectWithTag("CampSC").GetComponent<ScreenComponent>();
+        }
+    }
+
     private void Start()
     {
         PushScreen("IDCampaign");

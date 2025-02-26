@@ -157,11 +157,15 @@ public class Fleet_Player : Fleet_Base
         Selected = true;
         foreach (var Pfleet in MovablePlayerFleet)
         {
-            if (Pfleet != this)
+            if (Pfleet != this && Pfleet._SpRenderer != null)
             {
                 Pfleet.Selected = false;
                 Pfleet._SpRenderer.material.color = Color.blue;
             }
+        }
+        if(_SpRenderer== null)
+        {
+            _SpRenderer = GetComponent<SpriteRenderer>();
         }
         this._SpRenderer.material.color = Color.cyan;
         CampaignManager.Instance.SelectFleet();
