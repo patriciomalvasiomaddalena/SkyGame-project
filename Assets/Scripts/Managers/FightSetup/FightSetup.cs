@@ -131,8 +131,8 @@ public class FightSetup : MonoBehaviour
 
     private void FightTime()
     {
-        NPCShipsLeft = _EnemyFleetComp.Count +1;
-        PlayerShipsLeft = _PlayerFleetComp.Count +1;
+        NPCShipsLeft = _EnemyFleetComp.Count;
+        PlayerShipsLeft = _PlayerFleetComp.Count;
         ScreenManager.Instance.PushScreen("IDFight");
         FirstTime = true;
         playerFirstTime = true;
@@ -233,6 +233,7 @@ public class FightSetup : MonoBehaviour
             GameObject NewPlayerShip = Instantiate(_PlayerFleetComp[PlayerShipIndex].ShipBaseData.ShipBlueprint, this.transform.position, Quaternion.identity);
             _PlayerFleetComp[PlayerShipIndex].CurrentShipInstance = NewPlayerShip;
             NewPlayerShip.transform.SetParent(ScreenManager.Instance.ScreenDiccionary["IDFight"].gameObject.transform);
+            GameManager.Instance.PlayerShip = NewPlayerShip;
 
             if(playerFirstTime == true && PlayerShipIndex == 0)
             {

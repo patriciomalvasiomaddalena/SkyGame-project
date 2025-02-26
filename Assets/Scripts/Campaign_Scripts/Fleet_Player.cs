@@ -1,23 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Reflection;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
-public class Fleet_Player :Fleet_Base
+public class Fleet_Player : Fleet_Base
 {
-    public static List<Fleet_Player> MovablePlayerFleet= new List<Fleet_Player>();
+    public static List<Fleet_Player> MovablePlayerFleet = new List<Fleet_Player>();
 
     [SerializeField] float MoveSpeed;
     [SerializeField] Campaign_Input_Base MoveInput;
     [SerializeField] LineRendererController _LRC;
     [SerializeField] CircleLineDrawer _FuelRend;
     [SerializeField] StaminaRegenComp _StaminaComp;
-    Vector3 Dire;
-    [SerializeField]private bool Selected;
+    [SerializeField]Vector3 Dire;
+    [SerializeField] private bool Selected;
     bool _HasFuel;
 
 
@@ -56,9 +50,9 @@ public class Fleet_Player :Fleet_Base
             case ControllerType.Gyro_Touch:
             case ControllerType.Joystick:
                 MoveInput = GetComponentInChildren<Campaign_Input_Mobile>(true);
-                break; 
+                break;
         }
-        if(!MoveInput.gameObject.activeSelf)
+        if (!MoveInput.gameObject.activeSelf)
         {
             MoveInput.gameObject.SetActive(true);
         }
@@ -76,6 +70,7 @@ public class Fleet_Player :Fleet_Base
     {
         if (_FleetComposition.Count <= 0)
         {
+            CampaignManager.Instance._PlayerFleets.Remove(this);
             Destroy(this.gameObject);
         }
     }
@@ -84,7 +79,7 @@ public class Fleet_Player :Fleet_Base
     {
         if (!CampaignManager.ShopManagerInstance.PlayerIsInCityUI)
         {
-          RunLogic();
+            RunLogic();
         }
     }
 
@@ -92,7 +87,7 @@ public class Fleet_Player :Fleet_Base
     {
         if (Selected || Dire != Vector3.zero)
         {
-            if(FuelAmount > 0.1f)
+            if (FuelAmount > 0.1f)
             {
                 _HasFuel = true;
             }
@@ -100,11 +95,11 @@ public class Fleet_Player :Fleet_Base
             {
                 _HasFuel = false;
             }
-             MovementLogic();
+            MovementLogic();
             _FuelRend.DrawCircle();
             _FuelRend._Radius = FuelAmount / 10f;
             int fcount = (int)FuelAmount;
-            UIManager.Instance.SetTMP("FuelTMP","Fuel: " + fcount.ToString());
+            UIManager.Instance.SetTMP("FuelTMP", "Fuel: " + fcount.ToString());
         }
         else
         {
@@ -120,22 +115,23 @@ public class Fleet_Player :Fleet_Base
         {
             Dire = MoveInput.InputMachine(this.transform);
         }
-        if(Dire != Vector3.zero && _HasFuel == true)
+        if (new Vector2(Dire.x,Dire.y) != Vector2.zero && _HasFuel == true)
         {
-            transform.position = Vector3.MoveTowards(this.transform.position, Dire, MoveSpeed * Time.deltaTime);
-            float dist = Vector3.Distance(Dire, this.transform.position);
+            transform.position = Vector2.MoveTowards(this.transform.position, Dire, MoveSpeed * Time.deltaTime);
+            float dist = Vector2.Distance(Dire, this.transform.position);
             if (dist > 0.1f)
             {
-                ConsumeFuel(dist,Dire);
+                ConsumeFuel(dist, Dire);
             }
+            transform.position = new Vector3(transform.position.x, transform.position.y, 1);
         }
     }
 
-    [SerializeField] float _InitialFuel,FinalFuel,TotalDist;
+    [SerializeField] float _InitialFuel, FinalFuel, TotalDist;
     Vector3 NewDirection = Vector3.zero;
     private void ConsumeFuel(float Dist, Vector3 Director)
     {
-        if(Director != NewDirection)
+        if (Director != NewDirection)
         {
             _InitialFuel = FuelAmount;
             NewDirection = Director;
@@ -144,7 +140,7 @@ public class Fleet_Player :Fleet_Base
 
         float TotalFuelCons = (TotalDist * (10f * FuelEff));
         FinalFuel = TotalFuelCons;
-        if(FinalFuel >= FuelAmount)
+        if (FinalFuel >= FuelAmount)
         {
             FinalFuel = 0;
         }
@@ -153,17 +149,17 @@ public class Fleet_Player :Fleet_Base
             FinalFuel = FuelAmount - FinalFuel;
         }
         //FuelAmount = Mathf.Lerp(FuelAmount, FinalFuel,Time.deltaTime);
-        FuelAmount = Mathf.MoveTowards(FuelAmount, FinalFuel,TotalFuelCons * Time.deltaTime);
+        FuelAmount = Mathf.MoveTowards(FuelAmount, FinalFuel, TotalFuelCons * Time.deltaTime);
     }
 
     private void OnMouseDown()
     {
         Selected = true;
-        foreach(var Pfleet in MovablePlayerFleet)
+        foreach (var Pfleet in MovablePlayerFleet)
         {
-            if(Pfleet != this)
+            if (Pfleet != this)
             {
-                Pfleet.Selected= false;
+                Pfleet.Selected = false;
                 Pfleet._SpRenderer.material.color = Color.blue;
             }
         }

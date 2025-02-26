@@ -84,4 +84,12 @@ public class CampaignManager : MonoBehaviour
         ButtonLoseSelection.gameObject.SetActive(false);
     }
 
+    private void Update()
+    {
+        if(_PlayerFleets.Count <= 0)
+        {
+            GameManager.Instance.MainMenu();
+        }
+    }
+
 }

@@ -8,6 +8,7 @@ TagManager:
   - ModPoint
   - ShipPart
   - PlayerFleet
+  - Localization
   layers:
   - Default
   - TransparentFX

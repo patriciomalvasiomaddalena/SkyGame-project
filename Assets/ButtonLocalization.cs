@@ -14,7 +14,8 @@ public class ButtonLocalization : MonoBehaviour
 
     private void Start()
     {
-        Localization_Manager.Instance.OnUpdate += ChangeText;
+        localization = Localization_Manager.Instance;
+        localization.OnUpdate += ChangeText;
     }
 
     void ChangeText()
@@ -26,4 +27,19 @@ public class ButtonLocalization : MonoBehaviour
     {
         Localization_Manager.Instance.OnUpdate -= ChangeText;
     }
+
+    private void OnEnable()
+    {
+        if(localization != null)
+        {
+            localization.LaunchUpdateLocalization();
+        }
+        else
+        {
+            localization = Localization_Manager.Instance;
+            localization.OnUpdate += ChangeText;
+            localization.LaunchUpdateLocalization();
+        }
+    }
+
 }

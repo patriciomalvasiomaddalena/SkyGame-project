@@ -28,6 +28,10 @@ public class IAState_Intercept : State
     bool FoundTargetBool;
     public override void UpdateState()
     {
+        if(_NodeTarg == null || _STMachine._EnemyCore._PlayerTransform== null)
+        {
+            return;
+        }
         _STMachine.transform.position = Vector3.MoveTowards(_STMachine.transform.position, _NodeTarg.transform.position, _STMachine._PatrolVel * Time.deltaTime);
         if(Vector3.Distance(_NodeTarg.transform.position,_STMachine._EnemyCore.transform.position) < 0.1f)
         {

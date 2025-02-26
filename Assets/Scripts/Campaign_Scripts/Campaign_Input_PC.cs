@@ -17,7 +17,7 @@ public class Campaign_Input_PC : Campaign_Input_Base
         if (Input.GetMouseButton(1))
         {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.z = 0;
+            target.z = this.transform.position.z;
             _LRC.Points[1] = target;
             return Vector3.zero;
         }

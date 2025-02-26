@@ -1994,11 +1994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MovementInput: {fileID: 4520778807037052740}
-  _KeyboardInput: {fileID: 4520778807037052740}
-  _GyroInput: {fileID: 8876471644884394015}
   _InsiderManagerScript: {fileID: 5889526621019980979}
   _Speed: 50
-  _MaxSpeedClamp: 0
+  _MaxSpeedClamp: 5
   _Weight: 0
   _MovSpeed: {x: 0, y: 0}
   IsPlayer: 0

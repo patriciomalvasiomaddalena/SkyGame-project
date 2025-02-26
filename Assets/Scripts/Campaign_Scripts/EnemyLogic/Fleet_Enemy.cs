@@ -54,6 +54,10 @@ public class Fleet_Enemy : Fleet_Base
     float dist;
     private void LostPlayer()
     {
+        if (_PlayerTransform == null)
+        {
+            return;
+        }
        dist = Vector3.Distance(_PlayerTransform.transform.position, this.transform.position);
         if(dist > DetectDistance)
         {
@@ -68,6 +72,10 @@ public class Fleet_Enemy : Fleet_Base
     {
         foreach(Fleet_Player player in CampaignManager.Instance._PlayerFleets)
         {
+            if(player == null)
+            {
+                continue;
+            }
            dist = Vector3.Distance(player.transform.position,this.transform.position);
 
             if(dist <  DetectDistance)

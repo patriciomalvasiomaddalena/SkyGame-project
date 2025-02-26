@@ -652,6 +652,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877741860411271850, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145904034991327531, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479499665235843671, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3486846195140481565, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -659,6 +671,10 @@ PrefabInstance:
     - target: {fileID: 5414192150731069265, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939058219984566798, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7220358894969659010, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -706,22 +722,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8501177314715441785, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561122685961697942, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
-      propertyPath: Energy
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8561122685961697942, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8561122685961697942, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
-      propertyPath: DeleteAllCache
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6676934050845345395, guid: 0a4dbaba233df9e44b7ec43c89edec10, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

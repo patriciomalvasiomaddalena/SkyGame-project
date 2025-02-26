@@ -88,7 +88,7 @@ public class Localization_Manager : MonoBehaviour
     public string GetLocalizationText(string ID)
     {
         var resources = _LanguajeCodex[_CurrentLang];
-        var result = "ID no existente del lenguaje " + _CurrentLang.ToString();
+        var result = "ID " + ID + " no existente del lenguaje " + _CurrentLang.ToString();
 
         resources.TryGetValue(ID, out result);
 
@@ -134,6 +134,11 @@ public class Localization_Manager : MonoBehaviour
         }
     }
 
+
+    public void LaunchUpdateLocalization()
+    {
+        OnUpdate();
+    }
 }
 
 
