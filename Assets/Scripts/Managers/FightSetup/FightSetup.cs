@@ -140,15 +140,19 @@ public class FightSetup : MonoBehaviour
         Fighting = true;
 
 
-        if (config_manager._Instance.CurrentController != ControllerType.KyM)
-        {
-            _JoystickUI.SetActive(true);
-        }
-        else
+        if (config_manager._Instance.CurrentController == ControllerType.KyM)
         {
             _JoystickUI.SetActive(false);
         }
-
+        else if (config_manager._Instance.CurrentController == ControllerType.Gyro_Touch)
+        {
+            _JoystickUI.SetActive(true);
+            config_manager._Instance.JoystickMovement.gameObject.SetActive(false);
+        }
+        else
+        {
+            _JoystickUI.SetActive(true);
+        }
     }
 
     private void CheckForInjuries()

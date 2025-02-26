@@ -8,16 +8,16 @@ public class Movement_Accelerometer : Move_Base
 
     public override Vector3 RunLogic()
     {
-       if(SystemInfo.supportsAccelerometer == false)
+       /*if(SystemInfo.supportsAccelerometer == false)
        {
             config_manager._Instance.SwitchControllers(ControllerType.Joystick);
             Debug.LogError("System Does not support Accelerometer");
             return Vector3.zero;
-       }
-        else
-        {
-            _MovementInput = new Vector2(Input.acceleration.y, Input.acceleration.x);
+       }*/
+        
+        
+            _MovementInput = new Vector2(Input.acceleration.x, Input.acceleration.y);
             return _MovementInput;
-        }
+        
     }
 }

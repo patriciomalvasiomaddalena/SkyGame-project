@@ -18,7 +18,7 @@ public class Fleet_Player : Fleet_Base
     public float FuelAmount, MaxFuel, FuelRegenRate;
     public float FuelEff;
 
-    SpriteRenderer _SpRenderer;
+    [SerializeField]SpriteRenderer _SpRenderer;
     private void Start()
     {
         if (_FleetComposition.Count <= 0)

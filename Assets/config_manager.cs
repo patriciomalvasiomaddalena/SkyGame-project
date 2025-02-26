@@ -71,11 +71,13 @@ public class config_manager : MonoBehaviour
 
             case ControllerType.Joystick:
                 CurrentController = ControllerType.Joystick;
+                JoystickMovement.gameObject.SetActive(true);
                 OnControlJoystick?.Invoke();
                 break; 
 
             case ControllerType.Gyro_Touch:
                 CurrentController = ControllerType.Gyro_Touch;
+                JoystickMovement.gameObject.SetActive(false);
                 OnControlGyro?.Invoke(); 
                                 break;
         }
