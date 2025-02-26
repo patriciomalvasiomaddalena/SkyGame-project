@@ -48,11 +48,15 @@ public class FightSetup : MonoBehaviour
         {
             _SwitchSceneCooldown = _SwitchSceneCooldown - 1 * Time.deltaTime;
         }
-
-        if(Fighting == false)
+        if (_JoystickUI == null)
+        {
+            _JoystickUI = CampaignManager.Instance.JoystickUI;
+        }
+        if (Fighting == false)
         {
             return;
         }
+
 
         if (Fighting == true && (NPCShipsLeft <= 0 || PlayerShipsLeft <= 0) && (_EnemyFleetsInCombat.Count > 0 && _PlayerFleetsInCombat.Count > 0))
         {
@@ -139,10 +143,18 @@ public class FightSetup : MonoBehaviour
         NextNPCSpawn(default);
         Fighting = true;
 
+        if(_JoystickUI == null)
+        {
+            return;
+        }
 
         if (config_manager._Instance.CurrentController != ControllerType.KyM)
         {
             _JoystickUI.SetActive(true);
+<<<<<<< Updated upstream
+=======
+            config_manager._Instance.JoystickMovement.transform.parent.gameObject.SetActive(false);
+>>>>>>> Stashed changes
         }
         else
         {
